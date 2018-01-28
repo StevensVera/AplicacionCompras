@@ -117,26 +117,45 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\botones\refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="tileItemElement14.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEEAAABBCAYAAACO98lFAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA37AAAN+wELdzWbAAAAB3RJ
+        TUUH4gEXEwMFItHs2gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJASURBVHhe
+        7ZqxahRRGIU3KmmEND6AjYWYxsLUaWx8AgkELLUzRaqAxBcQBEv7YGthp5Wpk0qwUwt9ACFd0HwHNjBc
+        TnbuZGbYf3f/Ax/Lzvz33MlHktnNZtKS+/C/gu9QRsfcbBTcNdukBJISSEogKYGkBJISSEogKYGkBJIS
+        SEogKYGsnIQH8LPgN7iCkqWR8BDccA0pAVICLI2EO/Ci4BBcQcnSSHCZ993hH5zCe9ifPuq5jrv5LiyE
+        hF/wGFx0XOfdulrCS/gGGzArOq85t76G0BLO4RHURHOadz1thJZwBF2iedfTRmgJL6FLNO962ggtYRu6
+        RPOup43QEnagSzTvetoILeENdInmXU8boSX8gNtQE81p3vW0EVqCeAc10ZxbX4OVoG+rDwWfwBWUDC1B
+        L4v1vuUWuOi4zvd5+Wwl9LnooSVccgLPYBPWp496ruNuvgsLI6HJEG+amiykhKGxEiL9ThBncAxvYRe2
+        po96ruM679bVYiW4zOPuoC9OL4Vvwqzo/B5cV0ZYCV/hHnSJ5rXO9c0ipITXcAOuE63Tetd7FeEkfIY1
+        6BOtV4/rd4SS8BfuwhBRj/rcPiWhJOiv2kPmObh9SsJI+AN9fwzKqE+9br8mYSR8hDGiXrdfkzASXsEY
+        Ua/br0kYCU9gjKjX7dckjIQDKD/6GwL1uv2aWAlPoSxbuc8i+1x0SoCUAEsj4Qus/P8suYx9d5gnKQFS
+        AqQESAmQEiAlQEqAlAApAVICpARICZASYHrNk8kF7PXYc5GKuv8AAAAASUVORK5CYII=
+</value>
   </data>
-  <data name="update" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\botones\update.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="tileItemElement16.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEEAAABBCAYAAACO98lFAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA37AAAN+wELdzWbAAAAB3RJ
+        TUUH4gEXEwMFItHs2gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJASURBVHhe
+        7ZqxahRRGIU3KmmEND6AjYWYxsLUaWx8AgkELLUzRaqAxBcQBEv7YGthp5Wpk0qwUwt9ACFd0HwHNjBc
+        TnbuZGbYf3f/Ax/Lzvz33MlHktnNZtKS+/C/gu9QRsfcbBTcNdukBJISSEogKYGkBJISSEogKYGkBJIS
+        SEogKYGsnIQH8LPgN7iCkqWR8BDccA0pAVICLI2EO/Ci4BBcQcnSSHCZ993hH5zCe9ifPuq5jrv5LiyE
+        hF/wGFx0XOfdulrCS/gGGzArOq85t76G0BLO4RHURHOadz1thJZwBF2iedfTRmgJL6FLNO962ggtYRu6
+        RPOup43QEnagSzTvetoILeENdInmXU8boSX8gNtQE81p3vW0EVqCeAc10ZxbX4OVoG+rDwWfwBWUDC1B
+        L4v1vuUWuOi4zvd5+Wwl9LnooSVccgLPYBPWp496ruNuvgsLI6HJEG+amiykhKGxEiL9ThBncAxvYRe2
+        po96ruM679bVYiW4zOPuoC9OL4Vvwqzo/B5cV0ZYCV/hHnSJ5rXO9c0ipITXcAOuE63Tetd7FeEkfIY1
+        6BOtV4/rd4SS8BfuwhBRj/rcPiWhJOiv2kPmObh9SsJI+AN9fwzKqE+9br8mYSR8hDGiXrdfkzASXsEY
+        Ua/br0kYCU9gjKjX7dckjIQDKD/6GwL1uv2aWAlPoSxbuc8i+1x0SoCUAEsj4Qus/P8suYx9d5gnKQFS
+        AqQESAmQEiAlQEqAlAApAVICpARICZASYHrNk8kF7PXYc5GKuv8AAAAASUVORK5CYII=
+</value>
   </data>
-  <data name="Proveedor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Proveedor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="save" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\botones\save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\botones\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cancelar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\botones\cancelar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\botones\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>25</value>
+  </metadata>
 </root>

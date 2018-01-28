@@ -32,8 +32,31 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="DevExpress.Data.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,14 +68,66 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Modelo\ComprasEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComprasEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Modelo\ComprasEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComprasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ComprasEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComprasEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\CondicionesPago.cs">
+      <DependentUpon>ComprasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ContactoProveedores.cs">
+      <DependentUpon>ComprasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Proveedores.cs">
+      <DependentUpon>ComprasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>ComprasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\sp_helpdiagrams_Result.cs">
+      <DependentUpon>ComprasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\sysdiagrams.cs">
+      <DependentUpon>ComprasEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vista\CatalogoProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\CatalogoProveedores.Designer.cs">
+      <DependentUpon>CatalogoProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\CondicionesPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\CondicionesPagos.Designer.cs">
+      <DependentUpon>CondicionesPagos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Contactoproveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Contactoproveedor.Designer.cs">
+      <DependentUpon>Contactoproveedor.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -61,7 +136,25 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Vista\CatalogoProveedores.resx">
+      <DependentUpon>CatalogoProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Contactoproveedor.resx">
+      <DependentUpon>Contactoproveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Modelo\ComprasEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ComprasEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Modelo\ComprasEntities.edmx.diagram">
+      <DependentUpon>ComprasEntities.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -74,6 +167,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Files\botones\add.ico" />
+    <Content Include="Files\botones\add.png" />
+    <Content Include="Files\botones\attachment.png" />
+    <Content Include="Files\botones\cancelar.ico" />
+    <Content Include="Files\botones\cancelar.png" />
+    <Content Include="Files\botones\clean.png" />
+    <Content Include="Files\botones\delete.png" />
+    <Content Include="Files\botones\img.png" />
+    <Content Include="Files\botones\lupa.png" />
+    <Content Include="Files\botones\refresh.ico" />
+    <Content Include="Files\botones\refresh.png" />
+    <Content Include="Files\botones\reload.png" />
+    <Content Include="Files\botones\save.png" />
+    <Content Include="Files\botones\update.ico" />
+    <Content Include="Files\botones\update.png" />
+    <Content Include="Files\botones\valido.png" />
+    <Content Include="Files\Contactos.png" />
+    <Content Include="Files\Proveedor.png" />
+    <Content Include="Modelo\ComprasEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ComprasEntities.Context.cs</LastGenOutput>
+      <DependentUpon>ComprasEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="Modelo\ComprasEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ComprasEntities.edmx</DependentUpon>
+      <LastGenOutput>ComprasEntities.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controlador\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
