@@ -33,15 +33,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
-    <Reference Include="DevExpress.Data.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Sparkline.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraBars.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v17.2.Core, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -68,6 +68,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlador\Clases\ConexionServidor.cs" />
+    <Compile Include="Controlador\Clases\RutasGenerales.cs" />
+    <Compile Include="Controlador\ProveedorControlador.cs" />
     <Compile Include="Modelo\ComprasEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -92,13 +95,10 @@
     <Compile Include="Modelo\Proveedores.cs">
       <DependentUpon>ComprasEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>ComprasEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\sp_helpdiagrams_Result.cs">
-      <DependentUpon>ComprasEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Modelo\sysdiagrams.cs">
+      <DependentUpon>ComprasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Usuario.cs">
       <DependentUpon>ComprasEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -140,6 +140,9 @@
     </Compile>
     <EmbeddedResource Include="Vista\CatalogoProveedores.resx">
       <DependentUpon>CatalogoProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\CondicionesPagos.resx">
+      <DependentUpon>CondicionesPagos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
@@ -186,23 +189,23 @@
     <Content Include="Files\botones\update.png" />
     <Content Include="Files\botones\valido.png" />
     <Content Include="Files\Contactos.png" />
-    <Content Include="Files\Proveedor.png" />
     <Content Include="Modelo\ComprasEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ComprasEntities.Context.cs</LastGenOutput>
       <DependentUpon>ComprasEntities.edmx</DependentUpon>
+      <LastGenOutput>ComprasEntities.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Modelo\ComprasEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ComprasEntities.edmx</DependentUpon>
       <LastGenOutput>ComprasEntities.cs</LastGenOutput>
     </Content>
+    <None Include="Files\delivery-truck.png" />
+    <None Include="Files\contacts.png" />
+    <Content Include="Files\Proveedor.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controlador\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
