@@ -8,12 +8,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using AplicacionCompras.Controlador;
 using DevExpress.LookAndFeel;
 using System.Net.NetworkInformation;
-
 namespace AplicacionCompras.Vista
 {
-    public partial class Principal : DevExpress.XtraEditors.XtraForm
+    public partial class Principal : XtraForm
     {
         public Principal()
         {
@@ -26,32 +26,23 @@ namespace AplicacionCompras.Vista
 
         private void AvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
         {
-           
+            Red();
         }
-
-        private void panel_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void tileItem5_ItemClick(object sender, TileItemEventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            new Vista.CatalogoProveedores().Show();
+            new CatalogoProveedores().Show();
         }
-
         private void tileItem7_ItemClick(object sender, TileItemEventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            new Vista.ContactosProveedor().Show();
+            new ContactosProveedor().Show();
         }
-
         private void tileItem6_ItemClick(object sender, TileItemEventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            new Vista.CondicionesPagos().Show();
+            new CondicionesPagos().Show();
         }
-
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             const string message = "¿Estas Seguro?";
@@ -60,10 +51,24 @@ namespace AplicacionCompras.Vista
 
             e.Cancel = (result == DialogResult.No);
         }
-
         private void Principal_Load(object sender, EventArgs e)
         {
-
+            Red();
+        }
+        public void Red()
+        {
+            if (Controlador.Clases.ConexionServidor.verificarConexion())
+            {
+                panel.Enabled = true;
+                lblConexion.Text = "";
+            }
+            else
+            {
+                panel.Enabled = false;
+                lblConexion.ForeColor = Color.Red;
+                lblConexion.Text = "No hay conexión";
+                lblConexion.BackColor = Color.Transparent;
+            }
         }
     }
 
