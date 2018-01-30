@@ -201,6 +201,7 @@
     <Content Include="Files\botones\update.ico" />
     <Content Include="Files\botones\update.png" />
     <Content Include="Files\botones\valido.png" />
+    <None Include="Files\condicionesPago2.png" />
     <Content Include="Files\Contactos.png" />
     <Content Include="Modelo\ComprasEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -212,7 +213,6 @@
       <DependentUpon>ComprasEntities.edmx</DependentUpon>
       <LastGenOutput>ComprasEntities.cs</LastGenOutput>
     </Content>
-    <None Include="Resources\Compras.bmp" />
     <None Include="Files\delivery-truck.png" />
     <None Include="Files\contacts.png" />
     <Content Include="Files\Proveedor.png" />
@@ -220,6 +220,8 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
