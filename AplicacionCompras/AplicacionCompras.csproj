@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="Controlador\Clases\ConexionServidor.cs" />
     <Compile Include="Controlador\Clases\ContactoControlador.cs" />
+    <Compile Include="Controlador\Clases\PagosControlador.cs" />
     <Compile Include="Controlador\Clases\RutasGenerales.cs" />
     <Compile Include="Controlador\Clases\ProveedorControlador.cs" />
     <Compile Include="Modelo\ComprasEntities.Context.cs">

@@ -4,7 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+<<<<<<< HEAD
+      <Diagram DiagramId="8c7714f5bcb045448ba99637ec184f6d" Name="Diagram1">
+=======
       <Diagram DiagramId="630441d896714379a6304a049fdc054b" Name="Diagram1">
+>>>>>>> a0c76722600cfe42b77d4bf91b958dfedfe44e5b
         <EntityTypeShape EntityType="bd_ComprasModel.CondicionesPago" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="bd_ComprasModel.ContactoProveedores" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="bd_ComprasModel.Proveedores" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
