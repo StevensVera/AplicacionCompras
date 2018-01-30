@@ -85,7 +85,7 @@
             // 
             // tileItem5
             // 
-            tileItemElement8.Image = global::AplicacionCompras.Properties.Resources.delivery_truck;
+            tileItemElement8.Image = global::AplicacionCompras.Properties.Resources.delivery;
             tileItemElement8.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
             tileItemElement8.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Top;
             tileItemElement8.Text = "Proveedor";
