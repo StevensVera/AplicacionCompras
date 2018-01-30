@@ -15,7 +15,7 @@ namespace AplicacionCompras.Vista
 {
     public partial class ContactosProveedor : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        static Controlador.Clases.ContactoControlador a = new Controlador.Clases.ContactoControlador();
+        static Controlador.ContactoControlador a = new Controlador.ContactoControlador();
         static private int pageSize = 30;
         static int totalRecords = 1;
 
