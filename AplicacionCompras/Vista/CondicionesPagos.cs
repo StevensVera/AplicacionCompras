@@ -17,5 +17,10 @@ namespace AplicacionCompras.Vista
         {
             InitializeComponent();
         }
+
+        private void CondicionesPagos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
