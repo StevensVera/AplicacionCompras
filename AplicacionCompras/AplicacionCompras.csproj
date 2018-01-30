@@ -36,15 +36,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
-    <Reference Include="DevExpress.Data.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Sparkline.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraBars.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v17.2.Core, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -76,35 +76,35 @@
     <Compile Include="Controlador\Clases\PagosControlador.cs" />
     <Compile Include="Controlador\Clases\RutasGenerales.cs" />
     <Compile Include="Controlador\Clases\ProveedorControlador.cs" />
-    <Compile Include="Modelo\ComprasEntitites.Context.cs">
+    <Compile Include="Modelo\ComprasEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ComprasEntitites.Context.tt</DependentUpon>
+      <DependentUpon>ComprasEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\ComprasEntitites.cs">
+    <Compile Include="Modelo\ComprasEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ComprasEntitites.tt</DependentUpon>
+      <DependentUpon>ComprasEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\ComprasEntitites.Designer.cs">
+    <Compile Include="Modelo\ComprasEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ComprasEntitites.edmx</DependentUpon>
+      <DependentUpon>ComprasEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Modelo\CondicionesPago.cs">
-      <DependentUpon>ComprasEntitites.tt</DependentUpon>
+      <DependentUpon>ComprasEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\ContactoProveedores.cs">
-      <DependentUpon>ComprasEntitites.tt</DependentUpon>
+      <DependentUpon>ComprasEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Proveedores.cs">
-      <DependentUpon>ComprasEntitites.tt</DependentUpon>
+      <DependentUpon>ComprasEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\sysdiagrams.cs">
-      <DependentUpon>ComprasEntitites.tt</DependentUpon>
+      <DependentUpon>ComprasEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Usuario.cs">
-      <DependentUpon>ComprasEntitites.tt</DependentUpon>
+      <DependentUpon>ComprasEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -155,12 +155,12 @@
     <EmbeddedResource Include="Vista\Contactoproveedor.resx">
       <DependentUpon>Contactoproveedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Modelo\ComprasEntitites.edmx">
+    <EntityDeploy Include="Modelo\ComprasEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ComprasEntitites.Designer.cs</LastGenOutput>
+      <LastGenOutput>ComprasEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Modelo\ComprasEntitites.edmx.diagram">
-      <DependentUpon>ComprasEntitites.edmx</DependentUpon>
+    <None Include="Modelo\ComprasEntities.edmx.diagram">
+      <DependentUpon>ComprasEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -197,15 +197,15 @@
     <Content Include="Files\botones\update.png" />
     <Content Include="Files\botones\valido.png" />
     <Content Include="Files\Contactos.png" />
-    <Content Include="Modelo\ComprasEntitites.Context.tt">
+    <Content Include="Modelo\ComprasEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ComprasEntitites.edmx</DependentUpon>
-      <LastGenOutput>ComprasEntitites.Context.cs</LastGenOutput>
+      <DependentUpon>ComprasEntities.edmx</DependentUpon>
+      <LastGenOutput>ComprasEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Modelo\ComprasEntitites.tt">
+    <Content Include="Modelo\ComprasEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ComprasEntitites.edmx</DependentUpon>
-      <LastGenOutput>ComprasEntitites.cs</LastGenOutput>
+      <DependentUpon>ComprasEntities.edmx</DependentUpon>
+      <LastGenOutput>ComprasEntities.cs</LastGenOutput>
     </Content>
     <None Include="Resources\Compras.bmp" />
     <None Include="Files\delivery-truck.png" />

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="bd_ComprasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ComprasEntiites.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CondicionesPago">
           <Key>
             <PropertyRef Name="codigo" />
@@ -81,7 +81,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="bd_ComprasModelStoreContainer">
+        <EntityContainer Name="ComprasEntiitesStoreContainer">
           <EntitySet Name="CondicionesPago" EntityType="Self.CondicionesPago" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ContactoProveedores" EntityType="Self.ContactoProveedores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Proveedores" EntityType="Self.Proveedores" Schema="dbo" store:Type="Tables" />
@@ -96,7 +96,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="bd_ComprasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="ComprasEntiites" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="CondicionesPago">
           <Key>
             <PropertyRef Name="codigo" />
@@ -191,9 +191,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="bd_ComprasModelStoreContainer" CdmEntityContainer="ComprasEntities">
+        <EntityContainerMapping StorageEntityContainer="ComprasEntiitesStoreContainer" CdmEntityContainer="ComprasEntities">
           <EntitySetMapping Name="CondicionesPago">
-            <EntityTypeMapping TypeName="bd_ComprasModel.CondicionesPago">
+            <EntityTypeMapping TypeName="ComprasEntiites.CondicionesPago">
               <MappingFragment StoreEntitySet="CondicionesPago">
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -204,7 +204,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ContactoProveedores">
-            <EntityTypeMapping TypeName="bd_ComprasModel.ContactoProveedores">
+            <EntityTypeMapping TypeName="ComprasEntiites.ContactoProveedores">
               <MappingFragment StoreEntitySet="ContactoProveedores">
                 <ScalarProperty Name="idContactos" ColumnName="idContactos" />
                 <ScalarProperty Name="proveedor" ColumnName="proveedor" />
@@ -216,7 +216,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Proveedores">
-            <EntityTypeMapping TypeName="bd_ComprasModel.Proveedores">
+            <EntityTypeMapping TypeName="ComprasEntiites.Proveedores">
               <MappingFragment StoreEntitySet="Proveedores">
                 <ScalarProperty Name="proveedor" ColumnName="proveedor" />
                 <ScalarProperty Name="razSoc" ColumnName="razSoc" />
@@ -243,7 +243,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="bd_ComprasModel.sysdiagrams">
+            <EntityTypeMapping TypeName="ComprasEntiites.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -254,7 +254,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Usuario">
-            <EntityTypeMapping TypeName="bd_ComprasModel.Usuario">
+            <EntityTypeMapping TypeName="ComprasEntiites.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
                 <ScalarProperty Name="idUsuarios" ColumnName="idUsuarios" />
                 <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />

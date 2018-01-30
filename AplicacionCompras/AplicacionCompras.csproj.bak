@@ -36,15 +36,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
-    <Reference Include="DevExpress.Data.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Sparkline.v17.2.Core, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraBars.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -100,12 +100,6 @@
     <Compile Include="Modelo\Proveedores.cs">
       <DependentUpon>ComprasEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>ComprasEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\sp_helpdiagrams_Result.cs">
-      <DependentUpon>ComprasEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Modelo\sysdiagrams.cs">
       <DependentUpon>ComprasEntities.tt</DependentUpon>
     </Compile>
@@ -114,19 +108,27 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vista\CatalogoProveedores.cs" />
+    <Compile Include="Vista\CatalogoProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Vista\CatalogoProveedores.Designer.cs">
       <DependentUpon>CatalogoProveedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\CondicionesPagos.cs" />
+    <Compile Include="Vista\CondicionesPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Vista\CondicionesPagos.Designer.cs">
       <DependentUpon>CondicionesPagos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Principal.cs" />
+    <Compile Include="Vista\Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Vista\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Contactoproveedor.cs" />
+    <Compile Include="Vista\Contactoproveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Vista\Contactoproveedor.Designer.cs">
       <DependentUpon>Contactoproveedor.cs</DependentUpon>
     </Compile>
