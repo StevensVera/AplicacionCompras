@@ -13,6 +13,7 @@ namespace AplicacionCompras.Controlador
         public static string carpetaImagen = @"E:\Documentos\Programacion\MatImg\Material\";
         public static string carpetaAdjunto = @"E:\Documentos\Programacion\MatImg\Adjuntos\";
         public static string ipServidor = "172.16.0.5";
+      
         public static string ipLocal = "192.168.0.2";
     }
 }
