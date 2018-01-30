@@ -81,6 +81,16 @@ namespace AplicacionCompras.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        /// </summary>
+        internal static System.Drawing.Icon Compras {
+            get {
+                object obj = ResourceManager.GetObject("Compras", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap contacts {
@@ -103,9 +113,9 @@ namespace AplicacionCompras.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap delivery_truck {
+        internal static System.Drawing.Bitmap delivery {
             get {
-                object obj = ResourceManager.GetObject("delivery-truck", resourceCulture);
+                object obj = ResourceManager.GetObject("delivery", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
