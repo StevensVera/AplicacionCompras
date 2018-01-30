@@ -56,6 +56,8 @@ namespace AplicacionCompras.Vista
         {
             Red();
         }
+
+
         class PageOffsetList : System.ComponentModel.IListSource
         {
             public bool ContainsListCollection { get; protected set; }
@@ -89,6 +91,16 @@ namespace AplicacionCompras.Vista
                 lblConexion.ItemAppearance.Normal.ForeColor = Color.Red;
                 lblConexion.Caption = "No hay conexión";
             }
+        }
+
+        private void GridControl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

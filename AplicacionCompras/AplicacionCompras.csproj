@@ -69,8 +69,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controlador\Clases\ConexionServidor.cs" />
+    <Compile Include="Controlador\Clases\ContactoControlador.cs" />
     <Compile Include="Controlador\Clases\RutasGenerales.cs" />
-    <Compile Include="Controlador\ProveedorControlador.cs" />
+    <Compile Include="Controlador\Clases\ProveedorControlador.cs" />
     <Compile Include="Modelo\ComprasEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +94,12 @@
       <DependentUpon>ComprasEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Proveedores.cs">
+      <DependentUpon>ComprasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>ComprasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\sp_helpdiagrams_Result.cs">
       <DependentUpon>ComprasEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\sysdiagrams.cs">

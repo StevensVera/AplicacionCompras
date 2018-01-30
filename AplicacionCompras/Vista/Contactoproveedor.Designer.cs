@@ -38,6 +38,7 @@
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.lblConexion = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -46,11 +47,12 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.idContactos = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Proveedor = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Nombre = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Correo1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Correo2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Telefono = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -69,15 +71,22 @@
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.buttonEdit1 = new DevExpress.XtraEditors.ButtonEdit();
+            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.Datos = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -92,15 +101,22 @@
             this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Datos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -114,14 +130,16 @@
             this.barButtonItem4,
             this.barButtonItem5,
             this.barButtonItem6,
-            this.barButtonItem7});
+            this.barButtonItem7,
+            this.lblConexion});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 8;
+            this.ribbon.MaxItemId = 9;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbon.Size = new System.Drawing.Size(815, 143);
             this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.ribbon.Click += new System.EventHandler(this.ribbon_Click);
             // 
             // barButtonItem1
             // 
@@ -185,6 +203,11 @@
             this.barButtonItem7.Id = 7;
             this.barButtonItem7.Name = "barButtonItem7";
             // 
+            // lblConexion
+            // 
+            this.lblConexion.Id = 8;
+            this.lblConexion.Name = "lblConexion";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -205,6 +228,7 @@
             // 
             // ribbonStatusBar
             // 
+            this.ribbonStatusBar.ItemLinks.Add(this.lblConexion);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 465);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
@@ -259,49 +283,71 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2,
-            this.gridColumn3,
-            this.gridColumn4,
-            this.gridColumn5});
+            this.idContactos,
+            this.Proveedor,
+            this.Nombre,
+            this.Correo1,
+            this.Correo2,
+            this.Telefono});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsBehavior.ReadOnly = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
-            // gridColumn1
+            // idContactos
             // 
-            this.gridColumn1.Caption = "Proveedor";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
+            this.idContactos.Caption = "idContactos";
+            this.idContactos.FieldName = "idContactos";
+            this.idContactos.Name = "idContactos";
+            this.idContactos.Visible = true;
+            this.idContactos.VisibleIndex = 0;
+            this.idContactos.Width = 86;
             // 
-            // gridColumn2
+            // Proveedor
             // 
-            this.gridColumn2.Caption = "Nombre";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
+            this.Proveedor.Caption = "Proveedor";
+            this.Proveedor.FieldName = "proveedor";
+            this.Proveedor.Name = "Proveedor";
+            this.Proveedor.Visible = true;
+            this.Proveedor.VisibleIndex = 1;
+            this.Proveedor.Width = 120;
             // 
-            // gridColumn3
+            // Nombre
             // 
-            this.gridColumn3.Caption = "Correo1";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
+            this.Nombre.Caption = "Nombre";
+            this.Nombre.FieldName = "nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Visible = true;
+            this.Nombre.VisibleIndex = 2;
+            this.Nombre.Width = 120;
             // 
-            // gridColumn4
+            // Correo1
             // 
-            this.gridColumn4.Caption = "Correo2";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
+            this.Correo1.Caption = "Correo1";
+            this.Correo1.FieldName = "correo1";
+            this.Correo1.Name = "Correo1";
+            this.Correo1.Visible = true;
+            this.Correo1.VisibleIndex = 3;
+            this.Correo1.Width = 120;
             // 
-            // gridColumn5
+            // Correo2
             // 
-            this.gridColumn5.Caption = "Telefono";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
+            this.Correo2.Caption = "Correo2";
+            this.Correo2.FieldName = "correo2";
+            this.Correo2.Name = "Correo2";
+            this.Correo2.Visible = true;
+            this.Correo2.VisibleIndex = 4;
+            this.Correo2.Width = 120;
+            // 
+            // Telefono
+            // 
+            this.Telefono.Caption = "Telefono";
+            this.Telefono.FieldName = "telefono";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.Visible = true;
+            this.Telefono.VisibleIndex = 5;
+            this.Telefono.Width = 126;
             // 
             // bindingNavigator1
             // 
@@ -332,6 +378,7 @@
             this.bindingNavigator1.Size = new System.Drawing.Size(777, 25);
             this.bindingNavigator1.TabIndex = 0;
             this.bindingNavigator1.Text = "bindingNavigator1";
+            this.bindingNavigator1.RefreshItems += new System.EventHandler(this.bindingNavigator1_RefreshItems);
             // 
             // bindingNavigatorCountItem
             // 
@@ -403,8 +450,8 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(72, 22);
-            this.toolStripLabel1.Text = "NoContacto";
+            this.toolStripLabel1.Size = new System.Drawing.Size(61, 22);
+            this.toolStripLabel1.Text = "Proveedor";
             // 
             // toolStripTextBox1
             // 
@@ -438,6 +485,9 @@
             // 
             this.layoutControl2.Controls.Add(this.textEdit1);
             this.layoutControl2.Controls.Add(this.buttonEdit1);
+            this.layoutControl2.Controls.Add(this.textEdit2);
+            this.layoutControl2.Controls.Add(this.textEdit5);
+            this.layoutControl2.Controls.Add(this.textEdit6);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl2.Location = new System.Drawing.Point(3, 3);
             this.layoutControl2.Name = "layoutControl2";
@@ -449,23 +499,50 @@
             // 
             // textEdit1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(120, 42);
+            this.textEdit1.Location = new System.Drawing.Point(77, 42);
             this.textEdit1.MenuManager = this.ribbon;
             this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(255, 20);
+            this.textEdit1.Size = new System.Drawing.Size(298, 20);
             this.textEdit1.StyleController = this.layoutControl2;
             this.textEdit1.TabIndex = 4;
             // 
             // buttonEdit1
             // 
-            this.buttonEdit1.Location = new System.Drawing.Point(475, 42);
+            this.buttonEdit1.Location = new System.Drawing.Point(432, 42);
             this.buttonEdit1.MenuManager = this.ribbon;
             this.buttonEdit1.Name = "buttonEdit1";
             this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.buttonEdit1.Size = new System.Drawing.Size(278, 20);
+            this.buttonEdit1.Size = new System.Drawing.Size(321, 20);
             this.buttonEdit1.StyleController = this.layoutControl2;
             this.buttonEdit1.TabIndex = 5;
+            // 
+            // textEdit2
+            // 
+            this.textEdit2.Location = new System.Drawing.Point(77, 66);
+            this.textEdit2.MenuManager = this.ribbon;
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Size = new System.Drawing.Size(298, 20);
+            this.textEdit2.StyleController = this.layoutControl2;
+            this.textEdit2.TabIndex = 6;
+            // 
+            // textEdit5
+            // 
+            this.textEdit5.Location = new System.Drawing.Point(432, 66);
+            this.textEdit5.MenuManager = this.ribbon;
+            this.textEdit5.Name = "textEdit5";
+            this.textEdit5.Size = new System.Drawing.Size(321, 20);
+            this.textEdit5.StyleController = this.layoutControl2;
+            this.textEdit5.TabIndex = 7;
+            // 
+            // textEdit6
+            // 
+            this.textEdit6.Location = new System.Drawing.Point(77, 90);
+            this.textEdit6.MenuManager = this.ribbon;
+            this.textEdit6.Name = "textEdit6";
+            this.textEdit6.Size = new System.Drawing.Size(298, 20);
+            this.textEdit6.StyleController = this.layoutControl2;
+            this.textEdit6.TabIndex = 8;
             // 
             // layoutControlGroup2
             // 
@@ -483,7 +560,10 @@
             this.Datos.ExpandButtonVisible = true;
             this.Datos.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem2,
-            this.layoutControlItem3});
+            this.layoutControlItem3,
+            this.layoutControlItem4,
+            this.layoutControlItem5,
+            this.layoutControlItem6});
             this.Datos.Location = new System.Drawing.Point(0, 0);
             this.Datos.Name = "Datos";
             this.Datos.Size = new System.Drawing.Size(757, 246);
@@ -493,17 +573,46 @@
             this.layoutControlItem2.Control = this.textEdit1;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(355, 204);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(93, 13);
+            this.layoutControlItem2.Size = new System.Drawing.Size(355, 24);
+            this.layoutControlItem2.Text = "Proveedor";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(50, 13);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.buttonEdit1;
             this.layoutControlItem3.Location = new System.Drawing.Point(355, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(378, 204);
+            this.layoutControlItem3.Size = new System.Drawing.Size(378, 24);
+            this.layoutControlItem3.Text = "Nombre";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(93, 13);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(50, 13);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.textEdit2;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(355, 24);
+            this.layoutControlItem4.Text = "Correo 1";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(50, 13);
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.textEdit5;
+            this.layoutControlItem5.Location = new System.Drawing.Point(355, 24);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(378, 180);
+            this.layoutControlItem5.Text = "Correo 2";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(50, 13);
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.textEdit6;
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(355, 156);
+            this.layoutControlItem6.Text = "Telefono";
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(50, 13);
             // 
             // layoutControlGroup1
             // 
@@ -579,15 +688,22 @@
             this.layoutControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Datos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -628,11 +744,11 @@
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn Proveedor;
+        private DevExpress.XtraGrid.Columns.GridColumn Nombre;
+        private DevExpress.XtraGrid.Columns.GridColumn Correo1;
+        private DevExpress.XtraGrid.Columns.GridColumn Correo2;
+        private DevExpress.XtraGrid.Columns.GridColumn Telefono;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup5;
         private DevExpress.XtraEditors.TextEdit textEdit4;
         private DevExpress.XtraEditors.TextEdit textEdit3;
@@ -643,5 +759,14 @@
         private DevExpress.XtraEditors.ButtonEdit buttonEdit1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.TextEdit textEdit5;
+        private DevExpress.XtraEditors.TextEdit textEdit6;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private DevExpress.XtraGrid.Columns.GridColumn idContactos;
+        private DevExpress.XtraBars.BarStaticItem lblConexion;
     }
 }
