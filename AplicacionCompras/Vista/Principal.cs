@@ -57,17 +57,20 @@ namespace AplicacionCompras.Vista
         }
         public void Red()
         {
-            if (Controlador.Clases.ConexionServidor.verificarConexion())
+            Controlador.Clases.ConexionServidor conexion = new Controlador.Clases.ConexionServidor();
+            if (conexion.verificarConexion())
             {
                 panel.Enabled = true;
-                lblConexion.Text = "";
+                lblConexion.Text = conexion.msgConectado;
+                lblConexion.ForeColor = conexion.colorConectado;
+                lblConexion.BackColor = conexion.colorBackConectado;
             }
             else
             {
                 panel.Enabled = false;
-                lblConexion.ForeColor = Color.Red;
-                lblConexion.Text = "No hay conexión";
-                lblConexion.BackColor = Color.Transparent;
+                lblConexion.Text = conexion.msgDesconectado;
+                lblConexion.ForeColor = conexion.colorDesconectado;
+                lblConexion.BackColor = conexion.colorBackDesconectado;
             }
         }
     }

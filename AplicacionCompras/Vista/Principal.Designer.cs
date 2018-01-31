@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement31 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement32 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement33 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement34 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement35 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement36 = new DevExpress.XtraEditors.TileItemElement();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tileItem4 = new DevExpress.XtraEditors.TileItem();
@@ -49,8 +49,8 @@
             // 
             // tileItem4
             // 
-            tileItemElement1.Text = "tileItem4";
-            this.tileItem4.Elements.Add(tileItemElement1);
+            tileItemElement31.Text = "tileItem4";
+            this.tileItem4.Elements.Add(tileItemElement31);
             this.tileItem4.Id = 8;
             this.tileItem4.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.tileItem4.Name = "tileItem4";
@@ -72,7 +72,7 @@
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.MaxId = 19;
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(476, 357);
+            this.panel.Size = new System.Drawing.Size(380, 321);
             this.panel.TabIndex = 0;
             this.panel.Text = "tileControl1";
             // 
@@ -85,11 +85,11 @@
             // 
             // tileItem5
             // 
-            tileItemElement2.Image = global::AplicacionCompras.Properties.Resources.delivery;
-            tileItemElement2.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
-            tileItemElement2.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Top;
-            tileItemElement2.Text = "Proveedor";
-            this.tileItem5.Elements.Add(tileItemElement2);
+            tileItemElement32.Image = global::AplicacionCompras.Properties.Resources.delivery;
+            tileItemElement32.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
+            tileItemElement32.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Top;
+            tileItemElement32.Text = "Proveedor";
+            this.tileItem5.Elements.Add(tileItemElement32);
             this.tileItem5.Id = 14;
             this.tileItem5.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.tileItem5.Name = "tileItem5";
@@ -97,11 +97,11 @@
             // 
             // tileItem7
             // 
-            tileItemElement3.Image = global::AplicacionCompras.Properties.Resources.contacts;
-            tileItemElement3.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
-            tileItemElement3.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Top;
-            tileItemElement3.Text = "Contactos";
-            this.tileItem7.Elements.Add(tileItemElement3);
+            tileItemElement33.Image = global::AplicacionCompras.Properties.Resources.contacts;
+            tileItemElement33.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
+            tileItemElement33.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Top;
+            tileItemElement33.Text = "Contactos";
+            this.tileItem7.Elements.Add(tileItemElement33);
             this.tileItem7.Id = 16;
             this.tileItem7.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.tileItem7.Name = "tileItem7";
@@ -109,11 +109,11 @@
             // 
             // tileItem6
             // 
-            tileItemElement4.Image = global::AplicacionCompras.Properties.Resources.condicionesPago2;
-            tileItemElement4.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
-            tileItemElement4.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Top;
-            tileItemElement4.Text = "Condiciones de Pago";
-            this.tileItem6.Elements.Add(tileItemElement4);
+            tileItemElement34.Image = global::AplicacionCompras.Properties.Resources.condicionesPago2;
+            tileItemElement34.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
+            tileItemElement34.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Top;
+            tileItemElement34.Text = "Condiciones de Pago";
+            this.tileItem6.Elements.Add(tileItemElement34);
             this.tileItem6.Id = 18;
             this.tileItem6.ItemSize = DevExpress.XtraEditors.TileItemSize.Wide;
             this.tileItem6.Name = "tileItem6";
@@ -123,18 +123,18 @@
             // 
             this.tileItem3.AppearanceItem.Normal.BackColor = System.Drawing.Color.Blue;
             this.tileItem3.AppearanceItem.Normal.Options.UseBackColor = true;
-            tileItemElement5.Text = "tileItem3";
-            this.tileItem3.Elements.Add(tileItemElement5);
+            tileItemElement35.Text = "tileItem3";
+            this.tileItem3.Elements.Add(tileItemElement35);
             this.tileItem3.Id = 7;
             this.tileItem3.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.tileItem3.Name = "tileItem3";
             // 
             // tileItem2
             // 
-            tileItemElement6.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement6.Image")));
-            tileItemElement6.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
-            tileItemElement6.Text = "Contactos";
-            this.tileItem2.Elements.Add(tileItemElement6);
+            tileItemElement36.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement36.Image")));
+            tileItemElement36.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
+            tileItemElement36.Text = "Contactos";
+            this.tileItem2.Elements.Add(tileItemElement36);
             this.tileItem2.Id = 6;
             this.tileItem2.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.tileItem2.Name = "tileItem2";
@@ -142,7 +142,7 @@
             // lblConexion
             // 
             this.lblConexion.AutoSize = true;
-            this.lblConexion.Location = new System.Drawing.Point(0, 343);
+            this.lblConexion.Location = new System.Drawing.Point(2, 307);
             this.lblConexion.Name = "lblConexion";
             this.lblConexion.Size = new System.Drawing.Size(0, 13);
             this.lblConexion.TabIndex = 1;
@@ -151,9 +151,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 357);
+            this.ClientSize = new System.Drawing.Size(380, 321);
             this.Controls.Add(this.lblConexion);
             this.Controls.Add(this.panel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(396, 360);
+            this.MinimumSize = new System.Drawing.Size(396, 360);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Principal_Load);

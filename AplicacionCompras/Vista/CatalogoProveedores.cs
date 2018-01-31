@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraBars;
 using DevExpress.LookAndFeel;
 using System.Net.NetworkInformation;
+using DevExpress.XtraEditors;
+using AplicacionCompras.Modelo;
 
 namespace AplicacionCompras.Vista
 {
@@ -18,6 +20,9 @@ namespace AplicacionCompras.Vista
         static Controlador.ProveedorControlador s = new Controlador.ProveedorControlador();
         static private int pageSize = 30;
         static int totalRecords = 1;
+        //E=editar,N=nuevo,s=sin seleccionar
+        Char tipo = 's';
+        int contT = 0;
         public CatalogoProveedores()
         {
             InitializeComponent();
@@ -25,13 +30,13 @@ namespace AplicacionCompras.Vista
             WindowState = FormWindowState.Maximized;
 
             bindingNavigator.BindingSource = bindingSource;
-            bindingSource.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
+            bindingSource.CurrentChanged += new System.EventHandler(bindingSource_CurrentChanged);
             bindingSource.DataSource = new PageOffsetList();
 
             NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
         }
 
-        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
+        private void bindingSource_CurrentChanged(object sender, EventArgs e)
         {
             if (bindingSource.Current is null)
             {
@@ -56,8 +61,91 @@ namespace AplicacionCompras.Vista
         {
             Red();
         }
+        private void Recargar()
+        {
+            bindingNavigator.BindingSource = bindingSource;
+            bindingSource.CurrentChanged += new EventHandler(bindingSource_CurrentChanged);
+            bindingSource.DataSource = new PageOffsetList();
+        }
+        private void DisableControls(Control con)
+        {
+            foreach (Control c in con.Controls)
+            {
+                DisableControls(c);
+            }
+            con.Enabled = false;
+        }
+        private void EnableControls(Control con)
+        {
+            if (con != null)
+            {
+                foreach (Control c in con.Controls)
+                {
+                    EnableControls(c);
+                }
+                con.Enabled = true;
+            }
+        }
+        private void ResetControls(Control con)
+        {
+            if (con != null)
+            {
+                foreach (Control c in con.Controls)
+                {
+                    ResetControls(c);
+                }
+                if (con is TextEdit)
+                {
+                    TextEdit textBox = (TextEdit)con;
+                    textBox.Text = null;
+                }
+            }
+        }
+        private void CheckControls(Control con)
+        {
+            if (con != null)
+            {
+                foreach (Control c in con.Controls)
+                {
+                    CheckControls(c);
+                }
+                if (con is TextEdit)
+                {
+                    TextEdit textBox = (TextEdit)con;
+                    if (textBox.Text == "")
+                    {
+                        contT++;
+                    }
+                }
+            }
+        }
+        private void CatalogoProveedores_Load(object sender, EventArgs e)
+        {
+            DisableControls(tabPage2);
+            Red();
+        }
+        public void Red()
+        {
+            Controlador.Clases.ConexionServidor conexion =new Controlador.Clases.ConexionServidor();
+            if (conexion.verificarConexion())
+            {
+                ribbon.Enabled = true;
+                tabControl1.Enabled = true;
+                lblConexion.Caption = conexion.msgConectado;
+                lblConexion.ItemAppearance.Normal.ForeColor = conexion.colorConectado;
+            }
+            else
+            {
+                ribbon.Enabled = false;
+                tabControl1.Enabled = false;
+                lblConexion.ItemAppearance.Normal.ForeColor = conexion.colorConectado;
+                lblConexion.Caption = conexion.msgDesconectado;
+            }
+        }
+        private void GridControl_Click(object sender, EventArgs e)
+        {
 
-
+        }
         class PageOffsetList : System.ComponentModel.IListSource
         {
             public bool ContainsListCollection { get; protected set; }
@@ -71,36 +159,88 @@ namespace AplicacionCompras.Vista
                 return pageOffsets;
             }
         }
-        private void CatalogoProveedores_Load(object sender, EventArgs e)
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Red();
+            Cursor.Current = Cursors.WaitCursor;
+            Recargar();
         }
-        public void Red()
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (Controlador.Clases.ConexionServidor.verificarConexion())
+            Cursor.Current = Cursors.WaitCursor;
+            tipo = 'N';
+            this.tabControl1.SelectTab(1);
+            EnableControls(tabPage2);
+            ResetControls(tabPage2);
+            fechaP.DateTime = DateTime.Today;
+        }
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            CheckControls(tabPage2);
+            if (contT == 0)
             {
-                ribbon.Enabled = true;
-                tabControl1.Enabled = true;
-                lblConexion.Caption = "Conectado";
-                lblConexion.ItemAppearance.Normal.ForeColor = Color.Green;
+                //vaciarCamposBusq();
+                Proveedores p = new Proveedores();
+                p.razSoc2 = razSocP.Text;
+                p.razSoc = "---";
+                p.padronProv = Decimal.Parse(padronP.Text);
+                p.direccion = direccionP.Text;
+                p.telefono = telP.Text;
+                p.colonia = coloniaP.Text;
+                p.ciudad = ciudadP.Text;
+                p.codigoPostal = Int32.Parse(cpP.Text);
+                p.fax = faxP.Text;
+                p.actaCons = actaP.Checked;
+                p.representante = representanteP.Text;
+                p.cuenta = Int32.Parse(cuentaP.Text);
+                p.centCost = Int32.Parse(centCostP.Text);
+                p.subCuenta = Int32.Parse(subCuentaP.Text);
+                p.subsubCuenta = Int32.Parse(subSubCuentaP.Text);
+                p.catOrg = catOrgP.Text;
+                p.tipoProveedor = Int16.Parse(tipoProveedorP.Text);
+
+                if (tipo.Equals('N'))
+                {
+                    p.proveedor = 1;
+                    Object item = s.guardarProveedor(p);
+                    String message = (String)(item.GetType().GetProperty("message").GetValue(item, null));
+                    Int32 code = (Int32)(item.GetType().GetProperty("code").GetValue(item, null));
+
+                    if (code == 1)
+                    {
+                        ResetControls(tabPage2);
+                        DisableControls(tabPage2);
+                        tipo = 's';
+                        Recargar();
+                        MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    }
+                    else if (code == 2)
+                    {
+                        MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else if (tipo.Equals('N'))
+                {
+                    p.proveedor = 1;
+                    Object item = s.editarProveedor(p);
+                }
+                else if (tipo.Equals('N'))
+                {
+
+                }
             }
             else
             {
-                ribbon.Enabled = false;
-                tabControl1.Enabled = false;
-                lblConexion.ItemAppearance.Normal.ForeColor = Color.Red;
-                lblConexion.Caption = "No hay conexión";
+                MessageBox.Show("Se deben de llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            contT = 0;
         }
-
-        private void GridControl_Click(object sender, EventArgs e)
+        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
         {
-
-        }
-
-        private void bindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
+            Cursor.Current = Cursors.WaitCursor;
+            ResetControls(tabPage2);
+            DisableControls(tabPage2);
+            tipo = 's';
         }
     }
 }
