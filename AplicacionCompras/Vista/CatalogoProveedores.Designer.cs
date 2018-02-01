@@ -46,25 +46,25 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.GridControl = new DevExpress.XtraGrid.GridControl();
             this.Tabla = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.Proveedor = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.proveedor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.razSoc = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.PadronProv = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Telefono = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Colonia = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Cuidad = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.CodigoPostal = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Fax = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Tipo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.padronProv = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.telefono = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colonia = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cuidad = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.codigoPostal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.fax = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tipo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.RFC = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Fecha = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ActaCons = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Representante = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Cuenta = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.CentCost = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.SubCuenta = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.SubSubCuenta = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.CatOrg = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TipoProveedor = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.fecha = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.actaCons = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.representante = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cuenta = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.centCost = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.subCuenta = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.subsubCuenta = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.catOrg = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tipoProveedor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.razSoc2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -128,6 +128,7 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.consecutivos = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -188,6 +189,7 @@
             // 
             // ribbon
             // 
+            this.ribbon.DrawGroupsBorderMode = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
@@ -203,8 +205,13 @@
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbon.Size = new System.Drawing.Size(774, 143);
+            this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Show;
+            this.ribbon.ShowToolbarCustomizeItem = false;
+            this.ribbon.Size = new System.Drawing.Size(774, 123);
             this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.ribbon.Toolbar.ShowCustomizeItem = false;
             // 
             // barButtonItem1
             // 
@@ -254,6 +261,7 @@
             this.barButtonItem5.Name = "barButtonItem5";
             this.barButtonItem5.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
             // 
             // barButtonItem6
             // 
@@ -263,6 +271,7 @@
             this.barButtonItem6.Name = "barButtonItem6";
             this.barButtonItem6.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
             // 
             // lblConexion
             // 
@@ -299,10 +308,10 @@
             // 
             this.layoutControl1.Controls.Add(this.tabControl1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 143);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 123);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(774, 337);
+            this.layoutControl1.Size = new System.Drawing.Size(774, 357);
             this.layoutControl1.TabIndex = 2;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -313,7 +322,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(750, 313);
+            this.tabControl1.Size = new System.Drawing.Size(750, 333);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -323,7 +332,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(742, 287);
+            this.tabPage1.Size = new System.Drawing.Size(742, 307);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Proveedores";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -335,7 +344,7 @@
             this.GridControl.MainView = this.Tabla;
             this.GridControl.MenuManager = this.ribbon;
             this.GridControl.Name = "GridControl";
-            this.GridControl.Size = new System.Drawing.Size(736, 256);
+            this.GridControl.Size = new System.Drawing.Size(736, 276);
             this.GridControl.TabIndex = 1;
             this.GridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Tabla});
@@ -344,25 +353,26 @@
             // Tabla
             // 
             this.Tabla.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.Proveedor,
+            this.consecutivos,
+            this.proveedor,
             this.razSoc,
-            this.PadronProv,
-            this.Telefono,
-            this.Colonia,
-            this.Cuidad,
-            this.CodigoPostal,
-            this.Fax,
-            this.Tipo,
+            this.padronProv,
+            this.telefono,
+            this.colonia,
+            this.cuidad,
+            this.codigoPostal,
+            this.fax,
+            this.tipo,
             this.RFC,
-            this.Fecha,
-            this.ActaCons,
-            this.Representante,
-            this.Cuenta,
-            this.CentCost,
-            this.SubCuenta,
-            this.SubSubCuenta,
-            this.CatOrg,
-            this.TipoProveedor,
+            this.fecha,
+            this.actaCons,
+            this.representante,
+            this.cuenta,
+            this.centCost,
+            this.subCuenta,
+            this.subsubCuenta,
+            this.catOrg,
+            this.tipoProveedor,
             this.razSoc2});
             this.Tabla.GridControl = this.GridControl;
             this.Tabla.Name = "Tabla";
@@ -371,14 +381,12 @@
             this.Tabla.OptionsView.ColumnAutoWidth = false;
             this.Tabla.OptionsView.ShowGroupPanel = false;
             // 
-            // Proveedor
+            // proveedor
             // 
-            this.Proveedor.Caption = "Proveedor";
-            this.Proveedor.FieldName = "proveedor";
-            this.Proveedor.Name = "Proveedor";
-            this.Proveedor.Visible = true;
-            this.Proveedor.VisibleIndex = 0;
-            this.Proveedor.Width = 60;
+            this.proveedor.Caption = "Proveedor";
+            this.proveedor.FieldName = "proveedor";
+            this.proveedor.Name = "proveedor";
+            this.proveedor.Width = 60;
             // 
             // razSoc
             // 
@@ -389,66 +397,66 @@
             this.razSoc.VisibleIndex = 1;
             this.razSoc.Width = 297;
             // 
-            // PadronProv
+            // padronProv
             // 
-            this.PadronProv.Caption = "PadronProv";
-            this.PadronProv.FieldName = "padronProv";
-            this.PadronProv.Name = "PadronProv";
-            this.PadronProv.Visible = true;
-            this.PadronProv.VisibleIndex = 4;
-            this.PadronProv.Width = 116;
+            this.padronProv.Caption = "PadronProv";
+            this.padronProv.FieldName = "padronProv";
+            this.padronProv.Name = "padronProv";
+            this.padronProv.Visible = true;
+            this.padronProv.VisibleIndex = 4;
+            this.padronProv.Width = 116;
             // 
-            // Telefono
+            // telefono
             // 
-            this.Telefono.Caption = "Telefono";
-            this.Telefono.FieldName = "telefono";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.Visible = true;
-            this.Telefono.VisibleIndex = 5;
+            this.telefono.Caption = "Telefono";
+            this.telefono.FieldName = "telefono";
+            this.telefono.Name = "telefono";
+            this.telefono.Visible = true;
+            this.telefono.VisibleIndex = 5;
             // 
-            // Colonia
+            // colonia
             // 
-            this.Colonia.Caption = "Colonia";
-            this.Colonia.FieldName = "colonia";
-            this.Colonia.Name = "Colonia";
-            this.Colonia.Visible = true;
-            this.Colonia.VisibleIndex = 6;
-            this.Colonia.Width = 81;
+            this.colonia.Caption = "Colonia";
+            this.colonia.FieldName = "colonia";
+            this.colonia.Name = "colonia";
+            this.colonia.Visible = true;
+            this.colonia.VisibleIndex = 6;
+            this.colonia.Width = 81;
             // 
-            // Cuidad
+            // cuidad
             // 
-            this.Cuidad.Caption = "Cuidad";
-            this.Cuidad.FieldName = "ciudad";
-            this.Cuidad.Name = "Cuidad";
-            this.Cuidad.Visible = true;
-            this.Cuidad.VisibleIndex = 7;
-            this.Cuidad.Width = 220;
+            this.cuidad.Caption = "Cuidad";
+            this.cuidad.FieldName = "ciudad";
+            this.cuidad.Name = "cuidad";
+            this.cuidad.Visible = true;
+            this.cuidad.VisibleIndex = 7;
+            this.cuidad.Width = 220;
             // 
-            // CodigoPostal
+            // codigoPostal
             // 
-            this.CodigoPostal.Caption = "Codigo Postal";
-            this.CodigoPostal.FieldName = "codigoPostal";
-            this.CodigoPostal.Name = "CodigoPostal";
-            this.CodigoPostal.Visible = true;
-            this.CodigoPostal.VisibleIndex = 8;
+            this.codigoPostal.Caption = "Codigo Postal";
+            this.codigoPostal.FieldName = "codigoPostal";
+            this.codigoPostal.Name = "codigoPostal";
+            this.codigoPostal.Visible = true;
+            this.codigoPostal.VisibleIndex = 8;
             // 
-            // Fax
+            // fax
             // 
-            this.Fax.Caption = "Fax";
-            this.Fax.FieldName = "fax";
-            this.Fax.Name = "Fax";
-            this.Fax.Visible = true;
-            this.Fax.VisibleIndex = 9;
-            this.Fax.Width = 84;
+            this.fax.Caption = "Fax";
+            this.fax.FieldName = "fax";
+            this.fax.Name = "fax";
+            this.fax.Visible = true;
+            this.fax.VisibleIndex = 9;
+            this.fax.Width = 84;
             // 
-            // Tipo
+            // tipo
             // 
-            this.Tipo.Caption = "Tipo";
-            this.Tipo.FieldName = "tipo";
-            this.Tipo.Name = "Tipo";
-            this.Tipo.Visible = true;
-            this.Tipo.VisibleIndex = 10;
-            this.Tipo.Width = 56;
+            this.tipo.Caption = "Tipo";
+            this.tipo.FieldName = "tipo";
+            this.tipo.Name = "tipo";
+            this.tipo.Visible = true;
+            this.tipo.VisibleIndex = 10;
+            this.tipo.Width = 56;
             // 
             // RFC
             // 
@@ -459,86 +467,86 @@
             this.RFC.VisibleIndex = 3;
             this.RFC.Width = 107;
             // 
-            // Fecha
+            // fecha
             // 
-            this.Fecha.Caption = "Fecha";
-            this.Fecha.FieldName = "fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.Visible = true;
-            this.Fecha.VisibleIndex = 11;
-            this.Fecha.Width = 81;
+            this.fecha.Caption = "Fecha";
+            this.fecha.FieldName = "fecha";
+            this.fecha.Name = "fecha";
+            this.fecha.Visible = true;
+            this.fecha.VisibleIndex = 11;
+            this.fecha.Width = 81;
             // 
-            // ActaCons
+            // actaCons
             // 
-            this.ActaCons.Caption = "ActaCons";
-            this.ActaCons.FieldName = "actaCons";
-            this.ActaCons.Name = "ActaCons";
-            this.ActaCons.Visible = true;
-            this.ActaCons.VisibleIndex = 12;
-            this.ActaCons.Width = 92;
+            this.actaCons.Caption = "ActaCons";
+            this.actaCons.FieldName = "actaCons";
+            this.actaCons.Name = "actaCons";
+            this.actaCons.Visible = true;
+            this.actaCons.VisibleIndex = 12;
+            this.actaCons.Width = 92;
             // 
-            // Representante
+            // representante
             // 
-            this.Representante.Caption = "Representante";
-            this.Representante.FieldName = "representante";
-            this.Representante.Name = "Representante";
-            this.Representante.Visible = true;
-            this.Representante.VisibleIndex = 13;
-            this.Representante.Width = 92;
+            this.representante.Caption = "Representante";
+            this.representante.FieldName = "representante";
+            this.representante.Name = "representante";
+            this.representante.Visible = true;
+            this.representante.VisibleIndex = 13;
+            this.representante.Width = 92;
             // 
-            // Cuenta
+            // cuenta
             // 
-            this.Cuenta.Caption = "Cuenta";
-            this.Cuenta.FieldName = "cuenta";
-            this.Cuenta.Name = "Cuenta";
-            this.Cuenta.Visible = true;
-            this.Cuenta.VisibleIndex = 14;
-            this.Cuenta.Width = 90;
+            this.cuenta.Caption = "Cuenta";
+            this.cuenta.FieldName = "cuenta";
+            this.cuenta.Name = "cuenta";
+            this.cuenta.Visible = true;
+            this.cuenta.VisibleIndex = 14;
+            this.cuenta.Width = 90;
             // 
-            // CentCost
+            // centCost
             // 
-            this.CentCost.Caption = "CentCost";
-            this.CentCost.FieldName = "centCost";
-            this.CentCost.Name = "CentCost";
-            this.CentCost.Visible = true;
-            this.CentCost.VisibleIndex = 15;
-            this.CentCost.Width = 92;
+            this.centCost.Caption = "CentCost";
+            this.centCost.FieldName = "centCost";
+            this.centCost.Name = "centCost";
+            this.centCost.Visible = true;
+            this.centCost.VisibleIndex = 15;
+            this.centCost.Width = 92;
             // 
-            // SubCuenta
+            // subCuenta
             // 
-            this.SubCuenta.Caption = "SubCuenta";
-            this.SubCuenta.FieldName = "subCuenta";
-            this.SubCuenta.Name = "SubCuenta";
-            this.SubCuenta.Visible = true;
-            this.SubCuenta.VisibleIndex = 16;
-            this.SubCuenta.Width = 80;
+            this.subCuenta.Caption = "SubCuenta";
+            this.subCuenta.FieldName = "subCuenta";
+            this.subCuenta.Name = "subCuenta";
+            this.subCuenta.Visible = true;
+            this.subCuenta.VisibleIndex = 16;
+            this.subCuenta.Width = 80;
             // 
-            // SubSubCuenta
+            // subsubCuenta
             // 
-            this.SubSubCuenta.Caption = "SubSubCuenta";
-            this.SubSubCuenta.FieldName = "subSubCuenta";
-            this.SubSubCuenta.Name = "SubSubCuenta";
-            this.SubSubCuenta.Visible = true;
-            this.SubSubCuenta.VisibleIndex = 17;
-            this.SubSubCuenta.Width = 95;
+            this.subsubCuenta.Caption = "SubSubCuenta";
+            this.subsubCuenta.FieldName = "subsubCuenta";
+            this.subsubCuenta.Name = "subsubCuenta";
+            this.subsubCuenta.Visible = true;
+            this.subsubCuenta.VisibleIndex = 17;
+            this.subsubCuenta.Width = 95;
             // 
-            // CatOrg
+            // catOrg
             // 
-            this.CatOrg.Caption = "CatOrg";
-            this.CatOrg.FieldName = "catOrg";
-            this.CatOrg.Name = "CatOrg";
-            this.CatOrg.Visible = true;
-            this.CatOrg.VisibleIndex = 18;
-            this.CatOrg.Width = 73;
+            this.catOrg.Caption = "CatOrg";
+            this.catOrg.FieldName = "catOrg";
+            this.catOrg.Name = "catOrg";
+            this.catOrg.Visible = true;
+            this.catOrg.VisibleIndex = 18;
+            this.catOrg.Width = 73;
             // 
-            // TipoProveedor
+            // tipoProveedor
             // 
-            this.TipoProveedor.Caption = "Tipo Proveedor";
-            this.TipoProveedor.FieldName = "tipoProveedor";
-            this.TipoProveedor.Name = "TipoProveedor";
-            this.TipoProveedor.Visible = true;
-            this.TipoProveedor.VisibleIndex = 19;
-            this.TipoProveedor.Width = 83;
+            this.tipoProveedor.Caption = "Tipo Proveedor";
+            this.tipoProveedor.FieldName = "tipoProveedor";
+            this.tipoProveedor.Name = "tipoProveedor";
+            this.tipoProveedor.Visible = true;
+            this.tipoProveedor.VisibleIndex = 19;
+            this.tipoProveedor.Width = 83;
             // 
             // razSoc2
             // 
@@ -702,7 +710,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(742, 287);
+            this.tabPage2.Size = new System.Drawing.Size(742, 307);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Formulario";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -733,7 +741,7 @@
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(629, 124, 650, 400);
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(736, 281);
+            this.layoutControl2.Size = new System.Drawing.Size(736, 301);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -743,18 +751,18 @@
             this.razSocP.MenuManager = this.ribbon;
             this.razSocP.Name = "razSocP";
             this.razSocP.Properties.MaxLength = 255;
-            this.razSocP.Size = new System.Drawing.Size(612, 20);
+            this.razSocP.Size = new System.Drawing.Size(595, 20);
             this.razSocP.StyleController = this.layoutControl2;
             this.razSocP.TabIndex = 4;
             // 
             // padronP
             // 
-            this.padronP.Location = new System.Drawing.Point(445, 66);
+            this.padronP.Location = new System.Drawing.Point(437, 66);
             this.padronP.MenuManager = this.ribbon;
             this.padronP.Name = "padronP";
             this.padronP.Properties.Mask.EditMask = "f2";
             this.padronP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.padronP.Size = new System.Drawing.Size(267, 20);
+            this.padronP.Size = new System.Drawing.Size(258, 20);
             this.padronP.StyleController = this.layoutControl2;
             this.padronP.TabIndex = 5;
             // 
@@ -763,7 +771,7 @@
             this.direccionP.Location = new System.Drawing.Point(100, 114);
             this.direccionP.MenuManager = this.ribbon;
             this.direccionP.Name = "direccionP";
-            this.direccionP.Size = new System.Drawing.Size(265, 20);
+            this.direccionP.Size = new System.Drawing.Size(257, 20);
             this.direccionP.StyleController = this.layoutControl2;
             this.direccionP.TabIndex = 6;
             // 
@@ -773,17 +781,17 @@
             this.telP.MenuManager = this.ribbon;
             this.telP.Name = "telP";
             this.telP.Properties.MaxLength = 40;
-            this.telP.Size = new System.Drawing.Size(265, 20);
+            this.telP.Size = new System.Drawing.Size(257, 20);
             this.telP.StyleController = this.layoutControl2;
             this.telP.TabIndex = 7;
             // 
             // coloniaP
             // 
-            this.coloniaP.Location = new System.Drawing.Point(445, 90);
+            this.coloniaP.Location = new System.Drawing.Point(437, 90);
             this.coloniaP.MenuManager = this.ribbon;
             this.coloniaP.Name = "coloniaP";
             this.coloniaP.Properties.MaxLength = 50;
-            this.coloniaP.Size = new System.Drawing.Size(267, 20);
+            this.coloniaP.Size = new System.Drawing.Size(258, 20);
             this.coloniaP.StyleController = this.layoutControl2;
             this.coloniaP.TabIndex = 8;
             // 
@@ -793,28 +801,28 @@
             this.ciudadP.MenuManager = this.ribbon;
             this.ciudadP.Name = "ciudadP";
             this.ciudadP.Properties.MaxLength = 50;
-            this.ciudadP.Size = new System.Drawing.Size(265, 20);
+            this.ciudadP.Size = new System.Drawing.Size(257, 20);
             this.ciudadP.StyleController = this.layoutControl2;
             this.ciudadP.TabIndex = 9;
             // 
             // cpP
             // 
-            this.cpP.Location = new System.Drawing.Point(445, 114);
+            this.cpP.Location = new System.Drawing.Point(437, 114);
             this.cpP.MenuManager = this.ribbon;
             this.cpP.Name = "cpP";
             this.cpP.Properties.Mask.EditMask = "\\d+";
-            this.cpP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.cpP.Size = new System.Drawing.Size(267, 20);
+            this.cpP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.cpP.Size = new System.Drawing.Size(258, 20);
             this.cpP.StyleController = this.layoutControl2;
             this.cpP.TabIndex = 10;
             // 
             // faxP
             // 
-            this.faxP.Location = new System.Drawing.Point(445, 138);
+            this.faxP.Location = new System.Drawing.Point(437, 138);
             this.faxP.MenuManager = this.ribbon;
             this.faxP.Name = "faxP";
             this.faxP.Properties.MaxLength = 32;
-            this.faxP.Size = new System.Drawing.Size(267, 20);
+            this.faxP.Size = new System.Drawing.Size(258, 20);
             this.faxP.StyleController = this.layoutControl2;
             this.faxP.TabIndex = 11;
             // 
@@ -824,9 +832,9 @@
             this.tipoP.MenuManager = this.ribbon;
             this.tipoP.Name = "tipoP";
             this.tipoP.Properties.Mask.EditMask = "\\d+";
-            this.tipoP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.tipoP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.tipoP.Properties.MaxLength = 4;
-            this.tipoP.Size = new System.Drawing.Size(265, 20);
+            this.tipoP.Size = new System.Drawing.Size(257, 20);
             this.tipoP.StyleController = this.layoutControl2;
             this.tipoP.TabIndex = 12;
             // 
@@ -836,28 +844,28 @@
             this.rfcP.MenuManager = this.ribbon;
             this.rfcP.Name = "rfcP";
             this.rfcP.Properties.MaxLength = 14;
-            this.rfcP.Size = new System.Drawing.Size(265, 20);
+            this.rfcP.Size = new System.Drawing.Size(257, 20);
             this.rfcP.StyleController = this.layoutControl2;
             this.rfcP.TabIndex = 13;
             // 
             // representanteP
             // 
-            this.representanteP.Location = new System.Drawing.Point(445, 186);
+            this.representanteP.Location = new System.Drawing.Point(437, 186);
             this.representanteP.MenuManager = this.ribbon;
             this.representanteP.Name = "representanteP";
             this.representanteP.Properties.MaxLength = 60;
-            this.representanteP.Size = new System.Drawing.Size(267, 20);
+            this.representanteP.Size = new System.Drawing.Size(258, 20);
             this.representanteP.StyleController = this.layoutControl2;
             this.representanteP.TabIndex = 16;
             // 
             // centCostP
             // 
-            this.centCostP.Location = new System.Drawing.Point(445, 234);
+            this.centCostP.Location = new System.Drawing.Point(437, 234);
             this.centCostP.MenuManager = this.ribbon;
             this.centCostP.Name = "centCostP";
             this.centCostP.Properties.Mask.EditMask = "\\d+";
-            this.centCostP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.centCostP.Size = new System.Drawing.Size(267, 20);
+            this.centCostP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.centCostP.Size = new System.Drawing.Size(258, 20);
             this.centCostP.StyleController = this.layoutControl2;
             this.centCostP.TabIndex = 18;
             // 
@@ -867,41 +875,41 @@
             this.subCuentaP.MenuManager = this.ribbon;
             this.subCuentaP.Name = "subCuentaP";
             this.subCuentaP.Properties.Mask.EditMask = "\\d+";
-            this.subCuentaP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.subCuentaP.Size = new System.Drawing.Size(265, 20);
+            this.subCuentaP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.subCuentaP.Size = new System.Drawing.Size(257, 20);
             this.subCuentaP.StyleController = this.layoutControl2;
             this.subCuentaP.TabIndex = 19;
             // 
             // subSubCuentaP
             // 
-            this.subSubCuentaP.Location = new System.Drawing.Point(445, 258);
+            this.subSubCuentaP.Location = new System.Drawing.Point(437, 258);
             this.subSubCuentaP.MenuManager = this.ribbon;
             this.subSubCuentaP.Name = "subSubCuentaP";
             this.subSubCuentaP.Properties.Mask.EditMask = "\\d+";
-            this.subSubCuentaP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.subSubCuentaP.Size = new System.Drawing.Size(267, 20);
+            this.subSubCuentaP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.subSubCuentaP.Size = new System.Drawing.Size(258, 20);
             this.subSubCuentaP.StyleController = this.layoutControl2;
             this.subSubCuentaP.TabIndex = 20;
             // 
             // catOrgP
             // 
-            this.catOrgP.Location = new System.Drawing.Point(445, 210);
+            this.catOrgP.Location = new System.Drawing.Point(437, 210);
             this.catOrgP.MenuManager = this.ribbon;
             this.catOrgP.Name = "catOrgP";
             this.catOrgP.Properties.MaxLength = 1;
-            this.catOrgP.Size = new System.Drawing.Size(267, 20);
+            this.catOrgP.Size = new System.Drawing.Size(258, 20);
             this.catOrgP.StyleController = this.layoutControl2;
             this.catOrgP.TabIndex = 21;
             // 
             // tipoProveedorP
             // 
-            this.tipoProveedorP.Location = new System.Drawing.Point(445, 162);
+            this.tipoProveedorP.Location = new System.Drawing.Point(437, 162);
             this.tipoProveedorP.MenuManager = this.ribbon;
             this.tipoProveedorP.Name = "tipoProveedorP";
             this.tipoProveedorP.Properties.Mask.EditMask = "\\d+";
-            this.tipoProveedorP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.tipoProveedorP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.tipoProveedorP.Properties.MaxLength = 4;
-            this.tipoProveedorP.Size = new System.Drawing.Size(267, 20);
+            this.tipoProveedorP.Size = new System.Drawing.Size(258, 20);
             this.tipoProveedorP.StyleController = this.layoutControl2;
             this.tipoProveedorP.TabIndex = 22;
             // 
@@ -911,20 +919,19 @@
             this.cuentaP.MenuManager = this.ribbon;
             this.cuentaP.Name = "cuentaP";
             this.cuentaP.Properties.Mask.EditMask = "\\d+";
-            this.cuentaP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.cuentaP.Size = new System.Drawing.Size(265, 20);
+            this.cuentaP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.cuentaP.Size = new System.Drawing.Size(257, 20);
             this.cuentaP.StyleController = this.layoutControl2;
             this.cuentaP.TabIndex = 24;
             // 
             // actaP
             // 
-            this.actaP.EditValue = null;
             this.actaP.Location = new System.Drawing.Point(100, 186);
             this.actaP.MenuManager = this.ribbon;
             this.actaP.Name = "actaP";
             this.actaP.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.actaP.Properties.Caption = "";
-            this.actaP.Size = new System.Drawing.Size(265, 19);
+            this.actaP.Size = new System.Drawing.Size(257, 19);
             this.actaP.StyleController = this.layoutControl2;
             this.actaP.TabIndex = 15;
             // 
@@ -944,7 +951,7 @@
             this.fechaP.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.fechaP.Properties.Mask.EditMask = "";
             this.fechaP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.fechaP.Size = new System.Drawing.Size(265, 20);
+            this.fechaP.Size = new System.Drawing.Size(257, 20);
             this.fechaP.StyleController = this.layoutControl2;
             this.fechaP.TabIndex = 14;
             // 
@@ -955,7 +962,7 @@
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup6});
             this.layoutControlGroup2.Name = "Root";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(736, 302);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(719, 302);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlGroup6
@@ -984,7 +991,7 @@
             this.layoutControlItem18});
             this.layoutControlGroup6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup6.Name = "layoutControlGroup6";
-            this.layoutControlGroup6.Size = new System.Drawing.Size(716, 282);
+            this.layoutControlGroup6.Size = new System.Drawing.Size(699, 282);
             this.layoutControlGroup6.Text = "Informacion";
             // 
             // layoutControlItem2
@@ -992,16 +999,16 @@
             this.layoutControlItem2.Control = this.razSocP;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(692, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(675, 24);
             this.layoutControlItem2.Text = "Razón social";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(73, 13);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.padronP;
-            this.layoutControlItem3.Location = new System.Drawing.Point(345, 24);
+            this.layoutControlItem3.Location = new System.Drawing.Point(337, 24);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(347, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(338, 24);
             this.layoutControlItem3.Text = "Padron";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(73, 13);
             // 
@@ -1010,7 +1017,7 @@
             this.layoutControlItem4.Control = this.direccionP;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(345, 24);
+            this.layoutControlItem4.Size = new System.Drawing.Size(337, 24);
             this.layoutControlItem4.Text = "Dirección";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(73, 13);
             // 
@@ -1019,7 +1026,7 @@
             this.layoutControlItem5.Control = this.telP;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 96);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(345, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(337, 24);
             this.layoutControlItem5.Text = "Telefono";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(73, 13);
             // 
@@ -1028,7 +1035,7 @@
             this.layoutControlItem10.Control = this.tipoP;
             this.layoutControlItem10.Location = new System.Drawing.Point(0, 120);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(345, 24);
+            this.layoutControlItem10.Size = new System.Drawing.Size(337, 24);
             this.layoutControlItem10.Text = "Tipo";
             this.layoutControlItem10.TextSize = new System.Drawing.Size(73, 13);
             // 
@@ -1037,7 +1044,7 @@
             this.layoutControlItem7.Control = this.ciudadP;
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(345, 24);
+            this.layoutControlItem7.Size = new System.Drawing.Size(337, 24);
             this.layoutControlItem7.Text = "Ciudad";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(73, 13);
             // 
@@ -1046,43 +1053,43 @@
             this.layoutControlItem11.Control = this.rfcP;
             this.layoutControlItem11.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(345, 24);
+            this.layoutControlItem11.Size = new System.Drawing.Size(337, 24);
             this.layoutControlItem11.Text = "RFC";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(73, 13);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.coloniaP;
-            this.layoutControlItem6.Location = new System.Drawing.Point(345, 48);
+            this.layoutControlItem6.Location = new System.Drawing.Point(337, 48);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(347, 24);
+            this.layoutControlItem6.Size = new System.Drawing.Size(338, 24);
             this.layoutControlItem6.Text = "Colonia";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(73, 13);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.cpP;
-            this.layoutControlItem8.Location = new System.Drawing.Point(345, 72);
+            this.layoutControlItem8.Location = new System.Drawing.Point(337, 72);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(347, 24);
+            this.layoutControlItem8.Size = new System.Drawing.Size(338, 24);
             this.layoutControlItem8.Text = "Codigo postal";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(73, 13);
             // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.faxP;
-            this.layoutControlItem9.Location = new System.Drawing.Point(345, 96);
+            this.layoutControlItem9.Location = new System.Drawing.Point(337, 96);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(347, 24);
+            this.layoutControlItem9.Size = new System.Drawing.Size(338, 24);
             this.layoutControlItem9.Text = "Fax";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(73, 13);
             // 
             // layoutControlItem20
             // 
             this.layoutControlItem20.Control = this.tipoProveedorP;
-            this.layoutControlItem20.Location = new System.Drawing.Point(345, 120);
+            this.layoutControlItem20.Location = new System.Drawing.Point(337, 120);
             this.layoutControlItem20.Name = "layoutControlItem20";
-            this.layoutControlItem20.Size = new System.Drawing.Size(347, 24);
+            this.layoutControlItem20.Size = new System.Drawing.Size(338, 24);
             this.layoutControlItem20.Text = "Tipo proveedor";
             this.layoutControlItem20.TextSize = new System.Drawing.Size(73, 13);
             // 
@@ -1091,16 +1098,16 @@
             this.layoutControlItem13.Control = this.actaP;
             this.layoutControlItem13.Location = new System.Drawing.Point(0, 144);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(345, 24);
+            this.layoutControlItem13.Size = new System.Drawing.Size(337, 24);
             this.layoutControlItem13.Text = "Acta Cons";
             this.layoutControlItem13.TextSize = new System.Drawing.Size(73, 13);
             // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.representanteP;
-            this.layoutControlItem14.Location = new System.Drawing.Point(345, 144);
+            this.layoutControlItem14.Location = new System.Drawing.Point(337, 144);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(347, 24);
+            this.layoutControlItem14.Size = new System.Drawing.Size(338, 24);
             this.layoutControlItem14.Text = "Representante";
             this.layoutControlItem14.TextSize = new System.Drawing.Size(73, 13);
             // 
@@ -1109,16 +1116,16 @@
             this.layoutControlItem12.Control = this.fechaP;
             this.layoutControlItem12.Location = new System.Drawing.Point(0, 168);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(345, 24);
+            this.layoutControlItem12.Size = new System.Drawing.Size(337, 24);
             this.layoutControlItem12.Text = "Fecha";
             this.layoutControlItem12.TextSize = new System.Drawing.Size(73, 13);
             // 
             // layoutControlItem19
             // 
             this.layoutControlItem19.Control = this.catOrgP;
-            this.layoutControlItem19.Location = new System.Drawing.Point(345, 168);
+            this.layoutControlItem19.Location = new System.Drawing.Point(337, 168);
             this.layoutControlItem19.Name = "layoutControlItem19";
-            this.layoutControlItem19.Size = new System.Drawing.Size(347, 24);
+            this.layoutControlItem19.Size = new System.Drawing.Size(338, 24);
             this.layoutControlItem19.Text = "CatOrg";
             this.layoutControlItem19.TextSize = new System.Drawing.Size(73, 13);
             // 
@@ -1127,16 +1134,16 @@
             this.layoutControlItem15.Control = this.cuentaP;
             this.layoutControlItem15.Location = new System.Drawing.Point(0, 192);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(345, 24);
+            this.layoutControlItem15.Size = new System.Drawing.Size(337, 24);
             this.layoutControlItem15.Text = "Cuenta";
             this.layoutControlItem15.TextSize = new System.Drawing.Size(73, 13);
             // 
             // layoutControlItem16
             // 
             this.layoutControlItem16.Control = this.centCostP;
-            this.layoutControlItem16.Location = new System.Drawing.Point(345, 192);
+            this.layoutControlItem16.Location = new System.Drawing.Point(337, 192);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(347, 24);
+            this.layoutControlItem16.Size = new System.Drawing.Size(338, 24);
             this.layoutControlItem16.Text = "CentCost";
             this.layoutControlItem16.TextSize = new System.Drawing.Size(73, 13);
             // 
@@ -1145,16 +1152,16 @@
             this.layoutControlItem17.Control = this.subCuentaP;
             this.layoutControlItem17.Location = new System.Drawing.Point(0, 216);
             this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(345, 24);
+            this.layoutControlItem17.Size = new System.Drawing.Size(337, 24);
             this.layoutControlItem17.Text = "SubCuenta";
             this.layoutControlItem17.TextSize = new System.Drawing.Size(73, 13);
             // 
             // layoutControlItem18
             // 
             this.layoutControlItem18.Control = this.subSubCuentaP;
-            this.layoutControlItem18.Location = new System.Drawing.Point(345, 216);
+            this.layoutControlItem18.Location = new System.Drawing.Point(337, 216);
             this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(347, 24);
+            this.layoutControlItem18.Size = new System.Drawing.Size(338, 24);
             this.layoutControlItem18.Text = "SubSubCuenta";
             this.layoutControlItem18.TextSize = new System.Drawing.Size(73, 13);
             // 
@@ -1165,7 +1172,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(774, 337);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(774, 357);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -1173,13 +1180,21 @@
             this.layoutControlItem1.Control = this.tabControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(754, 317);
+            this.layoutControlItem1.Size = new System.Drawing.Size(754, 337);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // bindingSource
             // 
             this.bindingSource.CurrentChanged += new System.EventHandler(this.bindingSource_CurrentChanged);
+            // 
+            // consecutivos
+            // 
+            this.consecutivos.Caption = "Consecutivo";
+            this.consecutivos.FieldName = "consecutivos";
+            this.consecutivos.Name = "consecutivos";
+            this.consecutivos.Visible = true;
+            this.consecutivos.VisibleIndex = 0;
             // 
             // CatalogoProveedores
             // 
@@ -1276,25 +1291,25 @@
         private System.Windows.Forms.TabPage tabPage1;
         private DevExpress.XtraGrid.GridControl GridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView Tabla;
-        private DevExpress.XtraGrid.Columns.GridColumn Proveedor;
+        private DevExpress.XtraGrid.Columns.GridColumn proveedor;
         private DevExpress.XtraGrid.Columns.GridColumn razSoc;
-        private DevExpress.XtraGrid.Columns.GridColumn PadronProv;
-        private DevExpress.XtraGrid.Columns.GridColumn Telefono;
-        private DevExpress.XtraGrid.Columns.GridColumn Colonia;
-        private DevExpress.XtraGrid.Columns.GridColumn Cuidad;
-        private DevExpress.XtraGrid.Columns.GridColumn CodigoPostal;
-        private DevExpress.XtraGrid.Columns.GridColumn Fax;
-        private DevExpress.XtraGrid.Columns.GridColumn Tipo;
+        private DevExpress.XtraGrid.Columns.GridColumn padronProv;
+        private DevExpress.XtraGrid.Columns.GridColumn telefono;
+        private DevExpress.XtraGrid.Columns.GridColumn colonia;
+        private DevExpress.XtraGrid.Columns.GridColumn cuidad;
+        private DevExpress.XtraGrid.Columns.GridColumn codigoPostal;
+        private DevExpress.XtraGrid.Columns.GridColumn fax;
+        private DevExpress.XtraGrid.Columns.GridColumn tipo;
         private DevExpress.XtraGrid.Columns.GridColumn RFC;
-        private DevExpress.XtraGrid.Columns.GridColumn Fecha;
-        private DevExpress.XtraGrid.Columns.GridColumn ActaCons;
-        private DevExpress.XtraGrid.Columns.GridColumn Representante;
-        private DevExpress.XtraGrid.Columns.GridColumn Cuenta;
-        private DevExpress.XtraGrid.Columns.GridColumn CentCost;
-        private DevExpress.XtraGrid.Columns.GridColumn SubCuenta;
-        private DevExpress.XtraGrid.Columns.GridColumn SubSubCuenta;
-        private DevExpress.XtraGrid.Columns.GridColumn CatOrg;
-        private DevExpress.XtraGrid.Columns.GridColumn TipoProveedor;
+        private DevExpress.XtraGrid.Columns.GridColumn fecha;
+        private DevExpress.XtraGrid.Columns.GridColumn actaCons;
+        private DevExpress.XtraGrid.Columns.GridColumn representante;
+        private DevExpress.XtraGrid.Columns.GridColumn cuenta;
+        private DevExpress.XtraGrid.Columns.GridColumn centCost;
+        private DevExpress.XtraGrid.Columns.GridColumn subCuenta;
+        private DevExpress.XtraGrid.Columns.GridColumn subsubCuenta;
+        private DevExpress.XtraGrid.Columns.GridColumn catOrg;
+        private DevExpress.XtraGrid.Columns.GridColumn tipoProveedor;
         private System.Windows.Forms.BindingNavigator bindingNavigator;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
@@ -1359,5 +1374,6 @@
         private DevExpress.XtraBars.BarStaticItem lblConexion;
         private DevExpress.XtraEditors.CheckEdit actaP;
         private DevExpress.XtraEditors.DateEdit fechaP;
+        private DevExpress.XtraGrid.Columns.GridColumn consecutivos;
     }
 }

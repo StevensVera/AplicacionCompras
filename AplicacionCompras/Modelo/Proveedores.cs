@@ -14,13 +14,8 @@ namespace AplicacionCompras.Modelo
     
     public partial class Proveedores
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Proveedores()
-        {
-            this.ContactoProveedores = new HashSet<ContactoProveedores>();
-        }
-    
-        public int proveedor { get; set; }
+        public int consecutivos { get; set; }
+        public Nullable<int> proveedor { get; set; }
         public string razSoc { get; set; }
         public Nullable<decimal> padronProv { get; set; }
         public string direccion { get; set; }
@@ -41,8 +36,5 @@ namespace AplicacionCompras.Modelo
         public string catOrg { get; set; }
         public Nullable<short> tipoProveedor { get; set; }
         public string razSoc2 { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ContactoProveedores> ContactoProveedores { get; set; }
     }
 }

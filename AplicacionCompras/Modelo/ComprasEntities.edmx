@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ComprasEntiites.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ComprasEntiites.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CondicionesPago">
           <Key>
             <PropertyRef Name="codigo" />
@@ -28,9 +28,10 @@
         </EntityType>
         <EntityType Name="Proveedores">
           <Key>
-            <PropertyRef Name="proveedor" />
+            <PropertyRef Name="consecutivos" />
           </Key>
-          <Property Name="proveedor" Type="int" Nullable="false" />
+          <Property Name="consecutivos" Type="int" Nullable="false" />
+          <Property Name="proveedor" Type="int" />
           <Property Name="razSoc" Type="nvarchar" MaxLength="100" />
           <Property Name="padronProv" Type="money" />
           <Property Name="direccion" Type="nvarchar" MaxLength="60" />
@@ -69,31 +70,14 @@
           <Property Name="idUsuarios" Type="int" Nullable="false" />
           <Property Name="Proveedor" Type="int" />
         </EntityType>
-        <Association Name="FK_ContactoProveedores_Proveedores">
-          <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="0..1" />
-          <End Role="ContactoProveedores" Type="Self.ContactoProveedores" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Proveedores">
-              <PropertyRef Name="proveedor" />
-            </Principal>
-            <Dependent Role="ContactoProveedores">
-              <PropertyRef Name="proveedor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="ComprasEntiitesStoreContainer">
           <EntitySet Name="CondicionesPago" EntityType="Self.CondicionesPago" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ContactoProveedores" EntityType="Self.ContactoProveedores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Proveedores" EntityType="Self.Proveedores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_ContactoProveedores_Proveedores" Association="Self.FK_ContactoProveedores_Proveedores">
-            <End Role="Proveedores" EntitySet="Proveedores" />
-            <End Role="ContactoProveedores" EntitySet="ContactoProveedores" />
-          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ComprasEntiites" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -117,13 +101,37 @@
           <Property Name="correo1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="correo2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="telefono" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Proveedores" Relationship="Self.FK_ContactoProveedores_Proveedores" FromRole="ContactoProveedores" ToRole="Proveedores" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="idUsuarios" />
+          </Key>
+          <Property Name="idUsuarios" Type="Int32" Nullable="false" />
+          <Property Name="Proveedor" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="ComprasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CondicionesPago" EntityType="Self.CondicionesPago" />
+          <EntitySet Name="ContactoProveedores" EntityType="Self.ContactoProveedores" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <EntitySet Name="Proveedores" EntityType="ComprasEntiites.Proveedores" />
+        </EntityContainer>
         <EntityType Name="Proveedores">
           <Key>
-            <PropertyRef Name="proveedor" />
+            <PropertyRef Name="consecutivos" />
           </Key>
-          <Property Name="proveedor" Type="Int32" Nullable="false" />
+          <Property Name="consecutivos" Type="Int32" Nullable="false" />
+          <Property Name="proveedor" Type="Int32" />
           <Property Name="razSoc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="padronProv" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="direccion" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
@@ -144,48 +152,7 @@
           <Property Name="catOrg" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
           <Property Name="tipoProveedor" Type="Int16" />
           <Property Name="razSoc2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ContactoProveedores" Relationship="Self.FK_ContactoProveedores_Proveedores" FromRole="Proveedores" ToRole="ContactoProveedores" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Usuario">
-          <Key>
-            <PropertyRef Name="idUsuarios" />
-          </Key>
-          <Property Name="idUsuarios" Type="Int32" Nullable="false" />
-          <Property Name="Proveedor" Type="Int32" />
-        </EntityType>
-        <Association Name="FK_ContactoProveedores_Proveedores">
-          <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="0..1" />
-          <End Role="ContactoProveedores" Type="Self.ContactoProveedores" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Proveedores">
-              <PropertyRef Name="proveedor" />
-            </Principal>
-            <Dependent Role="ContactoProveedores">
-              <PropertyRef Name="proveedor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="ComprasEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CondicionesPago" EntityType="Self.CondicionesPago" />
-          <EntitySet Name="ContactoProveedores" EntityType="Self.ContactoProveedores" />
-          <EntitySet Name="Proveedores" EntityType="Self.Proveedores" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
-          <AssociationSet Name="FK_ContactoProveedores_Proveedores" Association="Self.FK_ContactoProveedores_Proveedores">
-            <End Role="Proveedores" EntitySet="Proveedores" />
-            <End Role="ContactoProveedores" EntitySet="ContactoProveedores" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -215,33 +182,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Proveedores">
-            <EntityTypeMapping TypeName="ComprasEntiites.Proveedores">
-              <MappingFragment StoreEntitySet="Proveedores">
-                <ScalarProperty Name="proveedor" ColumnName="proveedor" />
-                <ScalarProperty Name="razSoc" ColumnName="razSoc" />
-                <ScalarProperty Name="padronProv" ColumnName="padronProv" />
-                <ScalarProperty Name="direccion" ColumnName="direccion" />
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="colonia" ColumnName="colonia" />
-                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
-                <ScalarProperty Name="codigoPostal" ColumnName="codigoPostal" />
-                <ScalarProperty Name="fax" ColumnName="fax" />
-                <ScalarProperty Name="tipo" ColumnName="tipo" />
-                <ScalarProperty Name="RFC" ColumnName="RFC" />
-                <ScalarProperty Name="fecha" ColumnName="fecha" />
-                <ScalarProperty Name="actaCons" ColumnName="actaCons" />
-                <ScalarProperty Name="representante" ColumnName="representante" />
-                <ScalarProperty Name="cuenta" ColumnName="cuenta" />
-                <ScalarProperty Name="centCost" ColumnName="centCost" />
-                <ScalarProperty Name="subCuenta" ColumnName="subCuenta" />
-                <ScalarProperty Name="subsubCuenta" ColumnName="subsubCuenta" />
-                <ScalarProperty Name="catOrg" ColumnName="catOrg" />
-                <ScalarProperty Name="tipoProveedor" ColumnName="tipoProveedor" />
-                <ScalarProperty Name="razSoc2" ColumnName="razSoc2" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="ComprasEntiites.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -258,6 +198,34 @@
               <MappingFragment StoreEntitySet="Usuario">
                 <ScalarProperty Name="idUsuarios" ColumnName="idUsuarios" />
                 <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proveedores">
+            <EntityTypeMapping TypeName="ComprasEntiites.Proveedores">
+              <MappingFragment StoreEntitySet="Proveedores">
+                <ScalarProperty Name="razSoc2" ColumnName="razSoc2" />
+                <ScalarProperty Name="tipoProveedor" ColumnName="tipoProveedor" />
+                <ScalarProperty Name="catOrg" ColumnName="catOrg" />
+                <ScalarProperty Name="subsubCuenta" ColumnName="subsubCuenta" />
+                <ScalarProperty Name="subCuenta" ColumnName="subCuenta" />
+                <ScalarProperty Name="centCost" ColumnName="centCost" />
+                <ScalarProperty Name="cuenta" ColumnName="cuenta" />
+                <ScalarProperty Name="representante" ColumnName="representante" />
+                <ScalarProperty Name="actaCons" ColumnName="actaCons" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="fax" ColumnName="fax" />
+                <ScalarProperty Name="codigoPostal" ColumnName="codigoPostal" />
+                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+                <ScalarProperty Name="colonia" ColumnName="colonia" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="padronProv" ColumnName="padronProv" />
+                <ScalarProperty Name="razSoc" ColumnName="razSoc" />
+                <ScalarProperty Name="proveedor" ColumnName="proveedor" />
+                <ScalarProperty Name="consecutivos" ColumnName="consecutivos" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -20,7 +20,5 @@ namespace AplicacionCompras.Modelo
         public string correo1 { get; set; }
         public string correo2 { get; set; }
         public string telefono { get; set; }
-    
-        public virtual Proveedores Proveedores { get; set; }
     }
 }

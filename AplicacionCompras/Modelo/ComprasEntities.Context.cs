@@ -27,8 +27,8 @@ namespace AplicacionCompras.Modelo
     
         public virtual DbSet<CondicionesPago> CondicionesPago { get; set; }
         public virtual DbSet<ContactoProveedores> ContactoProveedores { get; set; }
-        public virtual DbSet<Proveedores> Proveedores { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Proveedores> Proveedores { get; set; }
     }
 }

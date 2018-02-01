@@ -20,8 +20,9 @@ namespace AplicacionCompras.Vista
         static Controlador.ProveedorControlador s = new Controlador.ProveedorControlador();
         static private int pageSize = 30;
         static int totalRecords = 1;
+        int consecutivoActual=0,proveedorActual=0;
         //E=editar,N=nuevo,s=sin seleccionar
-        Char tipo = 's';
+        Char tipoO = 's';
         int contT = 0;
         public CatalogoProveedores()
         {
@@ -167,7 +168,7 @@ namespace AplicacionCompras.Vista
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            tipo = 'N';
+            tipoO = 'N';
             this.tabControl1.SelectTab(1);
             EnableControls(tabPage2);
             ResetControls(tabPage2);
@@ -183,6 +184,7 @@ namespace AplicacionCompras.Vista
                 Proveedores p = new Proveedores();
                 p.razSoc2 = razSocP.Text;
                 p.razSoc = "---";
+                p.RFC = rfcP.Text;
                 p.padronProv = Decimal.Parse(padronP.Text);
                 p.direccion = direccionP.Text;
                 p.telefono = telP.Text;
@@ -198,10 +200,12 @@ namespace AplicacionCompras.Vista
                 p.subsubCuenta = Int32.Parse(subSubCuentaP.Text);
                 p.catOrg = catOrgP.Text;
                 p.tipoProveedor = Int16.Parse(tipoProveedorP.Text);
+                p.tipo = Int16.Parse(tipoP.Text);
+                p.fecha = fechaP.DateTime;
 
-                if (tipo.Equals('N'))
+                if (tipoO.Equals('N'))
                 {
-                    p.proveedor = 1;
+                    p.proveedor = 0;
                     Object item = s.guardarProveedor(p);
                     String message = (String)(item.GetType().GetProperty("message").GetValue(item, null));
                     Int32 code = (Int32)(item.GetType().GetProperty("code").GetValue(item, null));
@@ -210,7 +214,7 @@ namespace AplicacionCompras.Vista
                     {
                         ResetControls(tabPage2);
                         DisableControls(tabPage2);
-                        tipo = 's';
+                        tipoO = 's';
                         Recargar();
                         MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
                     }
@@ -219,12 +223,28 @@ namespace AplicacionCompras.Vista
                         MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                else if (tipo.Equals('N'))
+                else if (tipoO.Equals('E'))
                 {
-                    p.proveedor = 1;
+                    p.consecutivos = consecutivoActual;
+                    p.proveedor = proveedorActual;
                     Object item = s.editarProveedor(p);
+                    String message = (String)(item.GetType().GetProperty("message").GetValue(item, null));
+                    Int32 code = (Int32)(item.GetType().GetProperty("code").GetValue(item, null));
+
+                    if (code == 1)
+                    {
+                        ResetControls(tabPage2);
+                        DisableControls(tabPage2);
+                        tipoO = 's';
+                        Recargar();
+                        MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    }
+                    else if (code == 2)
+                    {
+                        MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else if (tipo.Equals('N'))
+                else if (tipoO.Equals('s'))
                 {
 
                 }
@@ -240,7 +260,67 @@ namespace AplicacionCompras.Vista
             Cursor.Current = Cursors.WaitCursor;
             ResetControls(tabPage2);
             DisableControls(tabPage2);
-            tipo = 's';
+            tipoO = 's';
+        }
+
+        private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            int r = Tabla.GetSelectedRows()[0];
+            int idProveedor = (Tabla.GetRowCellValue(r, "consecutivos") == null) ? 0 : Int32.Parse(Tabla.GetRowCellValue(r, "consecutivos").ToString());
+
+            Object item = s.borrarProveedor(idProveedor);
+
+            System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+            System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
+            String message = (String)(m.GetValue(item, null));
+            int code = (int)(c.GetValue(item, null));
+
+            if (code == 1)
+            {
+                //vaciarCamposBusq();
+                Recargar();
+                MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+            }
+            else if (code == 2)
+            {
+                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            consecutivoActual = 0;
+            //idMaterialRef = "";
+            ResetControls(tabPage2);
+            tipoO = 'E';
+            int r = Tabla.GetSelectedRows()[0];
+            
+            consecutivoActual= (Tabla.GetRowCellValue(r, "consecutivos") == null) ? 0 : Int32.Parse(Tabla.GetRowCellValue(r, "consecutivos").ToString());
+            proveedorActual= (Tabla.GetRowCellValue(r, "proveedor") == null) ? 0 : Int32.Parse(Tabla.GetRowCellValue(r, "proveedor").ToString());
+            razSocP.Text = (Tabla.GetRowCellValue(r, "razSoc2") == null) ? "" : Tabla.GetRowCellValue(r, "razSoc2").ToString();
+            rfcP.Text= (Tabla.GetRowCellValue(r, "RFC")== null) ? "" : Tabla.GetRowCellValue(r, "RFC").ToString();
+            padronP.Text= (Tabla.GetRowCellValue(r, "padronProv") == null) ? "" : Tabla.GetRowCellValue(r, "padronProv").ToString();
+            direccionP.Text= (Tabla.GetRowCellValue(r, "direccion") == null) ? "" : Tabla.GetRowCellValue(r, "direccion").ToString();
+            telP.Text= (Tabla.GetRowCellValue(r, "telefono") == null) ? "" : Tabla.GetRowCellValue(r, "telefono").ToString();
+            coloniaP.Text= (Tabla.GetRowCellValue(r, "colonia") == null) ? "" : Tabla.GetRowCellValue(r, "colonia").ToString();
+            ciudadP.Text= (Tabla.GetRowCellValue(r, "ciudad")== null) ? "" : Tabla.GetRowCellValue(r, "ciudad").ToString();
+            cpP.Text= (Tabla.GetRowCellValue(r, "codigoPostal") == null) ? "" : Tabla.GetRowCellValue(r, "codigoPostal").ToString();
+            faxP.Text= (Tabla.GetRowCellValue(r, "fax")== null) ? "" : Tabla.GetRowCellValue(r, "fax").ToString();
+            actaP.Checked= (Tabla.GetRowCellValue(r, "actaCons") == null) ? false : (Tabla.GetRowCellValue(r, "actaCons").ToString().Equals("True"))?true:false; 
+            representanteP.Text= (Tabla.GetRowCellValue(r, "representante") == null) ? "" : Tabla.GetRowCellValue(r, "representante").ToString();
+            cuentaP.Text= (Tabla.GetRowCellValue(r, "cuenta")== null) ? "" : Tabla.GetRowCellValue(r, "cuenta").ToString();
+            centCostP.Text= (Tabla.GetRowCellValue(r, "centCost") == null) ? "" : Tabla.GetRowCellValue(r, "centCost").ToString();
+            subCuentaP.Text= (Tabla.GetRowCellValue(r, "subCuenta") == null) ? "" : Tabla.GetRowCellValue(r, "subCuenta").ToString();
+            subSubCuentaP.Text= (Tabla.GetRowCellValue(r, "subsubCuenta") == null) ? "" : Tabla.GetRowCellValue(r, "subsubCuenta").ToString();
+            catOrgP.Text= (Tabla.GetRowCellValue(r, "catOrg") == null) ? "" : Tabla.GetRowCellValue(r, "catOrg").ToString();
+            tipoProveedorP.Text= (Tabla.GetRowCellValue(r, "tipoProveedor") == null) ? "" : Tabla.GetRowCellValue(r, "tipoProveedor").ToString();
+            tipoP.Text= (Tabla.GetRowCellValue(r, "tipo") == null) ? "" : Tabla.GetRowCellValue(r, "tipo").ToString();
+            fechaP.DateTime = DateTime.Parse((Tabla.GetRowCellValue(r, "fecha") == null) ? "" : Tabla.GetRowCellValue(r, "fecha").ToString());
+            this.tabControl1.SelectTab(1);
+            EnableControls(tabPage2);
         }
     }
 }

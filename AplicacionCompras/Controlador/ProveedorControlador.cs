@@ -21,7 +21,7 @@ namespace AplicacionCompras.Controlador
                 {
                     int pageIndex = Convert.ToInt32(page);
                     IEnumerable<Proveedores> query = bd.Proveedores;
-                    var Results = query.OrderBy(s => s.proveedor).Skip(pageIndex * pageSize).Take(pageSize).ToList();
+                    var Results = query.OrderBy(s => s.consecutivos).Skip(pageIndex * pageSize).Take(pageSize).ToList();
                     return Results;
                 }
             }
@@ -38,8 +38,10 @@ namespace AplicacionCompras.Controlador
                 using (var bd = new ComprasEntities())
                 {
                     Object result = "";
-                    ComprasEntities db = new ComprasEntities();
-                    var p = db.Proveedores.Where(u => u.proveedor == proveedor.proveedor).FirstOrDefault();
+                    var ultId = bd.Proveedores.AsNoTracking().Where(a=> a.consecutivos==bd.Proveedores.Max(x=>x.consecutivos)).FirstOrDefault().consecutivos;
+                    ultId = (ultId<=10000) ?10001:ultId+1;
+                    proveedor.consecutivos = ultId;
+                    var p = bd.Proveedores.AsNoTracking().Where(u => u.consecutivos==proveedor.consecutivos).FirstOrDefault();
                     if (p== null)
                     {
                         bd.Proveedores.Add(proveedor);
@@ -66,6 +68,32 @@ namespace AplicacionCompras.Controlador
             }
 
         }
+        public int generarId()
+        {
+            try
+            {
+                using (var bd = new ComprasEntities())
+                {
+                    Object result = "";
+                    ComprasEntities db = new ComprasEntities();
+                    var ultId = db.Proveedores.AsNoTracking().Where(a => a.consecutivos == db.Proveedores.Max(x => x.consecutivos)).FirstOrDefault().consecutivos;
+                    ultId = (ultId <= 10000) ? 10001 : ultId + 1;
+                    
+
+                    return ultId;
+                }
+            }
+            catch (SqlException odbcEx)
+            {
+                Object result = new { message = "Error: " + odbcEx.Message.ToString(), code = 2 };
+                return -1;
+            }
+            catch (Exception ex)
+            {
+                Object result = new { message = "Error: " + ex.Message.ToString(), code = 2 };
+                return -1;
+            }
+        }
         public Object editarProveedor(Proveedores proveedores)
         {
             try
@@ -79,6 +107,35 @@ namespace AplicacionCompras.Controlador
                     return result;
                 }
 
+            }
+            catch (SqlException odbcEx)
+            {
+                Object result = new { message = "Error: " + odbcEx.Message.ToString(), code = 2 };
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Object result = new { message = "Error: " + ex.Message.ToString(), code = 2 };
+                return result;
+            }
+
+        }
+        public Object borrarProveedor(int idProveedor)
+        {
+            try
+            {
+                string s;
+                using (var bd = new ComprasEntities())
+                {
+                    var proveedor = bd.Proveedores.Find(idProveedor);
+                    bd.Proveedores.Attach(proveedor);
+                    bd.Proveedores.Remove(proveedor);
+                    bd.SaveChanges();
+
+                    Object result = new { message = "Se borro correctamente", code = 1 };
+                    return result;
+                }
+                
             }
             catch (SqlException odbcEx)
             {
