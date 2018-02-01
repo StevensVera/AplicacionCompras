@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraBars;
 using DevExpress.LookAndFeel;
 using System.Net.NetworkInformation;
+using DevExpress.XtraEditors;
 
 namespace AplicacionCompras.Vista
 {
@@ -18,6 +19,8 @@ namespace AplicacionCompras.Vista
         static Controlador.PagosControlador s = new Controlador.PagosControlador();
         static private int pageSize = 30;
         static int totalRecords = 1;
+        Char tipoO = 's';
+        int contT = 0;
 
         public CondicionesPagos()
         {
@@ -44,20 +47,60 @@ namespace AplicacionCompras.Vista
                 gridControl1.DataSource = null;
             }
             else
-            {/*
-                int id;
-                if (editBusquedaId.Text.Equals(""))
-                {
-                    id = -1;
-                }
-                else
-                {
-                    id = Int32.Parse(editBusquedaId.Text);
-                }
-                */
+            {
                 gridControl1.DataSource = s.GetPagos(((int)bindingSource1.Current / pageSize), pageSize);
             }
         }
+
+        private void DisableControls(Control con) {
+            foreach (Control c in con.Controls) {
+                DisableControls(c);
+            }
+            con.Enabled = false;
+        }
+
+        private void EnableControls(Control con) {
+            if (con != null) {
+                foreach (Control c in con.Controls)
+                {
+                    EnableControls(c);
+                }
+                con.Enabled = true;
+            }
+        }
+
+        private void ResetControls(Control con) {
+            if (con != null) {
+                foreach (Control c in con.Controls) {
+                    ResetControls(c);
+                }
+                if (con is TextEdit) {
+                    TextEdit textBox = (TextEdit)con;
+                    textBox.Text = null;
+
+                }
+            }
+
+        }
+
+        private void CheckControls(Control con) {
+            if (con != null)
+            {
+                foreach (Control c in con.Controls)
+                {
+                    CheckControls(c);
+                }
+                if (con is TextEdit) {
+                    TextEdit textBox = (TextEdit)con;
+                    if (textBox.Text == "") {
+                        contT++;
+                    }
+                }
+            }
+
+
+        }
+        
 
         class PageOffsetList : System.ComponentModel.IListSource
         {
@@ -75,6 +118,7 @@ namespace AplicacionCompras.Vista
 
         private void CondicionesPagos_Load(object sender, EventArgs e)
         {
+            DisableControls(tabPage2);
             Red();
         }
         public void Red()
@@ -128,5 +172,59 @@ namespace AplicacionCompras.Vista
         {
 
         }
+
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Recarga();
+        }
+
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            tipoO = 'N';
+            this.tabControl1.SelectTab(1);
+            EnableControls(tabPage2);
+            ResetControls(tabPage2);
+            
+        }
+
+
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            CheckControls(tabPage2);
+            if (contT == 0) {
+
+                Modelo.CondicionesPago c = new Modelo.CondicionesPago();
+                c.codigo = Int16.Parse(CodigoC.Text);
+                c.descripcion = DescripcionC.Text;
+                c.dias = Int16.Parse(DiasC.Text);
+                c.anticipo = AnticipoC.Checked;
+                c.porcentaje = Int16.Parse(CodigoC.Text);
+
+                if (tipoO.Equals('N'))
+                    {
+                   
+
+
+                }
+
+
+
+
+            }
+
+
+        }
+        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            ResetControls(tabPage2);
+            DisableControls(tabPage2);
+            tipoO = 's';
+        }
+
+        
     }
 }

@@ -69,10 +69,24 @@
             this.editTextDias = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.CodigoC = new DevExpress.XtraEditors.TextEdit();
+            this.DescripcionC = new DevExpress.XtraEditors.TextEdit();
+            this.DiasC = new DevExpress.XtraEditors.TextEdit();
+            this.PorcentajeC = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlGroup6 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.AnticipoC = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -82,9 +96,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
+            this.layoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CodigoC.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DescripcionC.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DiasC.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PorcentajeC.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AnticipoC.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -102,8 +133,6 @@
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 8;
             this.ribbon.Name = "ribbon";
-            this.ribbon.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
-            this.ribbonPageCategory1});
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbon.Size = new System.Drawing.Size(819, 143);
@@ -118,6 +147,7 @@
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // barButtonItem2
             // 
@@ -127,6 +157,7 @@
             this.barButtonItem2.Name = "barButtonItem2";
             this.barButtonItem2.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // barButtonItem3
             // 
@@ -136,6 +167,7 @@
             this.barButtonItem3.Name = "barButtonItem3";
             this.barButtonItem3.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
             // 
             // barButtonItem4
             // 
@@ -145,6 +177,7 @@
             this.barButtonItem4.Name = "barButtonItem4";
             this.barButtonItem4.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
             // 
             // barButtonItem5
             // 
@@ -215,7 +248,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(795, 301);
-            this.tabControl1.TabIndex = 6;
+            this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -268,6 +301,7 @@
             this.descripcion.Name = "descripcion";
             this.descripcion.Visible = true;
             this.descripcion.VisibleIndex = 1;
+            this.descripcion.Width = 217;
             // 
             // dias
             // 
@@ -276,6 +310,7 @@
             this.dias.Name = "dias";
             this.dias.Visible = true;
             this.dias.VisibleIndex = 2;
+            this.dias.Width = 131;
             // 
             // anticipo
             // 
@@ -284,6 +319,7 @@
             this.anticipo.Name = "anticipo";
             this.anticipo.Visible = true;
             this.anticipo.VisibleIndex = 3;
+            this.anticipo.Width = 131;
             // 
             // porcentaje
             // 
@@ -292,6 +328,7 @@
             this.porcentaje.Name = "porcentaje";
             this.porcentaje.Visible = true;
             this.porcentaje.VisibleIndex = 4;
+            this.porcentaje.Width = 138;
             // 
             // bindingNavigator1
             // 
@@ -439,6 +476,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.layoutControl2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -446,6 +484,139 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Formulario";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // layoutControl2
+            // 
+            this.layoutControl2.Controls.Add(this.CodigoC);
+            this.layoutControl2.Controls.Add(this.DescripcionC);
+            this.layoutControl2.Controls.Add(this.DiasC);
+            this.layoutControl2.Controls.Add(this.PorcentajeC);
+            this.layoutControl2.Controls.Add(this.AnticipoC);
+            this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl2.Location = new System.Drawing.Point(3, 3);
+            this.layoutControl2.Name = "layoutControl2";
+            this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(332, 299, 650, 400);
+            this.layoutControl2.Root = this.layoutControlGroup2;
+            this.layoutControl2.Size = new System.Drawing.Size(781, 269);
+            this.layoutControl2.TabIndex = 0;
+            this.layoutControl2.Text = "layoutControl2";
+            // 
+            // CodigoC
+            // 
+            this.CodigoC.Location = new System.Drawing.Point(81, 42);
+            this.CodigoC.MaximumSize = new System.Drawing.Size(0, 30);
+            this.CodigoC.MenuManager = this.ribbon;
+            this.CodigoC.MinimumSize = new System.Drawing.Size(0, 30);
+            this.CodigoC.Name = "CodigoC";
+            this.CodigoC.Size = new System.Drawing.Size(303, 20);
+            this.CodigoC.StyleController = this.layoutControl2;
+            this.CodigoC.TabIndex = 4;
+            // 
+            // DescripcionC
+            // 
+            this.DescripcionC.Location = new System.Drawing.Point(445, 42);
+            this.DescripcionC.MaximumSize = new System.Drawing.Size(0, 30);
+            this.DescripcionC.MenuManager = this.ribbon;
+            this.DescripcionC.MinimumSize = new System.Drawing.Size(0, 30);
+            this.DescripcionC.Name = "DescripcionC";
+            this.DescripcionC.Size = new System.Drawing.Size(312, 20);
+            this.DescripcionC.StyleController = this.layoutControl2;
+            this.DescripcionC.TabIndex = 5;
+            // 
+            // DiasC
+            // 
+            this.DiasC.Location = new System.Drawing.Point(81, 76);
+            this.DiasC.MaximumSize = new System.Drawing.Size(0, 30);
+            this.DiasC.MenuManager = this.ribbon;
+            this.DiasC.MinimumSize = new System.Drawing.Size(0, 30);
+            this.DiasC.Name = "DiasC";
+            this.DiasC.Size = new System.Drawing.Size(303, 20);
+            this.DiasC.StyleController = this.layoutControl2;
+            this.DiasC.TabIndex = 6;
+            // 
+            // PorcentajeC
+            // 
+            this.PorcentajeC.Location = new System.Drawing.Point(81, 110);
+            this.PorcentajeC.MaximumSize = new System.Drawing.Size(0, 30);
+            this.PorcentajeC.MenuManager = this.ribbon;
+            this.PorcentajeC.MinimumSize = new System.Drawing.Size(0, 30);
+            this.PorcentajeC.Name = "PorcentajeC";
+            this.PorcentajeC.Size = new System.Drawing.Size(303, 20);
+            this.PorcentajeC.StyleController = this.layoutControl2;
+            this.PorcentajeC.TabIndex = 8;
+            // 
+            // layoutControlGroup2
+            // 
+            this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup2.GroupBordersVisible = false;
+            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlGroup6});
+            this.layoutControlGroup2.Name = "Root";
+            this.layoutControlGroup2.Size = new System.Drawing.Size(781, 269);
+            this.layoutControlGroup2.TextVisible = false;
+            // 
+            // layoutControlGroup6
+            // 
+            this.layoutControlGroup6.CustomizationFormText = "layoutControlGroup6";
+            this.layoutControlGroup6.ExpandButtonVisible = true;
+            this.layoutControlGroup6.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem4,
+            this.layoutControlItem5,
+            this.layoutControlItem6,
+            this.emptySpaceItem1,
+            this.emptySpaceItem2});
+            this.layoutControlGroup6.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup6.Name = "layoutControlGroup6";
+            this.layoutControlGroup6.Size = new System.Drawing.Size(761, 249);
+            this.layoutControlGroup6.Text = "Datos";
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.CodigoC;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(364, 34);
+            this.layoutControlItem1.Text = "Codigo";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(54, 13);
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.DescripcionC;
+            this.layoutControlItem2.Location = new System.Drawing.Point(364, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(373, 34);
+            this.layoutControlItem2.Text = "Descripcion";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(54, 13);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.DiasC;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 34);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(364, 34);
+            this.layoutControlItem4.Text = "Dias";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(54, 13);
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.AnticipoC;
+            this.layoutControlItem5.Location = new System.Drawing.Point(364, 34);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(373, 23);
+            this.layoutControlItem5.Text = "Anticipo";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.PorcentajeC;
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 68);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(364, 34);
+            this.layoutControlItem6.Text = "Porcentaje";
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(54, 13);
             // 
             // layoutControlGroup1
             // 
@@ -467,10 +638,32 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // ribbonPageCategory1
+            // emptySpaceItem1
             // 
-            this.ribbonPageCategory1.Name = "ribbonPageCategory1";
-            this.ribbonPageCategory1.Text = "ribbonPageCategory1";
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 102);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(364, 105);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(364, 57);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(373, 150);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // AnticipoC
+            // 
+            this.AnticipoC.Location = new System.Drawing.Point(388, 76);
+            this.AnticipoC.MenuManager = this.ribbon;
+            this.AnticipoC.Name = "AnticipoC";
+            this.AnticipoC.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
+            this.AnticipoC.Properties.Caption = "anticipo";
+            this.AnticipoC.Size = new System.Drawing.Size(369, 19);
+            this.AnticipoC.StyleController = this.layoutControl2;
+            this.AnticipoC.TabIndex = 7;
             // 
             // CondicionesPagos
             // 
@@ -498,9 +691,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
+            this.layoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CodigoC.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DescripcionC.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DiasC.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PorcentajeC.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AnticipoC.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -550,6 +760,20 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.ToolStripTextBox editTextDias;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory1;
+        private DevExpress.XtraLayout.LayoutControl layoutControl2;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup6;
+        private DevExpress.XtraEditors.TextEdit CodigoC;
+        private DevExpress.XtraEditors.TextEdit DescripcionC;
+        private DevExpress.XtraEditors.TextEdit DiasC;
+        private DevExpress.XtraEditors.TextEdit PorcentajeC;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraEditors.CheckEdit AnticipoC;
     }
 }

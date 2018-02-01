@@ -124,7 +124,7 @@ namespace AplicacionCompras.Controlador
         {
             try
             {
-                string s;
+                //string s;
                 using (var bd = new ComprasEntities())
                 {
                     var proveedor = bd.Proveedores.Find(idProveedor);

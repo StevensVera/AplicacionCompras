@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraBars;
 using DevExpress.LookAndFeel;
 using System.Net.NetworkInformation;
+using DevExpress.XtraEditors;
 
 namespace AplicacionCompras.Vista
 {
@@ -18,6 +19,8 @@ namespace AplicacionCompras.Vista
         static Controlador.ContactoControlador a = new Controlador.ContactoControlador();
         static private int pageSize = 30;
         static int totalRecords = 1;
+        Char tipoO = 's';
+        int contT = 0;
 
         public ContactosProveedor()
         {
@@ -29,6 +32,14 @@ namespace AplicacionCompras.Vista
             bindingSource1.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
             bindingSource1.DataSource = new PageOffsetList();
             NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
+        }
+
+
+        private void Recarga() {
+            bindingNavigator1.BindingSource = bindingSource1;
+            bindingSource1.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
+            bindingSource1.DataSource = new PageOffsetList();
+
         }
 
         private void AvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
@@ -43,17 +54,8 @@ namespace AplicacionCompras.Vista
                 gridControl1.DataSource = null;
             }
             else
-            {/*
-                int id;
-                if (editBusquedaId.Text.Equals(""))
-                {
-                    id = -1;
-                }
-                else
-                {
-                    id = Int32.Parse(editBusquedaId.Text);
-                }
-                */
+            {
+                
                 gridControl1.DataSource = a.GetContactosProveedores(((int)bindingSource1.Current / pageSize), pageSize);
             }
         }
@@ -74,6 +76,7 @@ namespace AplicacionCompras.Vista
 
         private void ContactosProveedor_Load(object sender, EventArgs e)
         {
+            DisableControls(tabPage2);
             Red();
         }
 
@@ -96,22 +99,7 @@ namespace AplicacionCompras.Vista
             }
         }
 
-        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
-        }
-
-        private void gridControl1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textEdit1_EditValueChanged(object sender, EventArgs e)
         {
 
         }
@@ -122,6 +110,105 @@ namespace AplicacionCompras.Vista
         }
 
         private void ribbon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DisableControls(Control con) {
+            foreach (Control c in con.Controls) {
+                DisableControls(c);
+            }
+            con.Enabled = false;
+        }
+
+        private void EnableControls(Control con) {
+            if (con != null) {
+                foreach (Control c in con.Controls)
+                {
+                    EnableControls(c);
+                }
+                con.Enabled = true;
+            }        
+        }
+
+        private void ResetControls(Control con) {
+            if (con != null) {
+                foreach (Control c in con.Controls) {
+                    ResetControls(c);
+                }
+                if (con is TextEdit) {
+                    TextEdit textBox = (TextEdit)con;
+                    textBox.Text = null;
+                }
+            }
+
+        }
+
+        private void CheckControls(Control con) {
+            if (con != null)
+            {
+                foreach (Control c in con.Controls) {
+                    CheckControls(c);
+                }
+                if (con is TextEdit) {
+                    TextEdit textBox = (TextEdit)con;
+                    if (textBox.Text == "") {
+                        contT++;
+                    }
+
+                }
+            }
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            editTextProveedores.Text = "";
+            editTextNombre.Text = "";
+            editTextCorreo1.Text = "";
+            editTextCorreo2.Text = "";
+            editTextTelefono.Text = "";
+            Recarga();
+
+
+        }
+
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Recarga();
+        }
+
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            tipoO = 'N';
+            this.tabControl1.SelectTab(1);
+            EnableControls(tabPage2);
+            ResetControls(tabPage2);
+
+        }
+
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            ResetControls(tabPage2);
+            DisableControls(tabPage2);
+            tipoO = 's';
+        }
+
+        private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
         {
 
         }
