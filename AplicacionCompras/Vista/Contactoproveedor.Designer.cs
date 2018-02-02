@@ -123,6 +123,7 @@
             // 
             // ribbon
             // 
+            this.ribbon.DrawGroupsBorderMode = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
@@ -139,8 +140,13 @@
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbon.Size = new System.Drawing.Size(815, 143);
+            this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Show;
+            this.ribbon.ShowToolbarCustomizeItem = false;
+            this.ribbon.Size = new System.Drawing.Size(815, 123);
             this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.ribbon.Toolbar.ShowCustomizeItem = false;
             this.ribbon.Click += new System.EventHandler(this.ribbon_Click);
             // 
             // barButtonItem1
@@ -245,11 +251,11 @@
             // 
             this.layoutControl1.Controls.Add(this.tabControl1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 143);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 123);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(477, 234, 650, 400);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(815, 322);
+            this.layoutControl1.Size = new System.Drawing.Size(815, 342);
             this.layoutControl1.TabIndex = 2;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -260,7 +266,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(791, 298);
+            this.tabControl1.Size = new System.Drawing.Size(791, 318);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -270,7 +276,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(783, 272);
+            this.tabPage1.Size = new System.Drawing.Size(783, 292);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Contactos";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -282,7 +288,7 @@
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.MenuManager = this.ribbon;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(777, 241);
+            this.gridControl1.Size = new System.Drawing.Size(777, 261);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -493,7 +499,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(783, 272);
+            this.tabPage2.Size = new System.Drawing.Size(783, 292);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Formulario";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -511,7 +517,7 @@
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(590, 164, 650, 400);
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(777, 266);
+            this.layoutControl2.Size = new System.Drawing.Size(777, 286);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -522,7 +528,7 @@
             this.editTextProveedores.MenuManager = this.ribbon;
             this.editTextProveedores.MinimumSize = new System.Drawing.Size(0, 30);
             this.editTextProveedores.Name = "editTextProveedores";
-            this.editTextProveedores.Size = new System.Drawing.Size(298, 20);
+            this.editTextProveedores.Size = new System.Drawing.Size(298, 30);
             this.editTextProveedores.StyleController = this.layoutControl2;
             this.editTextProveedores.TabIndex = 4;
             // 
@@ -533,7 +539,7 @@
             this.editTextCorreo1.MenuManager = this.ribbon;
             this.editTextCorreo1.MinimumSize = new System.Drawing.Size(0, 30);
             this.editTextCorreo1.Name = "editTextCorreo1";
-            this.editTextCorreo1.Size = new System.Drawing.Size(298, 20);
+            this.editTextCorreo1.Size = new System.Drawing.Size(298, 30);
             this.editTextCorreo1.StyleController = this.layoutControl2;
             this.editTextCorreo1.TabIndex = 6;
             // 
@@ -544,7 +550,7 @@
             this.editTextCorreo2.MenuManager = this.ribbon;
             this.editTextCorreo2.MinimumSize = new System.Drawing.Size(0, 30);
             this.editTextCorreo2.Name = "editTextCorreo2";
-            this.editTextCorreo2.Size = new System.Drawing.Size(321, 20);
+            this.editTextCorreo2.Size = new System.Drawing.Size(321, 30);
             this.editTextCorreo2.StyleController = this.layoutControl2;
             this.editTextCorreo2.TabIndex = 7;
             // 
@@ -555,7 +561,7 @@
             this.editTextTelefono.MenuManager = this.ribbon;
             this.editTextTelefono.MinimumSize = new System.Drawing.Size(0, 30);
             this.editTextTelefono.Name = "editTextTelefono";
-            this.editTextTelefono.Size = new System.Drawing.Size(298, 20);
+            this.editTextTelefono.Size = new System.Drawing.Size(298, 30);
             this.editTextTelefono.StyleController = this.layoutControl2;
             this.editTextTelefono.TabIndex = 8;
             // 
@@ -566,7 +572,7 @@
             this.editTextNombre.MenuManager = this.ribbon;
             this.editTextNombre.MinimumSize = new System.Drawing.Size(0, 30);
             this.editTextNombre.Name = "editTextNombre";
-            this.editTextNombre.Size = new System.Drawing.Size(321, 20);
+            this.editTextNombre.Size = new System.Drawing.Size(321, 30);
             this.editTextNombre.StyleController = this.layoutControl2;
             this.editTextNombre.TabIndex = 5;
             // 
@@ -577,7 +583,7 @@
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.Datos});
             this.layoutControlGroup2.Name = "Root";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(777, 266);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(777, 286);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // Datos
@@ -592,7 +598,7 @@
             this.layoutControlItem6});
             this.Datos.Location = new System.Drawing.Point(0, 0);
             this.Datos.Name = "Datos";
-            this.Datos.Size = new System.Drawing.Size(757, 246);
+            this.Datos.Size = new System.Drawing.Size(757, 266);
             // 
             // layoutControlItem2
             // 
@@ -627,7 +633,7 @@
             this.layoutControlItem5.Control = this.editTextCorreo2;
             this.layoutControlItem5.Location = new System.Drawing.Point(355, 34);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(378, 170);
+            this.layoutControlItem5.Size = new System.Drawing.Size(378, 190);
             this.layoutControlItem5.Text = "Correo 2";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(50, 13);
             // 
@@ -636,7 +642,7 @@
             this.layoutControlItem6.Control = this.editTextTelefono;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 68);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(355, 136);
+            this.layoutControlItem6.Size = new System.Drawing.Size(355, 156);
             this.layoutControlItem6.Text = "Telefono";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(50, 13);
             // 
@@ -647,7 +653,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(815, 322);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(815, 342);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -656,7 +662,7 @@
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.MinSize = new System.Drawing.Size(24, 24);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(795, 302);
+            this.layoutControlItem1.Size = new System.Drawing.Size(795, 322);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
@@ -697,7 +703,7 @@
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "ContactosProveedor";
+            this.Text = "Contactos proveedor";
             this.Load += new System.EventHandler(this.ContactosProveedor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
