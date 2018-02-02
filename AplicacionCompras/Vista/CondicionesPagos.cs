@@ -204,14 +204,44 @@ namespace AplicacionCompras.Vista
                 c.porcentaje = Int16.Parse(CodigoC.Text);
 
                 if (tipoO.Equals('N'))
-                    {
-                   
+                {
+                    Object item = s.guardarPagos(c);
+                    String message = (String)(item.GetType().GetProperty("message").GetValue(item, null));
+                    Int32 code = (Int32)(item.GetType().GetProperty("code").GetValue(item, null));
 
+                    if (code == 1)
+                    {
+                        ResetControls(tabPage2);
+                        DisableControls(tabPage2);
+                        tipoO = 's';
+                        Recarga();
+                        this.tabControl1.SelectTab(0);
+                        MessageBox.Show(message, "0k", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+                    }
+                    else if (code == 2)
+                    {
+                        MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else if (tipoO.Equals('E'))
+                {
+                    Object item = s.editarPagos(c);
+                    String message = (String)(item.GetType().GetProperty("message").GetValue(item, null));
+                    Int32 code = (Int32)(item.GetType().GetProperty("code").GetValue(item, null));
+
+                    if (code == 1)
+                    {
+                        ResetControls(tabPage2);
+                        DisableControls(tabPage2);
+                        tipoO = 's';
+                        Recarga();
+                        this.tabControl1.SelectTab(0);
+                        MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+                    }
 
                 }
-
-
-
 
             }
 
