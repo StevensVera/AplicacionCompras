@@ -133,6 +133,16 @@ namespace AplicacionCompras.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap if_search_143825 {
+            get {
+                object obj = ResourceManager.GetObject("if_search_143825", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Proveedor {
             get {
                 object obj = ResourceManager.GetObject("Proveedor", resourceCulture);

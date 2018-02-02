@@ -20,8 +20,37 @@ namespace AplicacionCompras.Controlador
                 using (var bd = new ComprasEntities())
                 {
                     int pageIndex = Convert.ToInt32(page);
-                    IEnumerable<Proveedores> query = bd.Proveedores;
+                    IEnumerable<Proveedores> query = bd.Proveedores.Where(s=>s.status!="I");
                     var Results = query.OrderBy(s => s.consecutivos).Skip(pageIndex * pageSize).Take(pageSize).ToList();
+                    return Results;
+                }
+            }
+            catch (SqlException odbcEx)
+            {
+                var error = odbcEx;
+                return null;
+            }
+        }
+        public List<Proveedores> GetProveedoresFiltros(string RFC, string razSoc, string ciudad)
+        {
+            try
+            {
+                using (var bd = new ComprasEntities())
+                {
+                    IEnumerable<Proveedores> query = bd.Proveedores.Where(s=> s.status!="I");
+                    if (!RFC.Equals(""))
+                    {
+                        query = query.Where(s => s.RFC.ToUpper().Contains(RFC.ToUpper()));
+                    }
+                    if (!razSoc.Equals(""))
+                    {
+                        query = query.Where(s => s.razSoc2.ToUpper().Contains(razSoc.ToUpper()));
+                    }
+                    if (!ciudad.Equals(""))
+                    {
+                        query = query.Where(s => s.ciudad.ToUpper().Contains(ciudad.ToUpper()));
+                    }
+                    var Results = query.OrderBy(s => s.consecutivos).ToList();
                     return Results;
                 }
             }
@@ -41,7 +70,8 @@ namespace AplicacionCompras.Controlador
                     var ultId = bd.Proveedores.AsNoTracking().Where(a=> a.consecutivos==bd.Proveedores.Max(x=>x.consecutivos)).FirstOrDefault().consecutivos;
                     ultId = (ultId<=10000) ?10001:ultId+1;
                     proveedor.consecutivos = ultId;
-                    var p = bd.Proveedores.AsNoTracking().Where(u => u.consecutivos==proveedor.consecutivos).FirstOrDefault();
+                    proveedor.status = "A";
+                    var p = bd.Proveedores.AsNoTracking().Where(u => u.consecutivos==proveedor.consecutivos || u.RFC==proveedor.RFC).FirstOrDefault();
                     if (p== null)
                     {
                         bd.Proveedores.Add(proveedor);
@@ -50,7 +80,7 @@ namespace AplicacionCompras.Controlador
                     }
                     else
                     {
-                        result = new { message = "Ya existe este grupo: " + proveedor.proveedor, code = 2 };
+                        result = new { message = "Ya existe este proveeodor. Id: " + proveedor.consecutivos, code = 2 };
                     }
 
                     return result;
@@ -149,23 +179,6 @@ namespace AplicacionCompras.Controlador
             }
 
         }
-        /*public List<Proveedores> GetAllSolicitudes()
-        {
-            try
-            {
-                using (var bd = new ComprasEntities())
-                {
-                    var list = bd.Solicitud_Requisiciones.Where(s => s.liberaLocal == true && s.liberaCapitalHumano == true
-                    && s.liberaElectrico == true && s.liberaSeguridad == true && s.requisicion == "n/a" && s.liberaAlmacen == false);
-                    return list.ToList();
-                }
-            }
-            catch (SqlException odbcEx)
-            {
-                var error = odbcEx;
-                return null;
-            }
-        }*/
         public int numeroProv()
         {
             try

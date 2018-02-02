@@ -187,6 +187,7 @@
     <Content Include="Files\botones\cancelar.png" />
     <Content Include="Files\botones\clean.png" />
     <Content Include="Files\botones\delete.png" />
+    <None Include="Files\botones\if_search_143825.png" />
     <Content Include="Files\botones\img.png" />
     <Content Include="Files\botones\lupa.png" />
     <Content Include="Files\botones\refresh.ico" />

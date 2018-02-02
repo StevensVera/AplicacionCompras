@@ -46,6 +46,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.GridControl = new DevExpress.XtraGrid.GridControl();
             this.Tabla = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.consecutivos = new DevExpress.XtraGrid.Columns.GridColumn();
             this.proveedor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.razSoc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.padronProv = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -75,13 +76,14 @@
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.editBusquedaRFC = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.editBusquedaRazSoc = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBox3 = new System.Windows.Forms.ToolStripTextBox();
+            this.editBusquedaCiudad = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
@@ -128,7 +130,6 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.consecutivos = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -355,6 +356,7 @@
             this.Tabla.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.consecutivos,
             this.proveedor,
+            this.razSoc2,
             this.razSoc,
             this.padronProv,
             this.telefono,
@@ -372,14 +374,21 @@
             this.subCuenta,
             this.subsubCuenta,
             this.catOrg,
-            this.tipoProveedor,
-            this.razSoc2});
+            this.tipoProveedor});
             this.Tabla.GridControl = this.GridControl;
             this.Tabla.Name = "Tabla";
             this.Tabla.OptionsBehavior.Editable = false;
             this.Tabla.OptionsBehavior.ReadOnly = true;
             this.Tabla.OptionsView.ColumnAutoWidth = false;
             this.Tabla.OptionsView.ShowGroupPanel = false;
+            // 
+            // consecutivos
+            // 
+            this.consecutivos.Caption = "Consecutivo";
+            this.consecutivos.FieldName = "consecutivos";
+            this.consecutivos.Name = "consecutivos";
+            this.consecutivos.Visible = true;
+            this.consecutivos.VisibleIndex = 0;
             // 
             // proveedor
             // 
@@ -393,8 +402,6 @@
             this.razSoc.Caption = "Razon Social";
             this.razSoc.FieldName = "razSoc2";
             this.razSoc.Name = "razSoc";
-            this.razSoc.Visible = true;
-            this.razSoc.VisibleIndex = 1;
             this.razSoc.Width = 297;
             // 
             // padronProv
@@ -403,7 +410,7 @@
             this.padronProv.FieldName = "padronProv";
             this.padronProv.Name = "padronProv";
             this.padronProv.Visible = true;
-            this.padronProv.VisibleIndex = 4;
+            this.padronProv.VisibleIndex = 3;
             this.padronProv.Width = 116;
             // 
             // telefono
@@ -412,7 +419,7 @@
             this.telefono.FieldName = "telefono";
             this.telefono.Name = "telefono";
             this.telefono.Visible = true;
-            this.telefono.VisibleIndex = 5;
+            this.telefono.VisibleIndex = 4;
             // 
             // colonia
             // 
@@ -420,7 +427,7 @@
             this.colonia.FieldName = "colonia";
             this.colonia.Name = "colonia";
             this.colonia.Visible = true;
-            this.colonia.VisibleIndex = 6;
+            this.colonia.VisibleIndex = 5;
             this.colonia.Width = 81;
             // 
             // cuidad
@@ -429,7 +436,7 @@
             this.cuidad.FieldName = "ciudad";
             this.cuidad.Name = "cuidad";
             this.cuidad.Visible = true;
-            this.cuidad.VisibleIndex = 7;
+            this.cuidad.VisibleIndex = 6;
             this.cuidad.Width = 220;
             // 
             // codigoPostal
@@ -438,7 +445,7 @@
             this.codigoPostal.FieldName = "codigoPostal";
             this.codigoPostal.Name = "codigoPostal";
             this.codigoPostal.Visible = true;
-            this.codigoPostal.VisibleIndex = 8;
+            this.codigoPostal.VisibleIndex = 7;
             // 
             // fax
             // 
@@ -446,7 +453,7 @@
             this.fax.FieldName = "fax";
             this.fax.Name = "fax";
             this.fax.Visible = true;
-            this.fax.VisibleIndex = 9;
+            this.fax.VisibleIndex = 8;
             this.fax.Width = 84;
             // 
             // tipo
@@ -455,7 +462,7 @@
             this.tipo.FieldName = "tipo";
             this.tipo.Name = "tipo";
             this.tipo.Visible = true;
-            this.tipo.VisibleIndex = 10;
+            this.tipo.VisibleIndex = 9;
             this.tipo.Width = 56;
             // 
             // RFC
@@ -464,7 +471,7 @@
             this.RFC.FieldName = "RFC";
             this.RFC.Name = "RFC";
             this.RFC.Visible = true;
-            this.RFC.VisibleIndex = 3;
+            this.RFC.VisibleIndex = 2;
             this.RFC.Width = 107;
             // 
             // fecha
@@ -473,7 +480,7 @@
             this.fecha.FieldName = "fecha";
             this.fecha.Name = "fecha";
             this.fecha.Visible = true;
-            this.fecha.VisibleIndex = 11;
+            this.fecha.VisibleIndex = 10;
             this.fecha.Width = 81;
             // 
             // actaCons
@@ -482,7 +489,7 @@
             this.actaCons.FieldName = "actaCons";
             this.actaCons.Name = "actaCons";
             this.actaCons.Visible = true;
-            this.actaCons.VisibleIndex = 12;
+            this.actaCons.VisibleIndex = 11;
             this.actaCons.Width = 92;
             // 
             // representante
@@ -491,7 +498,7 @@
             this.representante.FieldName = "representante";
             this.representante.Name = "representante";
             this.representante.Visible = true;
-            this.representante.VisibleIndex = 13;
+            this.representante.VisibleIndex = 12;
             this.representante.Width = 92;
             // 
             // cuenta
@@ -500,7 +507,7 @@
             this.cuenta.FieldName = "cuenta";
             this.cuenta.Name = "cuenta";
             this.cuenta.Visible = true;
-            this.cuenta.VisibleIndex = 14;
+            this.cuenta.VisibleIndex = 13;
             this.cuenta.Width = 90;
             // 
             // centCost
@@ -509,7 +516,7 @@
             this.centCost.FieldName = "centCost";
             this.centCost.Name = "centCost";
             this.centCost.Visible = true;
-            this.centCost.VisibleIndex = 15;
+            this.centCost.VisibleIndex = 14;
             this.centCost.Width = 92;
             // 
             // subCuenta
@@ -518,7 +525,7 @@
             this.subCuenta.FieldName = "subCuenta";
             this.subCuenta.Name = "subCuenta";
             this.subCuenta.Visible = true;
-            this.subCuenta.VisibleIndex = 16;
+            this.subCuenta.VisibleIndex = 15;
             this.subCuenta.Width = 80;
             // 
             // subsubCuenta
@@ -527,7 +534,7 @@
             this.subsubCuenta.FieldName = "subsubCuenta";
             this.subsubCuenta.Name = "subsubCuenta";
             this.subsubCuenta.Visible = true;
-            this.subsubCuenta.VisibleIndex = 17;
+            this.subsubCuenta.VisibleIndex = 16;
             this.subsubCuenta.Width = 95;
             // 
             // catOrg
@@ -536,7 +543,7 @@
             this.catOrg.FieldName = "catOrg";
             this.catOrg.Name = "catOrg";
             this.catOrg.Visible = true;
-            this.catOrg.VisibleIndex = 18;
+            this.catOrg.VisibleIndex = 17;
             this.catOrg.Width = 73;
             // 
             // tipoProveedor
@@ -545,7 +552,7 @@
             this.tipoProveedor.FieldName = "tipoProveedor";
             this.tipoProveedor.Name = "tipoProveedor";
             this.tipoProveedor.Visible = true;
-            this.tipoProveedor.VisibleIndex = 19;
+            this.tipoProveedor.VisibleIndex = 18;
             this.tipoProveedor.Width = 83;
             // 
             // razSoc2
@@ -554,7 +561,7 @@
             this.razSoc2.FieldName = "razSoc2";
             this.razSoc2.Name = "razSoc2";
             this.razSoc2.Visible = true;
-            this.razSoc2.VisibleIndex = 2;
+            this.razSoc2.VisibleIndex = 1;
             this.razSoc2.Width = 304;
             // 
             // bindingNavigator
@@ -572,13 +579,14 @@
             this.bindingNavigatorSeparator1,
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
-            this.toolStripLabel1,
             this.bindingNavigatorSeparator2,
-            this.toolStripTextBox1,
+            this.toolStripLabel1,
+            this.editBusquedaRFC,
             this.toolStripLabel2,
-            this.toolStripTextBox2,
+            this.editBusquedaRazSoc,
             this.toolStripLabel3,
-            this.toolStripTextBox3,
+            this.editBusquedaCiudad,
+            this.toolStripButton2,
             this.toolStripButton1});
             this.bindingNavigator.Location = new System.Drawing.Point(3, 3);
             this.bindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
@@ -654,22 +662,24 @@
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 20);
             this.bindingNavigatorMoveLastItem.Text = "Mover último";
             // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 23);
+            // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(28, 20);
             this.toolStripLabel1.Text = "RFC";
             // 
-            // bindingNavigatorSeparator2
+            // editBusquedaRFC
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 23);
-            // 
-            // toolStripTextBox1
-            // 
-            this.toolStripTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.editBusquedaRFC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.editBusquedaRFC.Name = "editBusquedaRFC";
+            this.editBusquedaRFC.Size = new System.Drawing.Size(100, 23);
+            this.editBusquedaRFC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sonidoEnter_Press);
+            this.editBusquedaRFC.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusquedaRFC_KeyUp);
             // 
             // toolStripLabel2
             // 
@@ -677,11 +687,13 @@
             this.toolStripLabel2.Size = new System.Drawing.Size(72, 20);
             this.toolStripLabel2.Text = "Razón social";
             // 
-            // toolStripTextBox2
+            // editBusquedaRazSoc
             // 
-            this.toolStripTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolStripTextBox2.Name = "toolStripTextBox2";
-            this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
+            this.editBusquedaRazSoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.editBusquedaRazSoc.Name = "editBusquedaRazSoc";
+            this.editBusquedaRazSoc.Size = new System.Drawing.Size(100, 23);
+            this.editBusquedaRazSoc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sonidoEnter_Press);
+            this.editBusquedaRazSoc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusquedaRazSoc_KeyUp);
             // 
             // toolStripLabel3
             // 
@@ -689,11 +701,23 @@
             this.toolStripLabel3.Size = new System.Drawing.Size(45, 20);
             this.toolStripLabel3.Text = "Ciudad";
             // 
-            // toolStripTextBox3
+            // editBusquedaCiudad
             // 
-            this.toolStripTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolStripTextBox3.Name = "toolStripTextBox3";
-            this.toolStripTextBox3.Size = new System.Drawing.Size(100, 23);
+            this.editBusquedaCiudad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.editBusquedaCiudad.Name = "editBusquedaCiudad";
+            this.editBusquedaCiudad.Size = new System.Drawing.Size(100, 23);
+            this.editBusquedaCiudad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sonidoEnter_Press);
+            this.editBusquedaCiudad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusquedaCiudad_KeyUp);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = global::AplicacionCompras.Properties.Resources.if_search_143825;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripButton1
             // 
@@ -703,6 +727,7 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 20);
             this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // tabPage2
             // 
@@ -718,24 +743,24 @@
             // layoutControl2
             // 
             this.layoutControl2.Controls.Add(this.razSocP);
+            this.layoutControl2.Controls.Add(this.rfcP);
             this.layoutControl2.Controls.Add(this.padronP);
-            this.layoutControl2.Controls.Add(this.direccionP);
-            this.layoutControl2.Controls.Add(this.telP);
-            this.layoutControl2.Controls.Add(this.coloniaP);
             this.layoutControl2.Controls.Add(this.ciudadP);
+            this.layoutControl2.Controls.Add(this.coloniaP);
+            this.layoutControl2.Controls.Add(this.direccionP);
             this.layoutControl2.Controls.Add(this.cpP);
+            this.layoutControl2.Controls.Add(this.telP);
             this.layoutControl2.Controls.Add(this.faxP);
             this.layoutControl2.Controls.Add(this.tipoP);
-            this.layoutControl2.Controls.Add(this.rfcP);
+            this.layoutControl2.Controls.Add(this.tipoProveedorP);
             this.layoutControl2.Controls.Add(this.representanteP);
+            this.layoutControl2.Controls.Add(this.catOrgP);
+            this.layoutControl2.Controls.Add(this.cuentaP);
             this.layoutControl2.Controls.Add(this.centCostP);
             this.layoutControl2.Controls.Add(this.subCuentaP);
             this.layoutControl2.Controls.Add(this.subSubCuentaP);
-            this.layoutControl2.Controls.Add(this.catOrgP);
-            this.layoutControl2.Controls.Add(this.tipoProveedorP);
-            this.layoutControl2.Controls.Add(this.cuentaP);
-            this.layoutControl2.Controls.Add(this.actaP);
             this.layoutControl2.Controls.Add(this.fechaP);
+            this.layoutControl2.Controls.Add(this.actaP);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl2.Location = new System.Drawing.Point(3, 3);
             this.layoutControl2.Name = "layoutControl2";
@@ -747,7 +772,7 @@
             // 
             // razSocP
             // 
-            this.razSocP.Location = new System.Drawing.Point(100, 42);
+            this.razSocP.Location = new System.Drawing.Point(100, 41);
             this.razSocP.MenuManager = this.ribbon;
             this.razSocP.Name = "razSocP";
             this.razSocP.Properties.MaxLength = 255;
@@ -757,7 +782,7 @@
             // 
             // padronP
             // 
-            this.padronP.Location = new System.Drawing.Point(437, 66);
+            this.padronP.Location = new System.Drawing.Point(437, 65);
             this.padronP.MenuManager = this.ribbon;
             this.padronP.Name = "padronP";
             this.padronP.Properties.Mask.EditMask = "f2";
@@ -768,7 +793,7 @@
             // 
             // direccionP
             // 
-            this.direccionP.Location = new System.Drawing.Point(100, 114);
+            this.direccionP.Location = new System.Drawing.Point(100, 113);
             this.direccionP.MenuManager = this.ribbon;
             this.direccionP.Name = "direccionP";
             this.direccionP.Size = new System.Drawing.Size(257, 20);
@@ -777,7 +802,7 @@
             // 
             // telP
             // 
-            this.telP.Location = new System.Drawing.Point(100, 138);
+            this.telP.Location = new System.Drawing.Point(100, 137);
             this.telP.MenuManager = this.ribbon;
             this.telP.Name = "telP";
             this.telP.Properties.MaxLength = 40;
@@ -787,7 +812,7 @@
             // 
             // coloniaP
             // 
-            this.coloniaP.Location = new System.Drawing.Point(437, 90);
+            this.coloniaP.Location = new System.Drawing.Point(437, 89);
             this.coloniaP.MenuManager = this.ribbon;
             this.coloniaP.Name = "coloniaP";
             this.coloniaP.Properties.MaxLength = 50;
@@ -797,7 +822,7 @@
             // 
             // ciudadP
             // 
-            this.ciudadP.Location = new System.Drawing.Point(100, 90);
+            this.ciudadP.Location = new System.Drawing.Point(100, 89);
             this.ciudadP.MenuManager = this.ribbon;
             this.ciudadP.Name = "ciudadP";
             this.ciudadP.Properties.MaxLength = 50;
@@ -807,7 +832,7 @@
             // 
             // cpP
             // 
-            this.cpP.Location = new System.Drawing.Point(437, 114);
+            this.cpP.Location = new System.Drawing.Point(437, 113);
             this.cpP.MenuManager = this.ribbon;
             this.cpP.Name = "cpP";
             this.cpP.Properties.Mask.EditMask = "\\d+";
@@ -818,7 +843,7 @@
             // 
             // faxP
             // 
-            this.faxP.Location = new System.Drawing.Point(437, 138);
+            this.faxP.Location = new System.Drawing.Point(437, 137);
             this.faxP.MenuManager = this.ribbon;
             this.faxP.Name = "faxP";
             this.faxP.Properties.MaxLength = 32;
@@ -828,7 +853,7 @@
             // 
             // tipoP
             // 
-            this.tipoP.Location = new System.Drawing.Point(100, 162);
+            this.tipoP.Location = new System.Drawing.Point(100, 161);
             this.tipoP.MenuManager = this.ribbon;
             this.tipoP.Name = "tipoP";
             this.tipoP.Properties.Mask.EditMask = "\\d+";
@@ -840,7 +865,7 @@
             // 
             // rfcP
             // 
-            this.rfcP.Location = new System.Drawing.Point(100, 66);
+            this.rfcP.Location = new System.Drawing.Point(100, 65);
             this.rfcP.MenuManager = this.ribbon;
             this.rfcP.Name = "rfcP";
             this.rfcP.Properties.MaxLength = 14;
@@ -850,17 +875,17 @@
             // 
             // representanteP
             // 
-            this.representanteP.Location = new System.Drawing.Point(437, 186);
+            this.representanteP.Location = new System.Drawing.Point(100, 185);
             this.representanteP.MenuManager = this.ribbon;
             this.representanteP.Name = "representanteP";
             this.representanteP.Properties.MaxLength = 60;
-            this.representanteP.Size = new System.Drawing.Size(258, 20);
+            this.representanteP.Size = new System.Drawing.Size(257, 20);
             this.representanteP.StyleController = this.layoutControl2;
             this.representanteP.TabIndex = 16;
             // 
             // centCostP
             // 
-            this.centCostP.Location = new System.Drawing.Point(437, 234);
+            this.centCostP.Location = new System.Drawing.Point(437, 209);
             this.centCostP.MenuManager = this.ribbon;
             this.centCostP.Name = "centCostP";
             this.centCostP.Properties.Mask.EditMask = "\\d+";
@@ -871,7 +896,7 @@
             // 
             // subCuentaP
             // 
-            this.subCuentaP.Location = new System.Drawing.Point(100, 258);
+            this.subCuentaP.Location = new System.Drawing.Point(100, 233);
             this.subCuentaP.MenuManager = this.ribbon;
             this.subCuentaP.Name = "subCuentaP";
             this.subCuentaP.Properties.Mask.EditMask = "\\d+";
@@ -882,7 +907,7 @@
             // 
             // subSubCuentaP
             // 
-            this.subSubCuentaP.Location = new System.Drawing.Point(437, 258);
+            this.subSubCuentaP.Location = new System.Drawing.Point(437, 233);
             this.subSubCuentaP.MenuManager = this.ribbon;
             this.subSubCuentaP.Name = "subSubCuentaP";
             this.subSubCuentaP.Properties.Mask.EditMask = "\\d+";
@@ -893,7 +918,7 @@
             // 
             // catOrgP
             // 
-            this.catOrgP.Location = new System.Drawing.Point(437, 210);
+            this.catOrgP.Location = new System.Drawing.Point(437, 185);
             this.catOrgP.MenuManager = this.ribbon;
             this.catOrgP.Name = "catOrgP";
             this.catOrgP.Properties.MaxLength = 1;
@@ -903,7 +928,7 @@
             // 
             // tipoProveedorP
             // 
-            this.tipoProveedorP.Location = new System.Drawing.Point(437, 162);
+            this.tipoProveedorP.Location = new System.Drawing.Point(437, 161);
             this.tipoProveedorP.MenuManager = this.ribbon;
             this.tipoProveedorP.Name = "tipoProveedorP";
             this.tipoProveedorP.Properties.Mask.EditMask = "\\d+";
@@ -915,7 +940,7 @@
             // 
             // cuentaP
             // 
-            this.cuentaP.Location = new System.Drawing.Point(100, 234);
+            this.cuentaP.Location = new System.Drawing.Point(100, 209);
             this.cuentaP.MenuManager = this.ribbon;
             this.cuentaP.Name = "cuentaP";
             this.cuentaP.Properties.Mask.EditMask = "\\d+";
@@ -926,19 +951,19 @@
             // 
             // actaP
             // 
-            this.actaP.Location = new System.Drawing.Point(100, 186);
+            this.actaP.Location = new System.Drawing.Point(437, 257);
             this.actaP.MenuManager = this.ribbon;
             this.actaP.Name = "actaP";
             this.actaP.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.actaP.Properties.Caption = "";
-            this.actaP.Size = new System.Drawing.Size(257, 19);
+            this.actaP.Size = new System.Drawing.Size(258, 19);
             this.actaP.StyleController = this.layoutControl2;
             this.actaP.TabIndex = 15;
             // 
             // fechaP
             // 
             this.fechaP.EditValue = null;
-            this.fechaP.Location = new System.Drawing.Point(100, 210);
+            this.fechaP.Location = new System.Drawing.Point(100, 257);
             this.fechaP.MenuManager = this.ribbon;
             this.fechaP.Name = "fechaP";
             this.fechaP.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -981,14 +1006,14 @@
             this.layoutControlItem8,
             this.layoutControlItem9,
             this.layoutControlItem20,
-            this.layoutControlItem13,
             this.layoutControlItem14,
-            this.layoutControlItem12,
-            this.layoutControlItem19,
             this.layoutControlItem15,
             this.layoutControlItem16,
             this.layoutControlItem17,
-            this.layoutControlItem18});
+            this.layoutControlItem18,
+            this.layoutControlItem12,
+            this.layoutControlItem19,
+            this.layoutControlItem13});
             this.layoutControlGroup6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup6.Name = "layoutControlGroup6";
             this.layoutControlGroup6.Size = new System.Drawing.Size(699, 282);
@@ -1096,25 +1121,25 @@
             // layoutControlItem13
             // 
             this.layoutControlItem13.Control = this.actaP;
-            this.layoutControlItem13.Location = new System.Drawing.Point(0, 144);
+            this.layoutControlItem13.Location = new System.Drawing.Point(337, 216);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(337, 24);
+            this.layoutControlItem13.Size = new System.Drawing.Size(338, 24);
             this.layoutControlItem13.Text = "Acta Cons";
             this.layoutControlItem13.TextSize = new System.Drawing.Size(73, 13);
             // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.representanteP;
-            this.layoutControlItem14.Location = new System.Drawing.Point(337, 144);
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 144);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(338, 24);
+            this.layoutControlItem14.Size = new System.Drawing.Size(337, 24);
             this.layoutControlItem14.Text = "Representante";
             this.layoutControlItem14.TextSize = new System.Drawing.Size(73, 13);
             // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.fechaP;
-            this.layoutControlItem12.Location = new System.Drawing.Point(0, 168);
+            this.layoutControlItem12.Location = new System.Drawing.Point(0, 216);
             this.layoutControlItem12.Name = "layoutControlItem12";
             this.layoutControlItem12.Size = new System.Drawing.Size(337, 24);
             this.layoutControlItem12.Text = "Fecha";
@@ -1123,7 +1148,7 @@
             // layoutControlItem19
             // 
             this.layoutControlItem19.Control = this.catOrgP;
-            this.layoutControlItem19.Location = new System.Drawing.Point(337, 168);
+            this.layoutControlItem19.Location = new System.Drawing.Point(337, 144);
             this.layoutControlItem19.Name = "layoutControlItem19";
             this.layoutControlItem19.Size = new System.Drawing.Size(338, 24);
             this.layoutControlItem19.Text = "CatOrg";
@@ -1132,7 +1157,7 @@
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.cuentaP;
-            this.layoutControlItem15.Location = new System.Drawing.Point(0, 192);
+            this.layoutControlItem15.Location = new System.Drawing.Point(0, 168);
             this.layoutControlItem15.Name = "layoutControlItem15";
             this.layoutControlItem15.Size = new System.Drawing.Size(337, 24);
             this.layoutControlItem15.Text = "Cuenta";
@@ -1141,7 +1166,7 @@
             // layoutControlItem16
             // 
             this.layoutControlItem16.Control = this.centCostP;
-            this.layoutControlItem16.Location = new System.Drawing.Point(337, 192);
+            this.layoutControlItem16.Location = new System.Drawing.Point(337, 168);
             this.layoutControlItem16.Name = "layoutControlItem16";
             this.layoutControlItem16.Size = new System.Drawing.Size(338, 24);
             this.layoutControlItem16.Text = "CentCost";
@@ -1150,7 +1175,7 @@
             // layoutControlItem17
             // 
             this.layoutControlItem17.Control = this.subCuentaP;
-            this.layoutControlItem17.Location = new System.Drawing.Point(0, 216);
+            this.layoutControlItem17.Location = new System.Drawing.Point(0, 192);
             this.layoutControlItem17.Name = "layoutControlItem17";
             this.layoutControlItem17.Size = new System.Drawing.Size(337, 24);
             this.layoutControlItem17.Text = "SubCuenta";
@@ -1159,7 +1184,7 @@
             // layoutControlItem18
             // 
             this.layoutControlItem18.Control = this.subSubCuentaP;
-            this.layoutControlItem18.Location = new System.Drawing.Point(337, 216);
+            this.layoutControlItem18.Location = new System.Drawing.Point(337, 192);
             this.layoutControlItem18.Name = "layoutControlItem18";
             this.layoutControlItem18.Size = new System.Drawing.Size(338, 24);
             this.layoutControlItem18.Text = "SubSubCuenta";
@@ -1187,14 +1212,6 @@
             // bindingSource
             // 
             this.bindingSource.CurrentChanged += new System.EventHandler(this.bindingSource_CurrentChanged);
-            // 
-            // consecutivos
-            // 
-            this.consecutivos.Caption = "Consecutivo";
-            this.consecutivos.FieldName = "consecutivos";
-            this.consecutivos.Name = "consecutivos";
-            this.consecutivos.Visible = true;
-            this.consecutivos.VisibleIndex = 0;
             // 
             // CatalogoProveedores
             // 
@@ -1365,15 +1382,16 @@
         private System.Windows.Forms.BindingSource bindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn razSoc2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripTextBox editBusquedaRFC;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
+        private System.Windows.Forms.ToolStripTextBox editBusquedaRazSoc;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox3;
+        private System.Windows.Forms.ToolStripTextBox editBusquedaCiudad;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private DevExpress.XtraBars.BarStaticItem lblConexion;
         private DevExpress.XtraEditors.CheckEdit actaP;
         private DevExpress.XtraEditors.DateEdit fechaP;
         private DevExpress.XtraGrid.Columns.GridColumn consecutivos;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
     }
 }
