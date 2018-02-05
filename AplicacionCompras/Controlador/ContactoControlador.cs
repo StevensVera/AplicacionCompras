@@ -10,9 +10,10 @@ namespace AplicacionCompras.Controlador
 {
     class ContactoControlador
     {
-        public List<ContactoProveedores> GetContactosProveedores (int page, int pageSize) {
+        public List<ContactoProveedores> GetContactosProveedores(int page, int pageSize)
+        {
 
-           try
+            try
             {
                 using (var bd = new ComprasEntities())
                 {
@@ -28,6 +29,7 @@ namespace AplicacionCompras.Controlador
                 return null;
             }
         }
+
         public int NumeroCont() {
             try
             {
@@ -52,6 +54,43 @@ namespace AplicacionCompras.Controlador
                 var error = odbcEx;
                 return 0;
             }
+        }
+
+        public Object guardarContacto(ContactoProveedores contactos)
+        {
+            try
+            {
+                using (var bd = new ComprasEntities())
+                {
+                    Object result = "";
+                    ComprasEntities db = new ComprasEntities();
+                    var us = db.ContactoProveedores.Where(u => u.idContactos == contactos.idContactos).FirstOrDefault();
+                    if (us == null)
+                    {
+                        db.ContactoProveedores.Add(contactos);
+                        db.SaveChanges();
+                        result = new { message = "Se guardo correctamente", code = 1 };
+                    }
+                    else
+                    {
+                        result = new { message = "Ya existe este material: " + contactos.idContactos, code = 2 };
+
+                    }
+                    return result;
+                }
+            }
+            catch (SqlException odbcEx)
+            {
+                Object result = new { message = "Error: " + odbcEx.Message.ToString(), code = 2 };
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Object result = new { message = "Error: " + ex.Message.ToString(), code = 2 };
+                return result;
+            }
+
+
         }
 
     }

@@ -120,6 +120,12 @@
     <Compile Include="Vista\CondicionesPagos.Designer.cs">
       <DependentUpon>CondicionesPagos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\DetalleContactoProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\DetalleContactoProveedor.Designer.cs">
+      <DependentUpon>DetalleContactoProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\CondicionesPagos.resx">
       <DependentUpon>CondicionesPagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\DetalleContactoProveedor.resx">
+      <DependentUpon>DetalleContactoProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

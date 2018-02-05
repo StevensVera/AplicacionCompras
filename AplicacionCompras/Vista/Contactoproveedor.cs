@@ -21,6 +21,12 @@ namespace AplicacionCompras.Vista
         static int totalRecords = 1;
         Char tipoO = 's';
         int contT = 0;
+        public string textProveedores;
+
+        internal void setTextProveedores() {
+            editTextProveedores.Text = textProveedores;
+        }
+
 
         public ContactosProveedor()
         {
@@ -164,6 +170,7 @@ namespace AplicacionCompras.Vista
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
+            editTextContacto.Text = "";
             editTextProveedores.Text = "";
             editTextNombre.Text = "";
             editTextCorreo1.Text = "";
@@ -192,7 +199,65 @@ namespace AplicacionCompras.Vista
 
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
         {
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                if (tipoO.Equals('N'))
+                {
+                    CheckControls(tabPage2);
+                    if (contT ==0)
+                    {
+                        if (Int32.Parse(editTextProveedores.Text) !=0)
+                        {
+                            vaciarCamposBusquedas();
+                            Modelo.ContactoProveedores c = new Modelo.ContactoProveedores();
 
+                            c.idContactos = Int16.Parse(editTextContacto.Text);
+                            c.idproveedor = Int16.Parse(editTextProveedores.Text);
+                            c.nombre = editTextNombre.Text;
+                            c.correo1 = editTextCorreo1.Text;
+                            c.correo2 = editTextCorreo2.Text;
+                            c.telefono = editTextTelefono.Text;
+
+                            Object item = a.guardarContacto(c);
+
+                            System.Reflection.PropertyInfo msg = item.GetType().GetProperty("message");
+                            System.Reflection.PropertyInfo r = item.GetType().GetProperty("code");
+                            String message = (String)(msg.GetValue(item, null));
+                            int code = (int)(r.GetValue(item, null));
+
+                            if (code == 1)
+                            {
+
+                                ResetControls(tabPage2);
+                                DisableControls(tabPage2);
+                                tipoO = 's';
+                                Recarga();
+                                this.tabControl1.SelectTab(0);
+                                MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                            }
+                            else if (code == 2)
+                            {
+                                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Contacto Proveedor no puede ser 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se deben de llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    contT = 0;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
@@ -210,6 +275,46 @@ namespace AplicacionCompras.Vista
 
         private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
         {
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                int r = Tabla.GetSelectedRows()[0];
+                int idcodigo = Int32.Parse(Tabla.GetRowCellValue(r, "idContactos").ToString());
+                
+              
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void editTextProveedores_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+        public void vaciarCamposBusquedas() {
+            toolStripTextBox1.Text = "";
+            toolStripTextBox2.Text = "";
+
+        }
+        private void editTextProveedores_Click(object sender, EventArgs e)
+        {
+            getGrupo();
+        }
+        private void getGrupo()
+        {
+            try
+            {
+                new DetalleContactoProveedor(this).Show();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
     }

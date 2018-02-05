@@ -74,6 +74,7 @@
             this.DiasC = new DevExpress.XtraEditors.TextEdit();
             this.PorcentajeC = new DevExpress.XtraEditors.TextEdit();
             this.AnticipoC = new DevExpress.XtraEditors.CheckEdit();
+            this.CodigoC = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup6 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -82,11 +83,10 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.CodigoC = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -103,6 +103,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DiasC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PorcentajeC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnticipoC.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CodigoC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -111,11 +112,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CodigoC.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -293,6 +293,8 @@
             this.porcentaje});
             this.Table.GridControl = this.gridControl1;
             this.Table.Name = "Table";
+            this.Table.OptionsBehavior.Editable = false;
+            this.Table.OptionsBehavior.ReadOnly = true;
             this.Table.OptionsView.ShowGroupPanel = false;
             // 
             // codigo
@@ -554,6 +556,18 @@
             this.AnticipoC.StyleController = this.layoutControl2;
             this.AnticipoC.TabIndex = 7;
             // 
+            // CodigoC
+            // 
+            this.CodigoC.Location = new System.Drawing.Point(81, 42);
+            this.CodigoC.MaximumSize = new System.Drawing.Size(0, 30);
+            this.CodigoC.MenuManager = this.ribbon;
+            this.CodigoC.MinimumSize = new System.Drawing.Size(0, 30);
+            this.CodigoC.Name = "CodigoC";
+            this.CodigoC.Size = new System.Drawing.Size(276, 30);
+            this.CodigoC.StyleController = this.layoutControl2;
+            this.CodigoC.TabIndex = 9;
+            this.CodigoC.EditValueChanged += new System.EventHandler(this.CodigoC_EditValueChanged);
+            // 
             // layoutControlGroup2
             // 
             this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -634,6 +648,15 @@
             this.emptySpaceItem2.Size = new System.Drawing.Size(400, 170);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.CodigoC;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(337, 34);
+            this.layoutControlItem1.Text = "Codigo";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(54, 13);
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -653,27 +676,6 @@
             this.layoutControlItem3.Text = "layoutControlIte";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
-            // 
-            // CodigoC
-            // 
-            this.CodigoC.Location = new System.Drawing.Point(81, 42);
-            this.CodigoC.MaximumSize = new System.Drawing.Size(0, 30);
-            this.CodigoC.MenuManager = this.ribbon;
-            this.CodigoC.MinimumSize = new System.Drawing.Size(0, 30);
-            this.CodigoC.Name = "CodigoC";
-            this.CodigoC.Size = new System.Drawing.Size(276, 30);
-            this.CodigoC.StyleController = this.layoutControl2;
-            this.CodigoC.TabIndex = 9;
-            this.CodigoC.EditValueChanged += new System.EventHandler(this.CodigoC_EditValueChanged);
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.CodigoC;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(337, 34);
-            this.layoutControlItem1.Text = "Codigo";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(54, 13);
             // 
             // CondicionesPagos
             // 
@@ -708,6 +710,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DiasC.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PorcentajeC.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnticipoC.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CodigoC.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -716,11 +719,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CodigoC.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
