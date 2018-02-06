@@ -21,6 +21,7 @@ namespace AplicacionCompras.Vista
         static int totalRecords = 1;
         Char tipoO = 's';
         int contT = 0;
+       
         public string textProveedores;
 
         internal void setTextProveedores() {
@@ -270,7 +271,29 @@ namespace AplicacionCompras.Vista
 
         private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
         {
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                ResetControls(tabPage2);
+                tipoO = 'E';
+                int r = Tabla.GetSelectedRows()[0];
 
+                editTextContacto.Text = (Tabla.GetRowCellValue(r, "idContactos") == null) ? "" : Tabla.GetRowCellValue(r, "idContactos").ToString();
+                editTextProveedores.Text = (Tabla.GetRowCellValue(r, "idproveedor") == null) ? "" : Tabla.GetRowCellValue(r, "idproveedor").ToString();
+                editTextNombre.Text = (Tabla.GetRowCellValue(r, "nombre") == null) ? "" : Tabla.GetRowCellValue(r, "nombre").ToString();
+                editTextCorreo1.Text = (Tabla.GetRowCellValue(r, "correo1") == null) ? "" : Tabla.GetRowCellValue(r, "correo1").ToString();
+                editTextCorreo2.Text = (Tabla.GetRowCellValue(r, "correo2") == null) ? "" : Tabla.GetRowCellValue(r, "correo2").ToString();
+                editTextTelefono.Text = (Tabla.GetRowCellValue(r, "telefono") == null) ? "" : Tabla.GetRowCellValue(r, "telefono").ToString();
+
+                this.tabControl1.SelectTab(1);
+                EnableControls(tabPage2);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+            }
         }
 
         private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
@@ -279,14 +302,32 @@ namespace AplicacionCompras.Vista
             {
                 Cursor.Current = Cursors.WaitCursor;
                 int r = Tabla.GetSelectedRows()[0];
-                int idcodigo = Int32.Parse(Tabla.GetRowCellValue(r, "idContactos").ToString());
-                
-              
+                int idContactos = Int32.Parse(Tabla.GetRowCellValue(r, "idContactos").ToString());
+
+                Object item = a.borrarContactos(idContactos);
+
+                System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+                System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
+                String message = (String)(m.GetValue(item, null));
+                int code = (int)(c.GetValue(item, null));
+
+                if (code == 1)
+                {
+                    vaciarCamposBusquedas();
+                    Recarga();
+                    MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+                }
+                else if (code == 2)
+                {
+                    MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
@@ -295,8 +336,8 @@ namespace AplicacionCompras.Vista
 
         }
         public void vaciarCamposBusquedas() {
-            toolStripTextBox1.Text = "";
-            toolStripTextBox2.Text = "";
+            editTextBusquedaProveedor.Text = "";
+            editTextBusquedaNombre.Text = "";
 
         }
         private void editTextProveedores_Click(object sender, EventArgs e)
@@ -316,6 +357,67 @@ namespace AplicacionCompras.Vista
 
             }
 
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            buscarFiltro();
+               
+        }
+        private void buscarFiltro()
+        {
+            try
+            {
+                
+                Cursor.Current = Cursors.WaitCursor;
+                if (editTextBusquedaProveedor.Text != "" || editTextBusquedaNombre.Text != "") 
+                {
+                    var e = int.TryParse(editTextBusquedaProveedor.Text, out int n);
+                    if (editTextBusquedaProveedor.Text == "")
+                    {
+                        var x = a.GetProveedoresFiltro(editTextBusquedaProveedor.Text.Equals("") ? -1 : Int32.Parse(editTextBusquedaProveedor.Text), editTextBusquedaNombre.Text);
+                        bindingSource1.DataSource = x.Count;
+                        gridControl1.DataSource = x;
+                    }
+                    else
+                    {
+                        if (e)
+                        {
+                            var x = a.GetProveedoresFiltro(editTextBusquedaProveedor.Text.Equals("") ? -1 : Int32.Parse(editTextBusquedaProveedor.Text), editTextBusquedaNombre.Text);
+                            bindingSource1.DataSource = x.Count;
+                            gridControl1.DataSource = x;
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("id proveedor debe ser numero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);                        }
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        private void editTextBusquedaProveedor_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buscarFiltro();
+            }
+
+        }
+
+        private void editTextBusquedaNombre_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buscarFiltro();
+            }
         }
     }
 }

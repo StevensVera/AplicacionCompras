@@ -64,9 +64,10 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.editTextBusquedaProveedor = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.editTextBusquedaNombre = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
@@ -384,9 +385,10 @@
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
             this.toolStripLabel1,
-            this.toolStripTextBox1,
+            this.editTextBusquedaProveedor,
             this.toolStripLabel2,
-            this.toolStripTextBox2,
+            this.editTextBusquedaNombre,
+            this.toolStripButton2,
             this.toolStripButton1});
             this.bindingNavigator1.Location = new System.Drawing.Point(3, 3);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
@@ -473,10 +475,11 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(61, 22);
             this.toolStripLabel1.Text = "Proveedor";
             // 
-            // toolStripTextBox1
+            // editTextBusquedaProveedor
             // 
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
+            this.editTextBusquedaProveedor.Name = "editTextBusquedaProveedor";
+            this.editTextBusquedaProveedor.Size = new System.Drawing.Size(100, 25);
+            this.editTextBusquedaProveedor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editTextBusquedaProveedor_KeyUp);
             // 
             // toolStripLabel2
             // 
@@ -484,10 +487,21 @@
             this.toolStripLabel2.Size = new System.Drawing.Size(51, 22);
             this.toolStripLabel2.Text = "Nombre";
             // 
-            // toolStripTextBox2
+            // editTextBusquedaNombre
             // 
-            this.toolStripTextBox2.Name = "toolStripTextBox2";
-            this.toolStripTextBox2.Size = new System.Drawing.Size(100, 25);
+            this.editTextBusquedaNombre.Name = "editTextBusquedaNombre";
+            this.editTextBusquedaNombre.Size = new System.Drawing.Size(100, 25);
+            this.editTextBusquedaNombre.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editTextBusquedaNombre_KeyUp);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = global::AplicacionCompras.Properties.Resources.if_search_143825;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripButton1
             // 
@@ -809,9 +823,9 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripTextBox editTextBusquedaProveedor;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
+        private System.Windows.Forms.ToolStripTextBox editTextBusquedaNombre;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView Tabla;
         private DevExpress.XtraGrid.Columns.GridColumn idproveedor;
@@ -843,5 +857,6 @@
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private DevExpress.XtraEditors.TextEdit editTextContacto;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
     }
 }

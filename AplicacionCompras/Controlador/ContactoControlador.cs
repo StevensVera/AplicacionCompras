@@ -89,9 +89,73 @@ namespace AplicacionCompras.Controlador
                 Object result = new { message = "Error: " + ex.Message.ToString(), code = 2 };
                 return result;
             }
+           
+        }
 
+        public Object borrarContactos(int idContactos)
+        {
+            try
+            {
+                string s;
+                var context = new ComprasEntities();
+                var connection = context.Database.Connection;
+                using (SqlConnection con = new SqlConnection(connection.ConnectionString))
+                {
+                    string query = "DELETE FROM ContactoProveedores WHERE idContactos=@idContactos2;";
+                    query += "SELECT SCOPE_IDENTITY()";
+                    using (SqlCommand md = new SqlCommand(query))
+                    {
+                        md.Connection = con;
+                        con.Open();
+                        md.Parameters.AddWithValue("@idContactos2", idContactos);
+                        s = md.ExecuteScalar().ToString();
+                        con.Close();
+                    }
+
+                }
+                Object result = new { message = "Se borro correctamente", code = 1 };
+                return result;
+            }
+            catch (SqlException odbcEx)
+            {
+                Object result = new { message = "Error: " + odbcEx.Message.ToString(), code = 2 };
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+                Object result = new { message = "Error: " + ex.Message.ToString(), code = 2 };
+                return result;
+
+            }
 
         }
 
+        public List<ContactoProveedores> GetProveedoresFiltro(int proveedor, string nombre)
+        {
+            try
+            {
+                using (var bd = new ComprasEntities())
+                {
+                    IEnumerable<ContactoProveedores> query = bd.ContactoProveedores;
+                    if (proveedor > -1)
+                    {
+                        query = query.Where(s => s.idproveedor.ToString().Contains(proveedor.ToString()));
+                    }
+                    if (nombre != "")
+                    {
+                        query = query.Where(s => s.nombre.ToUpper().Contains(nombre.ToUpper()));
+                    }
+                    var Results = query.OrderBy(s => s.idContactos).ToList();
+                    return Results;
+                }
+            }
+            catch (SqlException odbcEx)
+            {
+                var error = odbcEx;
+                return null;
+            }
+
+        }
     }
 }

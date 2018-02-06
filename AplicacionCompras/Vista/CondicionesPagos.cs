@@ -368,5 +368,31 @@ namespace AplicacionCompras.Vista
         {
 
         }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            buscarFiltro();
+        }
+
+        private void buscarFiltro()
+        {
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                if (editTextCodigo.Text != "" || editTextDescripcion.Text != "" || editTextDias.Text != "")
+                {
+                    var e = int.TryParse(editTextCodigo.Text, out int n);
+                    if (editTextCodigo.Text == "")
+                    {
+                        //var x = s.GetPagosFiltros(editTextCodigo.Text.Equals("") ? -1 : Int32)
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
