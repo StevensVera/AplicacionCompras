@@ -91,17 +91,48 @@ namespace AplicacionCompras.Controlador
 
             }
         }
-        public Object editarPagos(CondicionesPago pagos)
+        public Object editarPagos(CondicionesPago pagos, int numCodigo)
         {
             try
             {
-                using (var db = new ComprasEntities())
+                Object result = "";
+                pagos.codigo = (Int16)numCodigo;
+                using (var bd = new ComprasEntities())
                 {
-                    Object result = "";
-                    db.Entry(pagos).State = System.Data.Entity.EntityState.Modified;
-                    db.SaveChanges();
-                    result = new { messege = "Se edito Correctamente", code = 1 };
+                    bd.Entry(pagos).State = System.Data.Entity.EntityState.Modified;
+                    bd.SaveChanges();
+                    result = new { message = "Se edito correctamente", code = 1 };
                     return result;
+                }
+            }
+            catch (SqlException odbcEx)
+            {
+                Object result = new { message = "Error: " + odbcEx.Message.ToString(), code = 2 };
+                return result;
+            }
+            catch (Exception ex)
+            {
+
+                Object result = new { message = "Error: " + ex.Message.ToString(), code = 2 };
+                return result;
+            }
+
+
+        }
+        public Object borrarPagos(int idPagos)
+        {
+            try
+            {
+                using (var bd = new ComprasEntities())
+                {
+                    var pagos = bd.CondicionesPago.Find(idPagos);
+                    bd.CondicionesPago.Attach(pagos);
+                    bd.CondicionesPago.Remove(pagos);
+                    bd.SaveChanges();
+
+                    Object result = new { message = "Se borro Correctamente", code = 1 };
+                    return result;
+
                 }
 
             }
@@ -115,9 +146,40 @@ namespace AplicacionCompras.Controlador
             {
                 Object result = new { message = "Error: " + ex.Message.ToString(), code = 2 };
                 return result;
+
+            }
+        }
+
+        public List<CondicionesPago> GetPagosFiltros(int cod, string descrip, int dias)
+        {
+            try
+            {
+                using (var bd = new ComprasEntities())
+                {
+                    IEnumerable<CondicionesPago> query = bd.CondicionesPago;
+                    if (cod > -1)
+                    {
+                        query = query.Where(s => s.codigo.ToString().Contains(cod.ToString()));
+                    }
+                    if (descrip != "")
+                    {
+                        query = query.Where(s => s.descripcion.ToString().Contains(descrip.ToString()));
+                    }
+                    if (dias > -1)
+                    {
+                        query = query.Where(s => s.dias.ToString().ToString().Contains(dias.ToString()));
+                    }
+                    var Results = query.OrderBy(s => s.codigo).ToList();
+                    return Results;
+
+                }
+            }
+            catch (SqlException odbcEx)
+            {
+                var error = odbcEx;
+                return null;
             }
 
         }
-
     }
 }

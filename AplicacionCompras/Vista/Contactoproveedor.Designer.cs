@@ -46,7 +46,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.Tabla = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.idContactos = new DevExpress.XtraGrid.Columns.GridColumn();
             this.idproveedor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Nombre = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -64,9 +64,10 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.editTextBusquedaProveedor = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.editTextBusquedaNombre = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
@@ -75,13 +76,15 @@
             this.editTextCorreo2 = new DevExpress.XtraEditors.TextEdit();
             this.editTextTelefono = new DevExpress.XtraEditors.TextEdit();
             this.editTextNombre = new DevExpress.XtraEditors.TextEdit();
+            this.editTextContacto = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.Datos = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.editProveedor = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -89,13 +92,14 @@
             this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Tabla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -106,19 +110,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.editTextCorreo2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editTextTelefono.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editTextNombre.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editTextContacto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Datos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editProveedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -285,28 +292,28 @@
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.Location = new System.Drawing.Point(3, 28);
-            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.MainView = this.Tabla;
             this.gridControl1.MenuManager = this.ribbon;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.Size = new System.Drawing.Size(777, 261);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.Tabla});
             // 
-            // gridView1
+            // Tabla
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.Tabla.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.idContactos,
             this.idproveedor,
             this.Nombre,
             this.Correo1,
             this.Correo2,
             this.Telefono});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.Editable = false;
-            this.gridView1.OptionsBehavior.ReadOnly = true;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.Tabla.GridControl = this.gridControl1;
+            this.Tabla.Name = "Tabla";
+            this.Tabla.OptionsBehavior.Editable = false;
+            this.Tabla.OptionsBehavior.ReadOnly = true;
+            this.Tabla.OptionsView.ShowGroupPanel = false;
             // 
             // idContactos
             // 
@@ -378,9 +385,10 @@
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
             this.toolStripLabel1,
-            this.toolStripTextBox1,
+            this.editTextBusquedaProveedor,
             this.toolStripLabel2,
-            this.toolStripTextBox2,
+            this.editTextBusquedaNombre,
+            this.toolStripButton2,
             this.toolStripButton1});
             this.bindingNavigator1.Location = new System.Drawing.Point(3, 3);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
@@ -467,10 +475,11 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(61, 22);
             this.toolStripLabel1.Text = "Proveedor";
             // 
-            // toolStripTextBox1
+            // editTextBusquedaProveedor
             // 
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
+            this.editTextBusquedaProveedor.Name = "editTextBusquedaProveedor";
+            this.editTextBusquedaProveedor.Size = new System.Drawing.Size(100, 25);
+            this.editTextBusquedaProveedor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editTextBusquedaProveedor_KeyUp);
             // 
             // toolStripLabel2
             // 
@@ -478,10 +487,21 @@
             this.toolStripLabel2.Size = new System.Drawing.Size(51, 22);
             this.toolStripLabel2.Text = "Nombre";
             // 
-            // toolStripTextBox2
+            // editTextBusquedaNombre
             // 
-            this.toolStripTextBox2.Name = "toolStripTextBox2";
-            this.toolStripTextBox2.Size = new System.Drawing.Size(100, 25);
+            this.editTextBusquedaNombre.Name = "editTextBusquedaNombre";
+            this.editTextBusquedaNombre.Size = new System.Drawing.Size(100, 25);
+            this.editTextBusquedaNombre.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editTextBusquedaNombre_KeyUp);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = global::AplicacionCompras.Properties.Resources.if_search_143825;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripButton1
             // 
@@ -512,6 +532,7 @@
             this.layoutControl2.Controls.Add(this.editTextCorreo2);
             this.layoutControl2.Controls.Add(this.editTextTelefono);
             this.layoutControl2.Controls.Add(this.editTextNombre);
+            this.layoutControl2.Controls.Add(this.editTextContacto);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl2.Location = new System.Drawing.Point(3, 3);
             this.layoutControl2.Name = "layoutControl2";
@@ -523,58 +544,75 @@
             // 
             // editTextProveedores
             // 
-            this.editTextProveedores.Location = new System.Drawing.Point(77, 42);
+            this.editTextProveedores.Location = new System.Drawing.Point(447, 42);
             this.editTextProveedores.MaximumSize = new System.Drawing.Size(0, 30);
             this.editTextProveedores.MenuManager = this.ribbon;
             this.editTextProveedores.MinimumSize = new System.Drawing.Size(0, 30);
             this.editTextProveedores.Name = "editTextProveedores";
-            this.editTextProveedores.Size = new System.Drawing.Size(298, 30);
+            this.editTextProveedores.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White;
+            this.editTextProveedores.Properties.AppearanceReadOnly.Options.UseBackColor = true;
+            this.editTextProveedores.Properties.ReadOnly = true;
+            this.editTextProveedores.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.editTextProveedores.Size = new System.Drawing.Size(306, 30);
             this.editTextProveedores.StyleController = this.layoutControl2;
             this.editTextProveedores.TabIndex = 4;
+            this.editTextProveedores.EditValueChanged += new System.EventHandler(this.editTextProveedores_EditValueChanged);
+            this.editTextProveedores.Click += new System.EventHandler(this.editTextProveedores_Click);
             // 
             // editTextCorreo1
             // 
-            this.editTextCorreo1.Location = new System.Drawing.Point(77, 76);
+            this.editTextCorreo1.Location = new System.Drawing.Point(92, 110);
             this.editTextCorreo1.MaximumSize = new System.Drawing.Size(0, 30);
             this.editTextCorreo1.MenuManager = this.ribbon;
             this.editTextCorreo1.MinimumSize = new System.Drawing.Size(0, 30);
             this.editTextCorreo1.Name = "editTextCorreo1";
-            this.editTextCorreo1.Size = new System.Drawing.Size(298, 30);
+            this.editTextCorreo1.Size = new System.Drawing.Size(283, 30);
             this.editTextCorreo1.StyleController = this.layoutControl2;
             this.editTextCorreo1.TabIndex = 6;
             // 
             // editTextCorreo2
             // 
-            this.editTextCorreo2.Location = new System.Drawing.Point(432, 76);
+            this.editTextCorreo2.Location = new System.Drawing.Point(447, 76);
             this.editTextCorreo2.MaximumSize = new System.Drawing.Size(0, 30);
             this.editTextCorreo2.MenuManager = this.ribbon;
             this.editTextCorreo2.MinimumSize = new System.Drawing.Size(0, 30);
             this.editTextCorreo2.Name = "editTextCorreo2";
-            this.editTextCorreo2.Size = new System.Drawing.Size(321, 30);
+            this.editTextCorreo2.Size = new System.Drawing.Size(306, 30);
             this.editTextCorreo2.StyleController = this.layoutControl2;
             this.editTextCorreo2.TabIndex = 7;
             // 
             // editTextTelefono
             // 
-            this.editTextTelefono.Location = new System.Drawing.Point(77, 110);
+            this.editTextTelefono.Location = new System.Drawing.Point(447, 110);
             this.editTextTelefono.MaximumSize = new System.Drawing.Size(0, 30);
             this.editTextTelefono.MenuManager = this.ribbon;
             this.editTextTelefono.MinimumSize = new System.Drawing.Size(0, 30);
             this.editTextTelefono.Name = "editTextTelefono";
-            this.editTextTelefono.Size = new System.Drawing.Size(298, 30);
+            this.editTextTelefono.Size = new System.Drawing.Size(306, 30);
             this.editTextTelefono.StyleController = this.layoutControl2;
             this.editTextTelefono.TabIndex = 8;
             // 
             // editTextNombre
             // 
-            this.editTextNombre.Location = new System.Drawing.Point(432, 42);
+            this.editTextNombre.Location = new System.Drawing.Point(92, 76);
             this.editTextNombre.MaximumSize = new System.Drawing.Size(0, 30);
             this.editTextNombre.MenuManager = this.ribbon;
             this.editTextNombre.MinimumSize = new System.Drawing.Size(0, 30);
             this.editTextNombre.Name = "editTextNombre";
-            this.editTextNombre.Size = new System.Drawing.Size(321, 30);
+            this.editTextNombre.Size = new System.Drawing.Size(283, 30);
             this.editTextNombre.StyleController = this.layoutControl2;
             this.editTextNombre.TabIndex = 5;
+            // 
+            // editTextContacto
+            // 
+            this.editTextContacto.Location = new System.Drawing.Point(92, 42);
+            this.editTextContacto.MaximumSize = new System.Drawing.Size(0, 30);
+            this.editTextContacto.MenuManager = this.ribbon;
+            this.editTextContacto.MinimumSize = new System.Drawing.Size(0, 30);
+            this.editTextContacto.Name = "editTextContacto";
+            this.editTextContacto.Size = new System.Drawing.Size(283, 30);
+            this.editTextContacto.StyleController = this.layoutControl2;
+            this.editTextContacto.TabIndex = 9;
             // 
             // layoutControlGroup2
             // 
@@ -591,60 +629,70 @@
             this.Datos.CustomizationFormText = "layoutControlGroup6";
             this.Datos.ExpandButtonVisible = true;
             this.Datos.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem4,
             this.layoutControlItem2,
             this.layoutControlItem3,
-            this.layoutControlItem4,
-            this.layoutControlItem5,
-            this.layoutControlItem6});
+            this.editProveedor,
+            this.layoutControlItem6,
+            this.layoutControlItem5});
             this.Datos.Location = new System.Drawing.Point(0, 0);
             this.Datos.Name = "Datos";
             this.Datos.Size = new System.Drawing.Size(757, 266);
             // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.editTextCorreo1;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 68);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(355, 156);
+            this.layoutControlItem4.Text = "Correo 1";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(65, 13);
+            // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.editTextProveedores;
+            this.layoutControlItem2.Control = this.editTextContacto;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(355, 34);
-            this.layoutControlItem2.Text = "Proveedor";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(50, 13);
+            this.layoutControlItem2.Text = "NumContacto";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(65, 13);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.editTextNombre;
-            this.layoutControlItem3.Location = new System.Drawing.Point(355, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 34);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(378, 34);
+            this.layoutControlItem3.Size = new System.Drawing.Size(355, 34);
             this.layoutControlItem3.Text = "Nombre";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(50, 13);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(65, 13);
             // 
-            // layoutControlItem4
+            // editProveedor
             // 
-            this.layoutControlItem4.Control = this.editTextCorreo1;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 34);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(355, 34);
-            this.layoutControlItem4.Text = "Correo 1";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(50, 13);
+            this.editProveedor.Control = this.editTextProveedores;
+            this.editProveedor.Location = new System.Drawing.Point(355, 0);
+            this.editProveedor.Name = "editProveedor";
+            this.editProveedor.Size = new System.Drawing.Size(378, 34);
+            this.editProveedor.Text = "Proveedor";
+            this.editProveedor.TextSize = new System.Drawing.Size(65, 13);
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.editTextTelefono;
+            this.layoutControlItem6.Location = new System.Drawing.Point(355, 68);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(378, 156);
+            this.layoutControlItem6.Text = "Telefono";
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(65, 13);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.editTextCorreo2;
             this.layoutControlItem5.Location = new System.Drawing.Point(355, 34);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(378, 190);
+            this.layoutControlItem5.Size = new System.Drawing.Size(378, 34);
             this.layoutControlItem5.Text = "Correo 2";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(50, 13);
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.editTextTelefono;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 68);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(355, 156);
-            this.layoutControlItem6.Text = "Telefono";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(50, 13);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(65, 13);
             // 
             // layoutControlGroup1
             // 
@@ -712,7 +760,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Tabla)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
@@ -724,19 +772,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.editTextCorreo2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editTextTelefono.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editTextNombre.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editTextContacto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Datos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editProveedor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -772,11 +823,11 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripTextBox editTextBusquedaProveedor;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
+        private System.Windows.Forms.ToolStripTextBox editTextBusquedaNombre;
         private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView Tabla;
         private DevExpress.XtraGrid.Columns.GridColumn idproveedor;
         private DevExpress.XtraGrid.Columns.GridColumn Nombre;
         private DevExpress.XtraGrid.Columns.GridColumn Correo1;
@@ -789,7 +840,7 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraLayout.LayoutControlGroup Datos;
         private DevExpress.XtraEditors.TextEdit editTextProveedores;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem editProveedor;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraEditors.TextEdit editTextCorreo1;
         private DevExpress.XtraEditors.TextEdit editTextCorreo2;
@@ -803,5 +854,9 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private DevExpress.XtraEditors.TextEdit editTextNombre;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
+        private DevExpress.XtraEditors.TextEdit editTextContacto;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
     }
 }

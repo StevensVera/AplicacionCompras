@@ -19,9 +19,9 @@ namespace AplicacionCompras.Vista
         static Controlador.PagosControlador s = new Controlador.PagosControlador();
         static private int pageSize = 30;
         static int totalRecords = 1;
-        Char tipoO = 's';
+        Char tipo = 's';
         int contT = 0;
-
+        int codigoA = 0;
         public CondicionesPagos()
         {
             InitializeComponent();
@@ -182,7 +182,7 @@ namespace AplicacionCompras.Vista
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            tipoO = 'N';
+            tipo = 'N';
             this.tabControl1.SelectTab(1);
             EnableControls(tabPage2);
             ResetControls(tabPage2);
@@ -192,59 +192,97 @@ namespace AplicacionCompras.Vista
 
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Cursor.Current = Cursors.WaitCursor;
-            CheckControls(tabPage2);
-            if (contT == 0) {
-
-                Modelo.CondicionesPago c = new Modelo.CondicionesPago();
-                c.codigo = Int16.Parse(CodigoC.Text);
-                c.descripcion = DescripcionC.Text;
-                c.dias = Int16.Parse(DiasC.Text);
-                c.anticipo = AnticipoC.Checked;
-                c.porcentaje = Int16.Parse(CodigoC.Text);
-
-                if (tipoO.Equals('N'))
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                if (tipo.Equals('N'))
                 {
-                    Object item = s.guardarPagos(c);
-                    String message = (String)(item.GetType().GetProperty("message").GetValue(item, null));
-                    Int32 code = (Int32)(item.GetType().GetProperty("code").GetValue(item, null));
-
-                    if (code == 1)
+                    CheckControls(tabPage2);
+                    if (contT == 0)
                     {
-                        ResetControls(tabPage2);
-                        DisableControls(tabPage2);
-                        tipoO = 's';
-                        Recarga();
-                        this.tabControl1.SelectTab(0);
-                        MessageBox.Show(message, "0k", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        vaciarCamposBusquedas();
+                        Modelo.CondicionesPago c = new Modelo.CondicionesPago();
+                        c.codigo = Int16.Parse(CodigoC.Text);
+                        c.descripcion = DescripcionC.Text;
+                        c.dias = Int16.Parse(DiasC.Text);
+                        c.anticipo = AnticipoC.Checked;
+                        c.porcentaje = Int16.Parse(PorcentajeC.Text);
+                        Object item = s.guardarPagos(c);
 
+                        System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+                        System.Reflection.PropertyInfo a = item.GetType().GetProperty("code");
+                        String message = (String)(m.GetValue(item, null));
+                        int code = (int)(a.GetValue(item, null));
+
+                        if (code == 1)
+                        {
+                            ResetControls(tabPage2);
+                            DisableControls(tabPage2);
+                            tipo = 's';
+                            Recarga();
+                            this.tabControl1.SelectTab(0);
+                            MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        }
+                        else if (code == 2)
+                        {
+                            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    else if (code == 2)
+                    else
                     {
-                        MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Se deben de llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    contT = 0;
                 }
-                else if (tipoO.Equals('E'))
+                else if (tipo.Equals('E'))
                 {
-                    Object item = s.editarPagos(c);
-                    String message = (String)(item.GetType().GetProperty("message").GetValue(item, null));
-                    Int32 code = (Int32)(item.GetType().GetProperty("code").GetValue(item, null));
-
-                    if (code == 1)
+                    CheckControls(tabPage2);
+                    if (contT == 0)
                     {
-                        ResetControls(tabPage2);
-                        DisableControls(tabPage2);
-                        tipoO = 's';
-                        Recarga();
-                        this.tabControl1.SelectTab(0);
-                        MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        vaciarCamposBusquedas();
+                        Modelo.CondicionesPago mo = new Modelo.CondicionesPago();
+                        mo.codigo = Int16.Parse(editTextCodigo.Text);
+                        mo.descripcion = editTextDescripcion.Text;
+                        mo.dias = Int16.Parse(editTextDias.Text);
+                        mo.anticipo = AnticipoC.Checked;
+                        mo.porcentaje = Int16.Parse(PorcentajeC.Text);
 
+                        Object item = s.editarPagos(mo, codigoA);
+                        System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+                        System.Reflection.PropertyInfo a = item.GetType().GetProperty("code");
+                        String message = (String)(m.GetValue(item, null));
+                        int code = (int)(a.GetValue(item, null));
+                        if (code == 1)
+                        {
+                            ResetControls(tabPage2);
+                            DisableControls(tabPage2);
+                            tipo = 's';
+                            Recarga();
+                            this.tabControl1.SelectTab(0);
+                            MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        }
+                        else if (code == 2)
+                        {
+                            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
+                    else
+                    {
+                        MessageBox.Show("Se deben de llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    contT = 0;
 
                 }
+                else if (tipo.Equals('s'))
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-
 
         }
         private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
@@ -252,9 +290,109 @@ namespace AplicacionCompras.Vista
             Cursor.Current = Cursors.WaitCursor;
             ResetControls(tabPage2);
             DisableControls(tabPage2);
-            tipoO = 's';
+            tipo = 's';
+        }
+        private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                ResetControls(tabPage2);
+                tipo = 'E';
+                int r = Table.GetSelectedRows()[0];
+
+                CodigoC.Text = (Table.GetRowCellValue(r, "codigo") == null) ? "" : Table.GetRowCellValue(r, "codigo").ToString();
+                DescripcionC.Text = (Table.GetRowCellValue(r, "descripcion") == null) ? "" : Table.GetRowCellValue(r, "descripcion").ToString();
+                DiasC.Text = (Table.GetRowCellValue(r, "dias") == null) ? "" : Table.GetRowCellValue(r, "dias").ToString();
+                AnticipoC.Checked = (Table.GetRowCellValue(r, "anticipo") == null) ? false : (Table.GetRowCellValue(r, "anticipo").ToString().Equals("True")) ? true : false;
+                PorcentajeC.Text = (Table.GetRowCellValue(r, "porcentaje") == null) ? "" : Table.GetRowCellValue(r, "porcentaje").ToString();
+                this.tabControl1.SelectTab(1);
+                EnableControls(tabPage2);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+            }
+
         }
 
-        
+        private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                int r = Table.GetSelectedRows()[0];
+                int idcodigo = (Table.GetRowCellValue(r, "codigo") == null) ? 0 : Int32.Parse(Table.GetRowCellValue(r, "codigo").ToString());
+                Object item = s.borrarPagos(idcodigo);
+
+                System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+                System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
+                String message = (String)(m.GetValue(item, null));
+                int code = (int)(c.GetValue(item, null));
+
+
+                if (code == 1)
+                {
+                    vaciarCamposBusquedas();
+                    Recarga();
+                    MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                }
+                else if (code == 2)
+                {
+                    MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
+
+        }
+        public void vaciarCamposBusquedas()
+        {
+            editTextCodigo.Text = "";
+            editTextDescripcion.Text = "";
+            editTextDias.Text = "";
+        }
+
+        private void gridControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CodigoC_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            buscarFiltro();
+        }
+
+        private void buscarFiltro()
+        {
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                if (editTextCodigo.Text != "" || editTextDescripcion.Text != "" || editTextDias.Text != "")
+                {
+                    var e = int.TryParse(editTextCodigo.Text, out int n);
+                    if (editTextCodigo.Text == "")
+                    {
+                        //var x = s.GetPagosFiltros(editTextCodigo.Text.Equals("") ? -1 : Int32)
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

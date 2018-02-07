@@ -31,6 +31,22 @@ namespace AplicacionCompras.Controlador
                 return null;
             }
         }
+        public List<Proveedores> GetAllProveedores()
+        {
+            try
+            {
+                using (var bd = new ComprasEntities())
+                {
+                    var list = bd.Proveedores.ToList();
+                    return list;
+                }
+            }
+            catch (SqlException odbcEx)
+            {
+                var error = odbcEx;
+                return null;
+            }
+        }
         public List<Proveedores> GetProveedoresFiltros(string RFC, string razSoc, string ciudad)
         {
             try

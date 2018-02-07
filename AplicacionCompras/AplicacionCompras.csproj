@@ -120,6 +120,12 @@
     <Compile Include="Vista\CondicionesPagos.Designer.cs">
       <DependentUpon>CondicionesPagos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\DetalleContactoProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\DetalleContactoProveedor.Designer.cs">
+      <DependentUpon>DetalleContactoProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\CondicionesPagos.resx">
       <DependentUpon>CondicionesPagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\DetalleContactoProveedor.resx">
+      <DependentUpon>DetalleContactoProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
@@ -187,6 +196,16 @@
     <Content Include="Files\botones\cancelar.png" />
     <Content Include="Files\botones\clean.png" />
     <Content Include="Files\botones\delete.png" />
+    <Content Include="Modelo\ComprasEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ComprasEntities.edmx</DependentUpon>
+      <LastGenOutput>ComprasEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Modelo\ComprasEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ComprasEntities.edmx</DependentUpon>
+      <LastGenOutput>ComprasEntities.cs</LastGenOutput>
+    </Content>
     <None Include="Files\botones\if_search_143825.png" />
     <Content Include="Files\botones\img.png" />
     <Content Include="Files\botones\lupa.png" />
@@ -198,16 +217,6 @@
     <Content Include="Files\botones\update.png" />
     <Content Include="Files\botones\valido.png" />
     <Content Include="Files\Contactos.png" />
-    <Content Include="Modelo\ComprasEntities.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ComprasEntities.edmx</DependentUpon>
-      <LastGenOutput>ComprasEntities.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Modelo\ComprasEntities.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ComprasEntities.edmx</DependentUpon>
-      <LastGenOutput>ComprasEntities.cs</LastGenOutput>
-    </Content>
     <None Include="Resources\Compras.bmp" />
     <None Include="Files\delivery-truck.png" />
     <None Include="Files\contacts.png" />

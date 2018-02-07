@@ -11,6 +11,7 @@
         <EntityTypeShape EntityType="ComprasEntiites.Proveedores" Width="1.5" PointX="0.75" PointY="2.5" />
         <EntityTypeShape EntityType="ComprasEntiites.ContactoProveedores" Width="1.5" PointX="3" PointY="2.125" />
         <AssociationConnector Association="ComprasEntiites.FK_ContactoProveedores_Proveedores" />
+
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

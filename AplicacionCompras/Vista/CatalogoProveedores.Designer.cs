@@ -48,6 +48,7 @@
             this.Tabla = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.consecutivos = new DevExpress.XtraGrid.Columns.GridColumn();
             this.proveedor = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.razSoc2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.razSoc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.padronProv = new DevExpress.XtraGrid.Columns.GridColumn();
             this.telefono = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -66,7 +67,6 @@
             this.subsubCuenta = new DevExpress.XtraGrid.Columns.GridColumn();
             this.catOrg = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tipoProveedor = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.razSoc2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -88,24 +88,24 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.razSocP = new DevExpress.XtraEditors.TextEdit();
+            this.rfcP = new DevExpress.XtraEditors.TextEdit();
             this.padronP = new DevExpress.XtraEditors.TextEdit();
-            this.direccionP = new DevExpress.XtraEditors.TextEdit();
-            this.telP = new DevExpress.XtraEditors.TextEdit();
-            this.coloniaP = new DevExpress.XtraEditors.TextEdit();
             this.ciudadP = new DevExpress.XtraEditors.TextEdit();
+            this.coloniaP = new DevExpress.XtraEditors.TextEdit();
+            this.direccionP = new DevExpress.XtraEditors.TextEdit();
             this.cpP = new DevExpress.XtraEditors.TextEdit();
+            this.telP = new DevExpress.XtraEditors.TextEdit();
             this.faxP = new DevExpress.XtraEditors.TextEdit();
             this.tipoP = new DevExpress.XtraEditors.TextEdit();
-            this.rfcP = new DevExpress.XtraEditors.TextEdit();
+            this.tipoProveedorP = new DevExpress.XtraEditors.TextEdit();
             this.representanteP = new DevExpress.XtraEditors.TextEdit();
+            this.catOrgP = new DevExpress.XtraEditors.TextEdit();
+            this.cuentaP = new DevExpress.XtraEditors.TextEdit();
             this.centCostP = new DevExpress.XtraEditors.TextEdit();
             this.subCuentaP = new DevExpress.XtraEditors.TextEdit();
             this.subSubCuentaP = new DevExpress.XtraEditors.TextEdit();
-            this.catOrgP = new DevExpress.XtraEditors.TextEdit();
-            this.tipoProveedorP = new DevExpress.XtraEditors.TextEdit();
-            this.cuentaP = new DevExpress.XtraEditors.TextEdit();
-            this.actaP = new DevExpress.XtraEditors.CheckEdit();
             this.fechaP = new DevExpress.XtraEditors.DateEdit();
+            this.actaP = new DevExpress.XtraEditors.CheckEdit();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup6 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -119,14 +119,14 @@
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -143,25 +143,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.razSocP.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rfcP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.padronP.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.direccionP.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.telP.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coloniaP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ciudadP.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coloniaP.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.direccionP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpP.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.telP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.faxP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoP.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rfcP.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoProveedorP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.representanteP.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.catOrgP.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuentaP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.centCostP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subCuentaP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subSubCuentaP.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.catOrgP.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoProveedorP.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cuentaP.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.actaP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fechaP.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fechaP.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.actaP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -175,14 +175,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
@@ -397,6 +397,15 @@
             this.proveedor.Name = "proveedor";
             this.proveedor.Width = 60;
             // 
+            // razSoc2
+            // 
+            this.razSoc2.Caption = "Razon Social";
+            this.razSoc2.FieldName = "razSoc2";
+            this.razSoc2.Name = "razSoc2";
+            this.razSoc2.Visible = true;
+            this.razSoc2.VisibleIndex = 1;
+            this.razSoc2.Width = 304;
+            // 
             // razSoc
             // 
             this.razSoc.Caption = "Razon Social";
@@ -554,15 +563,6 @@
             this.tipoProveedor.Visible = true;
             this.tipoProveedor.VisibleIndex = 18;
             this.tipoProveedor.Width = 83;
-            // 
-            // razSoc2
-            // 
-            this.razSoc2.Caption = "Razon Social";
-            this.razSoc2.FieldName = "razSoc2";
-            this.razSoc2.Name = "razSoc2";
-            this.razSoc2.Visible = true;
-            this.razSoc2.VisibleIndex = 1;
-            this.razSoc2.Width = 304;
             // 
             // bindingNavigator
             // 
@@ -772,7 +772,7 @@
             // 
             // razSocP
             // 
-            this.razSocP.Location = new System.Drawing.Point(100, 41);
+            this.razSocP.Location = new System.Drawing.Point(100, 42);
             this.razSocP.MenuManager = this.ribbon;
             this.razSocP.Name = "razSocP";
             this.razSocP.Properties.MaxLength = 255;
@@ -780,9 +780,19 @@
             this.razSocP.StyleController = this.layoutControl2;
             this.razSocP.TabIndex = 4;
             // 
+            // rfcP
+            // 
+            this.rfcP.Location = new System.Drawing.Point(100, 66);
+            this.rfcP.MenuManager = this.ribbon;
+            this.rfcP.Name = "rfcP";
+            this.rfcP.Properties.MaxLength = 14;
+            this.rfcP.Size = new System.Drawing.Size(257, 20);
+            this.rfcP.StyleController = this.layoutControl2;
+            this.rfcP.TabIndex = 13;
+            // 
             // padronP
             // 
-            this.padronP.Location = new System.Drawing.Point(437, 65);
+            this.padronP.Location = new System.Drawing.Point(437, 66);
             this.padronP.MenuManager = this.ribbon;
             this.padronP.Name = "padronP";
             this.padronP.Properties.Mask.EditMask = "f2";
@@ -791,38 +801,9 @@
             this.padronP.StyleController = this.layoutControl2;
             this.padronP.TabIndex = 5;
             // 
-            // direccionP
-            // 
-            this.direccionP.Location = new System.Drawing.Point(100, 113);
-            this.direccionP.MenuManager = this.ribbon;
-            this.direccionP.Name = "direccionP";
-            this.direccionP.Size = new System.Drawing.Size(257, 20);
-            this.direccionP.StyleController = this.layoutControl2;
-            this.direccionP.TabIndex = 6;
-            // 
-            // telP
-            // 
-            this.telP.Location = new System.Drawing.Point(100, 137);
-            this.telP.MenuManager = this.ribbon;
-            this.telP.Name = "telP";
-            this.telP.Properties.MaxLength = 40;
-            this.telP.Size = new System.Drawing.Size(257, 20);
-            this.telP.StyleController = this.layoutControl2;
-            this.telP.TabIndex = 7;
-            // 
-            // coloniaP
-            // 
-            this.coloniaP.Location = new System.Drawing.Point(437, 89);
-            this.coloniaP.MenuManager = this.ribbon;
-            this.coloniaP.Name = "coloniaP";
-            this.coloniaP.Properties.MaxLength = 50;
-            this.coloniaP.Size = new System.Drawing.Size(258, 20);
-            this.coloniaP.StyleController = this.layoutControl2;
-            this.coloniaP.TabIndex = 8;
-            // 
             // ciudadP
             // 
-            this.ciudadP.Location = new System.Drawing.Point(100, 89);
+            this.ciudadP.Location = new System.Drawing.Point(100, 90);
             this.ciudadP.MenuManager = this.ribbon;
             this.ciudadP.Name = "ciudadP";
             this.ciudadP.Properties.MaxLength = 50;
@@ -830,9 +811,28 @@
             this.ciudadP.StyleController = this.layoutControl2;
             this.ciudadP.TabIndex = 9;
             // 
+            // coloniaP
+            // 
+            this.coloniaP.Location = new System.Drawing.Point(437, 90);
+            this.coloniaP.MenuManager = this.ribbon;
+            this.coloniaP.Name = "coloniaP";
+            this.coloniaP.Properties.MaxLength = 50;
+            this.coloniaP.Size = new System.Drawing.Size(258, 20);
+            this.coloniaP.StyleController = this.layoutControl2;
+            this.coloniaP.TabIndex = 8;
+            // 
+            // direccionP
+            // 
+            this.direccionP.Location = new System.Drawing.Point(100, 114);
+            this.direccionP.MenuManager = this.ribbon;
+            this.direccionP.Name = "direccionP";
+            this.direccionP.Size = new System.Drawing.Size(257, 20);
+            this.direccionP.StyleController = this.layoutControl2;
+            this.direccionP.TabIndex = 6;
+            // 
             // cpP
             // 
-            this.cpP.Location = new System.Drawing.Point(437, 113);
+            this.cpP.Location = new System.Drawing.Point(437, 114);
             this.cpP.MenuManager = this.ribbon;
             this.cpP.Name = "cpP";
             this.cpP.Properties.Mask.EditMask = "\\d+";
@@ -841,9 +841,19 @@
             this.cpP.StyleController = this.layoutControl2;
             this.cpP.TabIndex = 10;
             // 
+            // telP
+            // 
+            this.telP.Location = new System.Drawing.Point(100, 138);
+            this.telP.MenuManager = this.ribbon;
+            this.telP.Name = "telP";
+            this.telP.Properties.MaxLength = 40;
+            this.telP.Size = new System.Drawing.Size(257, 20);
+            this.telP.StyleController = this.layoutControl2;
+            this.telP.TabIndex = 7;
+            // 
             // faxP
             // 
-            this.faxP.Location = new System.Drawing.Point(437, 137);
+            this.faxP.Location = new System.Drawing.Point(437, 138);
             this.faxP.MenuManager = this.ribbon;
             this.faxP.Name = "faxP";
             this.faxP.Properties.MaxLength = 32;
@@ -853,7 +863,7 @@
             // 
             // tipoP
             // 
-            this.tipoP.Location = new System.Drawing.Point(100, 161);
+            this.tipoP.Location = new System.Drawing.Point(100, 162);
             this.tipoP.MenuManager = this.ribbon;
             this.tipoP.Name = "tipoP";
             this.tipoP.Properties.Mask.EditMask = "\\d+";
@@ -863,19 +873,21 @@
             this.tipoP.StyleController = this.layoutControl2;
             this.tipoP.TabIndex = 12;
             // 
-            // rfcP
+            // tipoProveedorP
             // 
-            this.rfcP.Location = new System.Drawing.Point(100, 65);
-            this.rfcP.MenuManager = this.ribbon;
-            this.rfcP.Name = "rfcP";
-            this.rfcP.Properties.MaxLength = 14;
-            this.rfcP.Size = new System.Drawing.Size(257, 20);
-            this.rfcP.StyleController = this.layoutControl2;
-            this.rfcP.TabIndex = 13;
+            this.tipoProveedorP.Location = new System.Drawing.Point(437, 162);
+            this.tipoProveedorP.MenuManager = this.ribbon;
+            this.tipoProveedorP.Name = "tipoProveedorP";
+            this.tipoProveedorP.Properties.Mask.EditMask = "\\d+";
+            this.tipoProveedorP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.tipoProveedorP.Properties.MaxLength = 4;
+            this.tipoProveedorP.Size = new System.Drawing.Size(258, 20);
+            this.tipoProveedorP.StyleController = this.layoutControl2;
+            this.tipoProveedorP.TabIndex = 22;
             // 
             // representanteP
             // 
-            this.representanteP.Location = new System.Drawing.Point(100, 185);
+            this.representanteP.Location = new System.Drawing.Point(100, 186);
             this.representanteP.MenuManager = this.ribbon;
             this.representanteP.Name = "representanteP";
             this.representanteP.Properties.MaxLength = 60;
@@ -883,9 +895,30 @@
             this.representanteP.StyleController = this.layoutControl2;
             this.representanteP.TabIndex = 16;
             // 
+            // catOrgP
+            // 
+            this.catOrgP.Location = new System.Drawing.Point(437, 186);
+            this.catOrgP.MenuManager = this.ribbon;
+            this.catOrgP.Name = "catOrgP";
+            this.catOrgP.Properties.MaxLength = 1;
+            this.catOrgP.Size = new System.Drawing.Size(258, 20);
+            this.catOrgP.StyleController = this.layoutControl2;
+            this.catOrgP.TabIndex = 21;
+            // 
+            // cuentaP
+            // 
+            this.cuentaP.Location = new System.Drawing.Point(100, 210);
+            this.cuentaP.MenuManager = this.ribbon;
+            this.cuentaP.Name = "cuentaP";
+            this.cuentaP.Properties.Mask.EditMask = "\\d+";
+            this.cuentaP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.cuentaP.Size = new System.Drawing.Size(257, 20);
+            this.cuentaP.StyleController = this.layoutControl2;
+            this.cuentaP.TabIndex = 24;
+            // 
             // centCostP
             // 
-            this.centCostP.Location = new System.Drawing.Point(437, 209);
+            this.centCostP.Location = new System.Drawing.Point(437, 210);
             this.centCostP.MenuManager = this.ribbon;
             this.centCostP.Name = "centCostP";
             this.centCostP.Properties.Mask.EditMask = "\\d+";
@@ -896,7 +929,7 @@
             // 
             // subCuentaP
             // 
-            this.subCuentaP.Location = new System.Drawing.Point(100, 233);
+            this.subCuentaP.Location = new System.Drawing.Point(100, 234);
             this.subCuentaP.MenuManager = this.ribbon;
             this.subCuentaP.Name = "subCuentaP";
             this.subCuentaP.Properties.Mask.EditMask = "\\d+";
@@ -907,7 +940,7 @@
             // 
             // subSubCuentaP
             // 
-            this.subSubCuentaP.Location = new System.Drawing.Point(437, 233);
+            this.subSubCuentaP.Location = new System.Drawing.Point(437, 234);
             this.subSubCuentaP.MenuManager = this.ribbon;
             this.subSubCuentaP.Name = "subSubCuentaP";
             this.subSubCuentaP.Properties.Mask.EditMask = "\\d+";
@@ -916,54 +949,10 @@
             this.subSubCuentaP.StyleController = this.layoutControl2;
             this.subSubCuentaP.TabIndex = 20;
             // 
-            // catOrgP
-            // 
-            this.catOrgP.Location = new System.Drawing.Point(437, 185);
-            this.catOrgP.MenuManager = this.ribbon;
-            this.catOrgP.Name = "catOrgP";
-            this.catOrgP.Properties.MaxLength = 1;
-            this.catOrgP.Size = new System.Drawing.Size(258, 20);
-            this.catOrgP.StyleController = this.layoutControl2;
-            this.catOrgP.TabIndex = 21;
-            // 
-            // tipoProveedorP
-            // 
-            this.tipoProveedorP.Location = new System.Drawing.Point(437, 161);
-            this.tipoProveedorP.MenuManager = this.ribbon;
-            this.tipoProveedorP.Name = "tipoProveedorP";
-            this.tipoProveedorP.Properties.Mask.EditMask = "\\d+";
-            this.tipoProveedorP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.tipoProveedorP.Properties.MaxLength = 4;
-            this.tipoProveedorP.Size = new System.Drawing.Size(258, 20);
-            this.tipoProveedorP.StyleController = this.layoutControl2;
-            this.tipoProveedorP.TabIndex = 22;
-            // 
-            // cuentaP
-            // 
-            this.cuentaP.Location = new System.Drawing.Point(100, 209);
-            this.cuentaP.MenuManager = this.ribbon;
-            this.cuentaP.Name = "cuentaP";
-            this.cuentaP.Properties.Mask.EditMask = "\\d+";
-            this.cuentaP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.cuentaP.Size = new System.Drawing.Size(257, 20);
-            this.cuentaP.StyleController = this.layoutControl2;
-            this.cuentaP.TabIndex = 24;
-            // 
-            // actaP
-            // 
-            this.actaP.Location = new System.Drawing.Point(437, 257);
-            this.actaP.MenuManager = this.ribbon;
-            this.actaP.Name = "actaP";
-            this.actaP.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
-            this.actaP.Properties.Caption = "";
-            this.actaP.Size = new System.Drawing.Size(258, 19);
-            this.actaP.StyleController = this.layoutControl2;
-            this.actaP.TabIndex = 15;
-            // 
             // fechaP
             // 
             this.fechaP.EditValue = null;
-            this.fechaP.Location = new System.Drawing.Point(100, 257);
+            this.fechaP.Location = new System.Drawing.Point(100, 258);
             this.fechaP.MenuManager = this.ribbon;
             this.fechaP.Name = "fechaP";
             this.fechaP.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -979,6 +968,17 @@
             this.fechaP.Size = new System.Drawing.Size(257, 20);
             this.fechaP.StyleController = this.layoutControl2;
             this.fechaP.TabIndex = 14;
+            // 
+            // actaP
+            // 
+            this.actaP.Location = new System.Drawing.Point(437, 258);
+            this.actaP.MenuManager = this.ribbon;
+            this.actaP.Name = "actaP";
+            this.actaP.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
+            this.actaP.Properties.Caption = "";
+            this.actaP.Size = new System.Drawing.Size(258, 19);
+            this.actaP.StyleController = this.layoutControl2;
+            this.actaP.TabIndex = 15;
             // 
             // layoutControlGroup2
             // 
@@ -1118,15 +1118,6 @@
             this.layoutControlItem20.Text = "Tipo proveedor";
             this.layoutControlItem20.TextSize = new System.Drawing.Size(73, 13);
             // 
-            // layoutControlItem13
-            // 
-            this.layoutControlItem13.Control = this.actaP;
-            this.layoutControlItem13.Location = new System.Drawing.Point(337, 216);
-            this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(338, 24);
-            this.layoutControlItem13.Text = "Acta Cons";
-            this.layoutControlItem13.TextSize = new System.Drawing.Size(73, 13);
-            // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.representanteP;
@@ -1135,24 +1126,6 @@
             this.layoutControlItem14.Size = new System.Drawing.Size(337, 24);
             this.layoutControlItem14.Text = "Representante";
             this.layoutControlItem14.TextSize = new System.Drawing.Size(73, 13);
-            // 
-            // layoutControlItem12
-            // 
-            this.layoutControlItem12.Control = this.fechaP;
-            this.layoutControlItem12.Location = new System.Drawing.Point(0, 216);
-            this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(337, 24);
-            this.layoutControlItem12.Text = "Fecha";
-            this.layoutControlItem12.TextSize = new System.Drawing.Size(73, 13);
-            // 
-            // layoutControlItem19
-            // 
-            this.layoutControlItem19.Control = this.catOrgP;
-            this.layoutControlItem19.Location = new System.Drawing.Point(337, 144);
-            this.layoutControlItem19.Name = "layoutControlItem19";
-            this.layoutControlItem19.Size = new System.Drawing.Size(338, 24);
-            this.layoutControlItem19.Text = "CatOrg";
-            this.layoutControlItem19.TextSize = new System.Drawing.Size(73, 13);
             // 
             // layoutControlItem15
             // 
@@ -1189,6 +1162,33 @@
             this.layoutControlItem18.Size = new System.Drawing.Size(338, 24);
             this.layoutControlItem18.Text = "SubSubCuenta";
             this.layoutControlItem18.TextSize = new System.Drawing.Size(73, 13);
+            // 
+            // layoutControlItem12
+            // 
+            this.layoutControlItem12.Control = this.fechaP;
+            this.layoutControlItem12.Location = new System.Drawing.Point(0, 216);
+            this.layoutControlItem12.Name = "layoutControlItem12";
+            this.layoutControlItem12.Size = new System.Drawing.Size(337, 24);
+            this.layoutControlItem12.Text = "Fecha";
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(73, 13);
+            // 
+            // layoutControlItem19
+            // 
+            this.layoutControlItem19.Control = this.catOrgP;
+            this.layoutControlItem19.Location = new System.Drawing.Point(337, 144);
+            this.layoutControlItem19.Name = "layoutControlItem19";
+            this.layoutControlItem19.Size = new System.Drawing.Size(338, 24);
+            this.layoutControlItem19.Text = "CatOrg";
+            this.layoutControlItem19.TextSize = new System.Drawing.Size(73, 13);
+            // 
+            // layoutControlItem13
+            // 
+            this.layoutControlItem13.Control = this.actaP;
+            this.layoutControlItem13.Location = new System.Drawing.Point(337, 216);
+            this.layoutControlItem13.Name = "layoutControlItem13";
+            this.layoutControlItem13.Size = new System.Drawing.Size(338, 24);
+            this.layoutControlItem13.Text = "Acta Cons";
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(73, 13);
             // 
             // layoutControlGroup1
             // 
@@ -1243,25 +1243,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.razSocP.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rfcP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.padronP.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.direccionP.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.telP.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coloniaP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ciudadP.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coloniaP.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.direccionP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpP.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.telP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.faxP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoP.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rfcP.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoProveedorP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.representanteP.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.catOrgP.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuentaP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.centCostP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subCuentaP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subSubCuentaP.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.catOrgP.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoProveedorP.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cuentaP.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.actaP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fechaP.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fechaP.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.actaP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -1275,14 +1275,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
