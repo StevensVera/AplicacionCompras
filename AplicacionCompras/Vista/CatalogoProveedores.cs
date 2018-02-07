@@ -18,7 +18,7 @@ namespace AplicacionCompras.Vista
     public partial class CatalogoProveedores : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         static Controlador.ProveedorControlador s = new Controlador.ProveedorControlador();
-        static private int pageSize = 30;
+        static private int pageSize = 40;
         static int totalRecords = 1;
         int consecutivoActual=0,proveedorActual=0;
         //E=editar,N=nuevo,s=sin seleccionar
