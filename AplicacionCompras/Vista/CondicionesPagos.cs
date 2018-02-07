@@ -384,14 +384,57 @@ namespace AplicacionCompras.Vista
                     var e = int.TryParse(editTextCodigo.Text, out int n);
                     if (editTextCodigo.Text == "")
                     {
-                        //var x = s.GetPagosFiltros(editTextCodigo.Text.Equals("") ? -1 : Int32)
+                        var x = s.GetPagosFiltros(editTextCodigo.Text.Equals("") ? -1 : Int32.Parse(editTextCodigo.Text), editTextDescripcion.Text, editTextDias.Text.Equals("") ? -1 : Int32.Parse(editTextDias.Text));
+                        bindingSource1.DataSource = x.Count;
+                        gridControl1.DataSource = x;
+                    }
+                    else
+                    {
+                        if (e)
+                        {
+                            var x = s.GetPagosFiltros(editTextCodigo.Text.Equals("") ? -1 : Int32.Parse(editTextCodigo.Text), editTextDescripcion.Text, editTextDias.Text.Equals("") ? -1 : Int32.Parse(editTextDias.Text));
+                            bindingSource1.DataSource = x.Count;
+                            gridControl1.DataSource = x;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Id debe ser un numero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
+                else
+                {
+                    Recarga();
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+               MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-                throw;
+        private void editTextCodigo_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buscarFiltro();
+            }
+        }
+
+        private void editTextDescripcion_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buscarFiltro();
+            }
+
+        }
+
+        private void editTextDias_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buscarFiltro();
             }
         }
     }

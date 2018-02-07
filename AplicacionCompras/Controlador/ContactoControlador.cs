@@ -157,5 +157,32 @@ namespace AplicacionCompras.Controlador
             }
 
         }
+        public Object editarContacto(ContactoProveedores ProveedoresCont)
+        {
+            try
+            {
+                using (var bd = new ComprasEntities())
+                {
+                    Object result = "";
+                    bd.Entry(ProveedoresCont).State = System.Data.Entity.EntityState.Modified;
+                    bd.SaveChanges();
+                    result = new { message = "Se edito correctamente", code = 1 };
+
+                    return result;
+
+                }
+            }
+            catch (SqlException odbcEx)
+            {
+                Object result = new { message = "Error: " + odbcEx.Message.ToString(), code = 2 };
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Object result = new { message = "Error: " + ex.Message.ToString(), code = 2 };
+                return result;
+            }
+
+        }
     }
 }

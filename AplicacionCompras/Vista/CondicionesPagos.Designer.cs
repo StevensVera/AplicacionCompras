@@ -67,6 +67,7 @@
             this.editTextDescripcion = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.editTextDias = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
@@ -87,7 +88,6 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -453,6 +453,7 @@
             // 
             this.editTextCodigo.Name = "editTextCodigo";
             this.editTextCodigo.Size = new System.Drawing.Size(100, 25);
+            this.editTextCodigo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editTextCodigo_KeyUp);
             // 
             // toolStripLabel2
             // 
@@ -465,6 +466,7 @@
             // 
             this.editTextDescripcion.Name = "editTextDescripcion";
             this.editTextDescripcion.Size = new System.Drawing.Size(100, 25);
+            this.editTextDescripcion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editTextDescripcion_KeyUp);
             // 
             // toolStripLabel3
             // 
@@ -476,6 +478,17 @@
             // 
             this.editTextDias.Name = "editTextDias";
             this.editTextDias.Size = new System.Drawing.Size(100, 25);
+            this.editTextDias.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editTextDias_KeyUp);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = global::AplicacionCompras.Properties.Resources.if_search_143825;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripButton1
             // 
@@ -678,16 +691,6 @@
             this.layoutControlItem3.Text = "layoutControlIte";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::AplicacionCompras.Properties.Resources.if_search_143825;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // CondicionesPagos
             // 

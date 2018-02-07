@@ -206,9 +206,9 @@ namespace AplicacionCompras.Vista
                 if (tipoO.Equals('N'))
                 {
                     CheckControls(tabPage2);
-                    if (contT ==0)
+                    if (contT == 0)
                     {
-                        if (Int32.Parse(editTextProveedores.Text) !=0)
+                        if (Int32.Parse(editTextProveedores.Text) != 0)
                         {
                             vaciarCamposBusquedas();
                             Modelo.ContactoProveedores c = new Modelo.ContactoProveedores();
@@ -253,11 +253,63 @@ namespace AplicacionCompras.Vista
                     }
                     contT = 0;
                 }
-            }
-            catch (Exception)
-            {
+                else if (tipoO.Equals('E'))
+                {
+                    CheckControls(tabPage2);
+                    if (contT == 0)
+                    {
+                        if (Int32.Parse(editProveedor.Text) != 0)
+                        {
+                            vaciarCamposBusquedas();
+                            Modelo.ContactoProveedores con = new Modelo.ContactoProveedores();
+                            con.idContactos = Int32.Parse(editTextContacto.Text);
+                            con.idproveedor = Int32.Parse(editTextProveedores.Text);
+                            con.nombre = editTextNombre.Text;
+                            con.correo1 = editTextCorreo1.Text;
+                            con.correo2 = editTextCorreo2.Text;
+                            con.telefono = editTextTelefono.Text;
+                            Object item = a.editarContacto(con);
 
-                throw;
+                            System.Reflection.PropertyInfo msg = item.GetType().GetProperty("message");
+                            System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
+                            String message = (String)(msg.GetValue(item, null));
+                            int code = (int)(c.GetValue(item, null));
+
+                            if (code == 1)
+                            {
+                                ResetControls(tabPage2);
+                                DisableControls(tabPage2);
+                                tipoO = 's';
+                                Recarga();
+                                this.tabControl1.SelectTab(0);
+                                MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                            }
+                            else if (code == 2)
+                            {
+                                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show(" El proveedor no puede ser 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se deben de llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    contT = 0;
+                }
+                else if (tipoO.Equals('s'))
+                {
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
