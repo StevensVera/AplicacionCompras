@@ -61,6 +61,7 @@ namespace AplicacionCompras.Controlador
                     if (!razSoc.Equals(""))
                     {
                         query = query.Where(s => s.razSoc2.ToUpper().Contains(razSoc.ToUpper()));
+                        
                     }
                     if (!ciudad.Equals(""))
                     {
