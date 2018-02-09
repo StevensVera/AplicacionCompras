@@ -41,20 +41,24 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.editBusquedaNumProveedor = new System.Windows.Forms.ToolStripTextBox();
+            this.editBusqConsecutivos = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.editBusquedaRazonSocial = new System.Windows.Forms.ToolStripTextBox();
+            this.editBusqRazonSocial = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.editBusquedaDireccion = new System.Windows.Forms.ToolStripTextBox();
+            this.editBusqDireccion = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.Tabla = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.proveedor = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.consecutivos = new DevExpress.XtraGrid.Columns.GridColumn();
             this.razSoc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.direccion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Tabla)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // bindingNavigator1
@@ -73,11 +77,13 @@
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
             this.toolStripLabel1,
-            this.editBusquedaNumProveedor,
+            this.editBusqConsecutivos,
             this.toolStripLabel2,
-            this.editBusquedaRazonSocial,
+            this.editBusqRazonSocial,
             this.toolStripLabel3,
-            this.editBusquedaDireccion});
+            this.editBusqDireccion,
+            this.toolStripButton1,
+            this.toolStripButton2});
             this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -159,13 +165,14 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(88, 22);
-            this.toolStripLabel1.Text = "NumProveedor";
+            this.toolStripLabel1.Size = new System.Drawing.Size(73, 22);
+            this.toolStripLabel1.Text = "Consecutivo";
             // 
-            // editBusquedaNumProveedor
+            // editBusqConsecutivos
             // 
-            this.editBusquedaNumProveedor.Name = "editBusquedaNumProveedor";
-            this.editBusquedaNumProveedor.Size = new System.Drawing.Size(100, 25);
+            this.editBusqConsecutivos.Name = "editBusqConsecutivos";
+            this.editBusqConsecutivos.Size = new System.Drawing.Size(100, 25);
+            this.editBusqConsecutivos.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusqConsecutivos_KeyUp);
             // 
             // toolStripLabel2
             // 
@@ -173,10 +180,11 @@
             this.toolStripLabel2.Size = new System.Drawing.Size(73, 22);
             this.toolStripLabel2.Text = "Razon Social";
             // 
-            // editBusquedaRazonSocial
+            // editBusqRazonSocial
             // 
-            this.editBusquedaRazonSocial.Name = "editBusquedaRazonSocial";
-            this.editBusquedaRazonSocial.Size = new System.Drawing.Size(100, 25);
+            this.editBusqRazonSocial.Name = "editBusqRazonSocial";
+            this.editBusqRazonSocial.Size = new System.Drawing.Size(100, 25);
+            this.editBusqRazonSocial.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusqRazonSocial_KeyUp);
             // 
             // toolStripLabel3
             // 
@@ -184,10 +192,31 @@
             this.toolStripLabel3.Size = new System.Drawing.Size(57, 22);
             this.toolStripLabel3.Text = "Direccion";
             // 
-            // editBusquedaDireccion
+            // editBusqDireccion
             // 
-            this.editBusquedaDireccion.Name = "editBusquedaDireccion";
-            this.editBusquedaDireccion.Size = new System.Drawing.Size(100, 25);
+            this.editBusqDireccion.Name = "editBusqDireccion";
+            this.editBusqDireccion.Size = new System.Drawing.Size(100, 25);
+            this.editBusqDireccion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusqDireccion_KeyUp);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::AplicacionCompras.Properties.Resources.if_search_143825;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = global::AplicacionCompras.Properties.Resources.refresh;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // gridControl1
             // 
@@ -204,7 +233,7 @@
             // Tabla
             // 
             this.Tabla.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.proveedor,
+            this.consecutivos,
             this.razSoc,
             this.direccion});
             this.Tabla.GridControl = this.gridControl1;
@@ -213,14 +242,14 @@
             this.Tabla.OptionsBehavior.ReadOnly = true;
             this.Tabla.OptionsView.ShowGroupPanel = false;
             // 
-            // proveedor
+            // consecutivos
             // 
-            this.proveedor.Caption = "Num Proveedor";
-            this.proveedor.FieldName = "proveedor";
-            this.proveedor.Name = "proveedor";
-            this.proveedor.Visible = true;
-            this.proveedor.VisibleIndex = 0;
-            this.proveedor.Width = 133;
+            this.consecutivos.Caption = "consecutivos";
+            this.consecutivos.FieldName = "consecutivos";
+            this.consecutivos.Name = "consecutivos";
+            this.consecutivos.Visible = true;
+            this.consecutivos.VisibleIndex = 0;
+            this.consecutivos.Width = 133;
             // 
             // razSoc
             // 
@@ -240,6 +269,10 @@
             this.direccion.VisibleIndex = 2;
             this.direccion.Width = 308;
             // 
+            // bindingSource1
+            // 
+            this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged_1);
+            // 
             // DetalleContactoProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,6 +288,7 @@
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Tabla)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,14 +308,17 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView Tabla;
-        private DevExpress.XtraGrid.Columns.GridColumn proveedor;
+        private DevExpress.XtraGrid.Columns.GridColumn consecutivos;
         private DevExpress.XtraGrid.Columns.GridColumn razSoc;
         private DevExpress.XtraGrid.Columns.GridColumn direccion;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripTextBox editBusquedaNumProveedor;
+        private System.Windows.Forms.ToolStripTextBox editBusqConsecutivos;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.ToolStripTextBox editBusquedaRazonSocial;
+        private System.Windows.Forms.ToolStripTextBox editBusqRazonSocial;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
-        private System.Windows.Forms.ToolStripTextBox editBusquedaDireccion;
+        private System.Windows.Forms.ToolStripTextBox editBusqDireccion;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
     }
 }

@@ -258,9 +258,10 @@ namespace AplicacionCompras.Vista
                     CheckControls(tabPage2);
                     if (contT == 0)
                     {
+                        var datos = int.Parse(editTextProveedores.Text);
                         Modelo.ContactoProveedores mo = new Modelo.ContactoProveedores();
                         mo.idContactos = Int16.Parse(editTextContacto.Text);
-                        mo.idproveedor = Int16.Parse(editProveedor.Text);
+                        mo.idproveedor = datos;
                         mo.nombre = editTextNombre.Text;
                         mo.correo1 = editTextCorreo1.Text;
                         mo.correo2 = editTextCorreo2.Text;

@@ -375,6 +375,7 @@
             this.bindingNavigator1.Size = new System.Drawing.Size(781, 25);
             this.bindingNavigator1.TabIndex = 0;
             this.bindingNavigator1.Text = "bindingNavigator1";
+            this.bindingNavigator1.RefreshItems += new System.EventHandler(this.bindingNavigator1_RefreshItems);
             // 
             // bindingNavigatorCountItem
             // 
@@ -454,6 +455,7 @@
             this.editTextCodigo.Name = "editTextCodigo";
             this.editTextCodigo.Size = new System.Drawing.Size(100, 25);
             this.editTextCodigo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editTextCodigo_KeyUp);
+            this.editTextCodigo.Click += new System.EventHandler(this.editTextCodigo_Click);
             // 
             // toolStripLabel2
             // 

@@ -170,7 +170,7 @@ namespace AplicacionCompras.Controlador
                 using (SqlConnection con = new SqlConnection(connection.ConnectionString))
                 {
                     string query = "UPDATE ContactoProveedores" +
-                       "SET idContactos = @idContactos" +
+                       " SET idContactos = @idContactos" +
                          ", idproveedor = @idproveedor" +
                          ", nombre = @nombre " +
                          ", correo1 = @correo1" +

@@ -188,7 +188,8 @@ namespace AplicacionCompras.Controlador
                     }
                     if (descrip != "")
                     {
-                        query = query.Where(s => s.descripcion.ToString().Contains(descrip.ToString()));
+                        query = query.Where(s => s.descripcion.ToUpper().Contains(descrip.ToUpper()));
+
                     }
                     if (dias > -1)
                     {

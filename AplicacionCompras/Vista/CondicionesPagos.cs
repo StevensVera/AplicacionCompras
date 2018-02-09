@@ -20,7 +20,7 @@ namespace AplicacionCompras.Vista
         static private int pageSize = 30;
         static int totalRecords = 1;
         Char tipo = 's';
-        int CodigoB = 0;
+       
         int contT = 0;
         public CondicionesPagos()
         {
@@ -432,6 +432,16 @@ namespace AplicacionCompras.Vista
             {
                 buscarFiltro();
             }
+        }
+
+        private void bindingNavigator1_RefreshItems(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editTextCodigo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
