@@ -20,8 +20,8 @@ namespace AplicacionCompras.Vista
         static private int pageSize = 30;
         static int totalRecords = 1;
         Char tipo = 's';
+        int CodigoB = 0;
         int contT = 0;
-        int codigoA = 0;
         public CondicionesPagos()
         {
             InitializeComponent();
@@ -206,7 +206,7 @@ namespace AplicacionCompras.Vista
                         c.descripcion = DescripcionC.Text;
                         c.dias = Int16.Parse(DiasC.Text);
                         c.anticipo = AnticipoC.Checked;
-                        c.porcentaje = Int16.Parse(PorcentajeC.Text);
+                        c.porcentaje = decimal.Parse(PorcentajeC.Text);
                         Object item = s.guardarPagos(c);
 
                         System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
@@ -239,39 +239,35 @@ namespace AplicacionCompras.Vista
                     CheckControls(tabPage2);
                     if (contT == 0)
                     {
-                        vaciarCamposBusquedas();
-                        Modelo.CondicionesPago mo = new Modelo.CondicionesPago();
-                        mo.codigo = Int16.Parse(editTextCodigo.Text);
-                        mo.descripcion = editTextDescripcion.Text;
-                        mo.dias = Int16.Parse(editTextDias.Text);
-                        mo.anticipo = AnticipoC.Checked;
-                        mo.porcentaje = Int16.Parse(PorcentajeC.Text);
+                        Modelo.CondicionesPago c = new Modelo.CondicionesPago();
+                        c.codigo = Int16.Parse(CodigoC.Text);
+                        c.descripcion = DescripcionC.Text;
+                        c.dias = Int16.Parse(DiasC.Text);
+                        c.anticipo = AnticipoC.Checked;
+                        c.porcentaje = decimal.Parse(PorcentajeC.Text);
 
-                        Object item = s.editarPagos(mo, codigoA);
+                        Object item = s.editarPagos(c);
+
                         System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
                         System.Reflection.PropertyInfo a = item.GetType().GetProperty("code");
                         String message = (String)(m.GetValue(item, null));
                         int code = (int)(a.GetValue(item, null));
+
                         if (code == 1)
                         {
                             ResetControls(tabPage2);
                             DisableControls(tabPage2);
                             tipo = 's';
                             Recarga();
-                            this.tabControl1.SelectTab(0);
                             MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
                         }
                         else if (code == 2)
                         {
                             MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
+                        contT = 0;
+     
                     }
-                    else
-                    {
-                        MessageBox.Show("Se deben de llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    contT = 0;
-
                 }
                 else if (tipo.Equals('s'))
                 {

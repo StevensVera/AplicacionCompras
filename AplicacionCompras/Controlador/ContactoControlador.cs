@@ -161,16 +161,41 @@ namespace AplicacionCompras.Controlador
         {
             try
             {
-                using (var bd = new ComprasEntities())
+                string s;
+                var context = new ComprasEntities();
+                var connection = context.Database.Connection;
+
+                Object result = "";
+
+                using (SqlConnection con = new SqlConnection(connection.ConnectionString))
                 {
-                    Object result = "";
-                    bd.Entry(ProveedoresCont).State = System.Data.Entity.EntityState.Modified;
-                    bd.SaveChanges();
-                    result = new { message = "Se edito correctamente", code = 1 };
+                    string query = "UPDATE ContactoProveedores" +
+                       "SET idContactos = @idContactos" +
+                         ", idproveedor = @idproveedor" +
+                         ", nombre = @nombre " +
+                         ", correo1 = @correo1" +
+                         ", correo2 = @correo2" +
+                         ", telefono = @telefono" +
+                         " WHERE idContactos = @idContactos";
+                    query += " SELECT SCOPE_IDENTITY()";
+                    using (SqlCommand cmd = new SqlCommand(query))
+                    {
+                        cmd.Connection = con;
+                        con.Open();
+                        cmd.Parameters.AddWithValue("@idContactos", ProveedoresCont.idContactos);
+                        cmd.Parameters.AddWithValue("@idproveedor", ProveedoresCont.idproveedor);
+                        cmd.Parameters.AddWithValue("@nombre", ProveedoresCont.nombre);
+                        cmd.Parameters.AddWithValue("@correo1", ProveedoresCont.correo1);
+                        cmd.Parameters.AddWithValue("@correo2", ProveedoresCont.correo2);
+                        cmd.Parameters.AddWithValue("@telefono", ProveedoresCont.telefono);
 
-                    return result;
+                        s = cmd.ExecuteScalar().ToString();
+                        con.Close();
 
+                    }
                 }
+                result = new { message = "Se edito correctamente", code = 1 };
+                return result;
             }
             catch (SqlException odbcEx)
             {

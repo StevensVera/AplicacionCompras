@@ -561,23 +561,23 @@
             // 
             // editTextCorreo1
             // 
-            this.editTextCorreo1.Location = new System.Drawing.Point(92, 110);
+            this.editTextCorreo1.Location = new System.Drawing.Point(447, 76);
             this.editTextCorreo1.MaximumSize = new System.Drawing.Size(0, 30);
             this.editTextCorreo1.MenuManager = this.ribbon;
             this.editTextCorreo1.MinimumSize = new System.Drawing.Size(0, 30);
             this.editTextCorreo1.Name = "editTextCorreo1";
-            this.editTextCorreo1.Size = new System.Drawing.Size(283, 30);
+            this.editTextCorreo1.Size = new System.Drawing.Size(306, 30);
             this.editTextCorreo1.StyleController = this.layoutControl2;
             this.editTextCorreo1.TabIndex = 6;
             // 
             // editTextCorreo2
             // 
-            this.editTextCorreo2.Location = new System.Drawing.Point(447, 76);
+            this.editTextCorreo2.Location = new System.Drawing.Point(92, 110);
             this.editTextCorreo2.MaximumSize = new System.Drawing.Size(0, 30);
             this.editTextCorreo2.MenuManager = this.ribbon;
             this.editTextCorreo2.MinimumSize = new System.Drawing.Size(0, 30);
             this.editTextCorreo2.Name = "editTextCorreo2";
-            this.editTextCorreo2.Size = new System.Drawing.Size(306, 30);
+            this.editTextCorreo2.Size = new System.Drawing.Size(283, 30);
             this.editTextCorreo2.StyleController = this.layoutControl2;
             this.editTextCorreo2.TabIndex = 7;
             // 
@@ -629,12 +629,12 @@
             this.Datos.CustomizationFormText = "layoutControlGroup6";
             this.Datos.ExpandButtonVisible = true;
             this.Datos.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem4,
             this.layoutControlItem2,
             this.layoutControlItem3,
             this.editProveedor,
-            this.layoutControlItem6,
-            this.layoutControlItem5});
+            this.layoutControlItem4,
+            this.layoutControlItem5,
+            this.layoutControlItem6});
             this.Datos.Location = new System.Drawing.Point(0, 0);
             this.Datos.Name = "Datos";
             this.Datos.Size = new System.Drawing.Size(757, 266);
@@ -642,9 +642,9 @@
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.editTextCorreo1;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 68);
+            this.layoutControlItem4.Location = new System.Drawing.Point(355, 34);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(355, 156);
+            this.layoutControlItem4.Size = new System.Drawing.Size(378, 34);
             this.layoutControlItem4.Text = "Correo 1";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(65, 13);
             // 
@@ -688,9 +688,9 @@
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.editTextCorreo2;
-            this.layoutControlItem5.Location = new System.Drawing.Point(355, 34);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 68);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(378, 34);
+            this.layoutControlItem5.Size = new System.Drawing.Size(355, 156);
             this.layoutControlItem5.Text = "Correo 2";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(65, 13);
             // 

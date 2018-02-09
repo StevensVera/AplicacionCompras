@@ -18,6 +18,6 @@ namespace AplicacionCompras.Modelo
         public string descripcion { get; set; }
         public Nullable<short> dias { get; set; }
         public Nullable<bool> anticipo { get; set; }
-        public Nullable<short> porcentaje { get; set; }
+        public Nullable<decimal> porcentaje { get; set; }
     }
 }

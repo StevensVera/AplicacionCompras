@@ -91,28 +91,53 @@ namespace AplicacionCompras.Controlador
 
             }
         }
-        public Object editarPagos(CondicionesPago pagos, int numCodigo)
+        public Object editarPagos(CondicionesPago pagos)
         {
             try
             {
+                string s;
+                var context = new ComprasEntities();
+                var connection = context.Database.Connection;
+
                 Object result = "";
-                pagos.codigo = (Int16)numCodigo;
-                using (var bd = new ComprasEntities())
+
+                using (SqlConnection con = new SqlConnection(connection.ConnectionString))
                 {
-                    bd.Entry(pagos).State = System.Data.Entity.EntityState.Modified;
-                    bd.SaveChanges();
-                    result = new { message = "Se edito correctamente", code = 1 };
-                    return result;
+                    string query = "UPDATE CondicionesPago "+
+                         "SET codigo = @codigoN"+
+                         ", descripcion = @descripcion"+
+                         ", dias = @dias"+
+                         ", anticipo = @anticipo"+
+                         ", porcentaje = @porcentaje"+
+                         " WHERE codigo = @codigoN";
+                    query += " SELECT SCOPE_IDENTITY()";
+                    using (SqlCommand cmd = new SqlCommand(query))
+                    {
+                        cmd.Connection = con;
+                        con.Open();
+                        cmd.Parameters.AddWithValue("@codigoN", pagos.codigo);
+                        cmd.Parameters.AddWithValue("@descripcion", pagos.descripcion);
+                        cmd.Parameters.AddWithValue("@dias", pagos.dias);
+                        cmd.Parameters.AddWithValue("@anticipo", pagos.anticipo);
+                        cmd.Parameters.AddWithValue("@porcentaje", pagos.porcentaje);
+                       // cmd.Parameters.AddWithValue("@codigo", codigo);
+
+                        s = cmd.ExecuteScalar().ToString();
+                        con.Close();
+                   
+                    }
                 }
+                result = new { message = "Se edito correctamente", code = 1 };
+                return result;
             }
             catch (SqlException odbcEx)
             {
+
                 Object result = new { message = "Error: " + odbcEx.Message.ToString(), code = 2 };
                 return result;
             }
             catch (Exception ex)
             {
-
                 Object result = new { message = "Error: " + ex.Message.ToString(), code = 2 };
                 return result;
             }

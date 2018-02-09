@@ -258,48 +258,36 @@ namespace AplicacionCompras.Vista
                     CheckControls(tabPage2);
                     if (contT == 0)
                     {
-                        if (Int32.Parse(editProveedor.Text) != 0)
+                        Modelo.ContactoProveedores mo = new Modelo.ContactoProveedores();
+                        mo.idContactos = Int16.Parse(editTextContacto.Text);
+                        mo.idproveedor = Int16.Parse(editProveedor.Text);
+                        mo.nombre = editTextNombre.Text;
+                        mo.correo1 = editTextCorreo1.Text;
+                        mo.correo2 = editTextCorreo2.Text;
+                        mo.telefono = editTextTelefono.Text;
+
+                        Object item = a.editarContacto(mo);
+
+                        System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+                        System.Reflection.PropertyInfo b = item.GetType().GetProperty("code");
+                        String message = (String)(m.GetValue(item, null));
+                        int code = (int)(b.GetValue(item, null));
+
+                        if (code == 1)
                         {
-                            vaciarCamposBusquedas();
-                            Modelo.ContactoProveedores con = new Modelo.ContactoProveedores();
-                            con.idContactos = Int32.Parse(editTextContacto.Text);
-                            con.idproveedor = Int32.Parse(editTextProveedores.Text);
-                            con.nombre = editTextNombre.Text;
-                            con.correo1 = editTextCorreo1.Text;
-                            con.correo2 = editTextCorreo2.Text;
-                            con.telefono = editTextTelefono.Text;
-                            Object item = a.editarContacto(con);
-
-                            System.Reflection.PropertyInfo msg = item.GetType().GetProperty("message");
-                            System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
-                            String message = (String)(msg.GetValue(item, null));
-                            int code = (int)(c.GetValue(item, null));
-
-                            if (code == 1)
-                            {
-                                ResetControls(tabPage2);
-                                DisableControls(tabPage2);
-                                tipoO = 's';
-                                Recarga();
-                                this.tabControl1.SelectTab(0);
-                                MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
-                            }
-                            else if (code == 2)
-                            {
-                                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-
+                            ResetControls(tabPage2);
+                            DisableControls(tabPage2);
+                            tipoO = 's';
+                            Recarga();
+                            MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
                         }
-                        else
+                        else if (code == 2)
                         {
-                            MessageBox.Show(" El proveedor no puede ser 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
+                        contT = 0;
                     }
-                    else
-                    {
-                        MessageBox.Show("Se deben de llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    contT = 0;
+                    
                 }
                 else if (tipoO.Equals('s'))
                 {
