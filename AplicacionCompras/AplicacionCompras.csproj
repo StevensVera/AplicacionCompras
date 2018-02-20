@@ -97,6 +97,9 @@
     <Compile Include="Modelo\ContactoProveedores.cs">
       <DependentUpon>ComprasEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\DetallesProveedor.cs">
+      <DependentUpon>ComprasEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Proveedores.cs">
       <DependentUpon>ComprasEntities.tt</DependentUpon>
     </Compile>
