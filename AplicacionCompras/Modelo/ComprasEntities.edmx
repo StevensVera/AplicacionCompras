@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ComprasEntiites.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="bd_ComprasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CondicionesPago">
           <Key>
             <PropertyRef Name="codigo" />
@@ -13,7 +13,7 @@
           <Property Name="descripcion" Type="nvarchar" MaxLength="100" />
           <Property Name="dias" Type="smallint" />
           <Property Name="anticipo" Type="bit" />
-          <Property Name="porcentaje" Type="smallint" />
+          <Property Name="porcentaje" Type="decimal" Precision="5" Scale="2" />
         </EntityType>
         <EntityType Name="ContactoProveedores">
           <Key>
@@ -25,6 +25,17 @@
           <Property Name="correo1" Type="nvarchar" MaxLength="255" />
           <Property Name="correo2" Type="nvarchar" MaxLength="255" />
           <Property Name="telefono" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DetallesProveedor">
+          <Key>
+            <PropertyRef Name="idDetalles" />
+          </Key>
+          <Property Name="idDetalles" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="proveedor" Type="int" />
+          <Property Name="perfil" Type="nvarchar" MaxLength="1000" />
+          <Property Name="cotizaciones" Type="nvarchar" MaxLength="1000" />
+          <Property Name="pedidos" Type="nvarchar" MaxLength="1000" />
+          <Property Name="facturas" Type="nvarchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="Proveedores">
           <Key>
@@ -83,9 +94,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ComprasEntiitesStoreContainer">
+        <Association Name="FK_DetallesProveedor_Proveedores">
+          <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="0..1" />
+          <End Role="DetallesProveedor" Type="Self.DetallesProveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedores">
+              <PropertyRef Name="consecutivos" />
+            </Principal>
+            <Dependent Role="DetallesProveedor">
+              <PropertyRef Name="proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bd_ComprasModelStoreContainer">
           <EntitySet Name="CondicionesPago" EntityType="Self.CondicionesPago" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ContactoProveedores" EntityType="Self.ContactoProveedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetallesProveedor" EntityType="Self.DetallesProveedor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Proveedores" EntityType="Self.Proveedores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
@@ -93,11 +117,31 @@
             <End Role="Proveedores" EntitySet="Proveedores" />
             <End Role="ContactoProveedores" EntitySet="ContactoProveedores" />
           </AssociationSet>
+          <AssociationSet Name="FK_DetallesProveedor_Proveedores" Association="Self.FK_DetallesProveedor_Proveedores">
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="DetallesProveedor" EntitySet="DetallesProveedor" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ComprasEntiites" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="bd_ComprasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ComprasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CondicionesPago" EntityType="bd_ComprasModel.CondicionesPago" />
+          <EntitySet Name="ContactoProveedores" EntityType="bd_ComprasModel.ContactoProveedores" />
+          <EntitySet Name="DetallesProveedor" EntityType="bd_ComprasModel.DetallesProveedor" />
+          <EntitySet Name="Proveedores" EntityType="bd_ComprasModel.Proveedores" />
+          <EntitySet Name="sysdiagrams" EntityType="bd_ComprasModel.sysdiagrams" />
+          <EntitySet Name="Usuario" EntityType="bd_ComprasModel.Usuario" />
+          <AssociationSet Name="FK_ContactoProveedores_Proveedores" Association="bd_ComprasModel.FK_ContactoProveedores_Proveedores">
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="ContactoProveedores" EntitySet="ContactoProveedores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetallesProveedor_Proveedores" Association="bd_ComprasModel.FK_DetallesProveedor_Proveedores">
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="DetallesProveedor" EntitySet="DetallesProveedor" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="CondicionesPago">
           <Key>
             <PropertyRef Name="codigo" />
@@ -106,36 +150,32 @@
           <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="dias" Type="Int16" />
           <Property Name="anticipo" Type="Boolean" />
-          <Property Name="porcentaje" Type="Int16" />
+          <Property Name="porcentaje" Type="Decimal" Precision="5" Scale="2" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
+        <EntityType Name="ContactoProveedores">
           <Key>
-            <PropertyRef Name="diagram_id" />
+            <PropertyRef Name="idContactos" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="idContactos" Type="Int32" Nullable="false" />
+          <Property Name="idproveedor" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="correo1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="correo2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="telefono" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Proveedores" Relationship="bd_ComprasModel.FK_ContactoProveedores_Proveedores" FromRole="ContactoProveedores" ToRole="Proveedores" />
         </EntityType>
-        <EntityType Name="Usuario">
+        <EntityType Name="DetallesProveedor">
           <Key>
-            <PropertyRef Name="idUsuarios" />
+            <PropertyRef Name="idDetalles" />
           </Key>
-          <Property Name="idUsuarios" Type="Int32" Nullable="false" />
-          <Property Name="Proveedor" Type="Int32" />
+          <Property Name="idDetalles" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="proveedor" Type="Int32" />
+          <Property Name="perfil" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="cotizaciones" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="pedidos" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="facturas" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Proveedores" Relationship="bd_ComprasModel.FK_DetallesProveedor_Proveedores" FromRole="DetallesProveedor" ToRole="Proveedores" />
         </EntityType>
-        <EntityContainer Name="ComprasEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CondicionesPago" EntityType="Self.CondicionesPago" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
-          <EntitySet Name="Proveedores" EntityType="ComprasEntiites.Proveedores" />
-          <EntitySet Name="ContactoProveedores" EntityType="ComprasEntiites.ContactoProveedores" />
-          <AssociationSet Name="FK_ContactoProveedores_Proveedores" Association="ComprasEntiites.FK_ContactoProveedores_Proveedores">
-            <End Role="Proveedores" EntitySet="Proveedores" />
-            <End Role="ContactoProveedores" EntitySet="ContactoProveedores" />
-          </AssociationSet>
-        </EntityContainer>
         <EntityType Name="Proveedores">
           <Key>
             <PropertyRef Name="consecutivos" />
@@ -163,23 +203,29 @@
           <Property Name="tipoProveedor" Type="Int16" />
           <Property Name="razSoc2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="ContactoProveedores" Relationship="ComprasEntiites.FK_ContactoProveedores_Proveedores" FromRole="Proveedores" ToRole="ContactoProveedores" />
+          <NavigationProperty Name="ContactoProveedores" Relationship="bd_ComprasModel.FK_ContactoProveedores_Proveedores" FromRole="Proveedores" ToRole="ContactoProveedores" />
+          <NavigationProperty Name="DetallesProveedor" Relationship="bd_ComprasModel.FK_DetallesProveedor_Proveedores" FromRole="Proveedores" ToRole="DetallesProveedor" />
         </EntityType>
-        <EntityType Name="ContactoProveedores">
+        <EntityType Name="sysdiagrams">
           <Key>
-            <PropertyRef Name="idContactos" />
+            <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="idContactos" Type="Int32" Nullable="false" />
-          <Property Name="idproveedor" Type="Int32" />
-          <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="correo1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="correo2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="telefono" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Proveedores" Relationship="ComprasEntiites.FK_ContactoProveedores_Proveedores" FromRole="ContactoProveedores" ToRole="Proveedores" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="idUsuarios" />
+          </Key>
+          <Property Name="idUsuarios" Type="Int32" Nullable="false" />
+          <Property Name="Proveedor" Type="Int32" />
         </EntityType>
         <Association Name="FK_ContactoProveedores_Proveedores">
-          <End Type="ComprasEntiites.Proveedores" Role="Proveedores" Multiplicity="0..1" />
-          <End Type="ComprasEntiites.ContactoProveedores" Role="ContactoProveedores" Multiplicity="*" />
+          <End Type="bd_ComprasModel.Proveedores" Role="Proveedores" Multiplicity="0..1" />
+          <End Type="bd_ComprasModel.ContactoProveedores" Role="ContactoProveedores" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Proveedores">
               <PropertyRef Name="consecutivos" />
@@ -189,44 +235,61 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DetallesProveedor_Proveedores">
+          <End Type="bd_ComprasModel.Proveedores" Role="Proveedores" Multiplicity="0..1" />
+          <End Type="bd_ComprasModel.DetallesProveedor" Role="DetallesProveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedores">
+              <PropertyRef Name="consecutivos" />
+            </Principal>
+            <Dependent Role="DetallesProveedor">
+              <PropertyRef Name="proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ComprasEntiitesStoreContainer" CdmEntityContainer="ComprasEntities">
+        <EntityContainerMapping StorageEntityContainer="bd_ComprasModelStoreContainer" CdmEntityContainer="ComprasEntities">
           <EntitySetMapping Name="CondicionesPago">
-            <EntityTypeMapping TypeName="ComprasEntiites.CondicionesPago">
+            <EntityTypeMapping TypeName="bd_ComprasModel.CondicionesPago">
               <MappingFragment StoreEntitySet="CondicionesPago">
-                <ScalarProperty Name="codigo" ColumnName="codigo" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="dias" ColumnName="dias" />
-                <ScalarProperty Name="anticipo" ColumnName="anticipo" />
                 <ScalarProperty Name="porcentaje" ColumnName="porcentaje" />
+                <ScalarProperty Name="anticipo" ColumnName="anticipo" />
+                <ScalarProperty Name="dias" ColumnName="dias" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="ComprasEntiites.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
+          <EntitySetMapping Name="ContactoProveedores">
+            <EntityTypeMapping TypeName="bd_ComprasModel.ContactoProveedores">
+              <MappingFragment StoreEntitySet="ContactoProveedores">
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="correo2" ColumnName="correo2" />
+                <ScalarProperty Name="correo1" ColumnName="correo1" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idproveedor" ColumnName="idproveedor" />
+                <ScalarProperty Name="idContactos" ColumnName="idContactos" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Usuario">
-            <EntityTypeMapping TypeName="ComprasEntiites.Usuario">
-              <MappingFragment StoreEntitySet="Usuario">
-                <ScalarProperty Name="idUsuarios" ColumnName="idUsuarios" />
-                <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+          <EntitySetMapping Name="DetallesProveedor">
+            <EntityTypeMapping TypeName="bd_ComprasModel.DetallesProveedor">
+              <MappingFragment StoreEntitySet="DetallesProveedor">
+                <ScalarProperty Name="facturas" ColumnName="facturas" />
+                <ScalarProperty Name="pedidos" ColumnName="pedidos" />
+                <ScalarProperty Name="cotizaciones" ColumnName="cotizaciones" />
+                <ScalarProperty Name="perfil" ColumnName="perfil" />
+                <ScalarProperty Name="proveedor" ColumnName="proveedor" />
+                <ScalarProperty Name="idDetalles" ColumnName="idDetalles" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Proveedores">
-            <EntityTypeMapping TypeName="ComprasEntiites.Proveedores">
+            <EntityTypeMapping TypeName="bd_ComprasModel.Proveedores">
               <MappingFragment StoreEntitySet="Proveedores">
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="razSoc2" ColumnName="razSoc2" />
@@ -254,15 +317,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ContactoProveedores">
-            <EntityTypeMapping TypeName="ComprasEntiites.ContactoProveedores">
-              <MappingFragment StoreEntitySet="ContactoProveedores">
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="correo2" ColumnName="correo2" />
-                <ScalarProperty Name="correo1" ColumnName="correo1" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="idproveedor" ColumnName="idproveedor" />
-                <ScalarProperty Name="idContactos" ColumnName="idContactos" />
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="bd_ComprasModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="bd_ComprasModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+                <ScalarProperty Name="idUsuarios" ColumnName="idUsuarios" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

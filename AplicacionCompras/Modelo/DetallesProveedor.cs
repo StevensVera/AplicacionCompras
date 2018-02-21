@@ -12,12 +12,15 @@ namespace AplicacionCompras.Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class CondicionesPago
+    public partial class DetallesProveedor
     {
-        public short codigo { get; set; }
-        public string descripcion { get; set; }
-        public Nullable<short> dias { get; set; }
-        public Nullable<bool> anticipo { get; set; }
-        public Nullable<decimal> porcentaje { get; set; }
+        public int idDetalles { get; set; }
+        public Nullable<int> proveedor { get; set; }
+        public string perfil { get; set; }
+        public string cotizaciones { get; set; }
+        public string pedidos { get; set; }
+        public string facturas { get; set; }
+    
+        public virtual Proveedores Proveedores { get; set; }
     }
 }

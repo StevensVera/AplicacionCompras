@@ -31,6 +31,22 @@ namespace AplicacionCompras.Controlador
                 return null;
             }
         }
+        public List<Proveedores> GetAllProveedores()
+        {
+            try
+            {
+                using (var bd = new ComprasEntities())
+                {
+                    var list = bd.Proveedores.ToList();
+                    return list;
+                }
+            }
+            catch (SqlException odbcEx)
+            {
+                var error = odbcEx;
+                return null;
+            }
+        }
         public List<Proveedores> GetProveedoresFiltros(string RFC, string razSoc, string ciudad)
         {
             try
@@ -45,11 +61,45 @@ namespace AplicacionCompras.Controlador
                     if (!razSoc.Equals(""))
                     {
                         query = query.Where(s => s.razSoc2.ToUpper().Contains(razSoc.ToUpper()));
+                        
                     }
                     if (!ciudad.Equals(""))
                     {
                         query = query.Where(s => s.ciudad.ToUpper().Contains(ciudad.ToUpper()));
                     }
+                    var Results = query.OrderBy(s => s.consecutivos).ToList();
+                    return Results;
+                }
+            }
+            catch (SqlException odbcEx)
+            {
+                var error = odbcEx;
+                return null;
+            }
+        }
+
+        public List<Proveedores> GetProveedoresFiltrosDetalles(int conse, string razonS, string direc)
+        {
+            try
+            {
+                using (var bd = new ComprasEntities())
+                {
+                    IEnumerable<Proveedores> query = bd.Proveedores;
+                    if (conse > -1)
+                    {
+                        query = query.Where(s => s.consecutivos.ToString().Contains(conse.ToString()));
+                    }
+                    if (!razonS.Equals(""))
+                    {
+                        query = query.Where(s => s.razSoc.ToUpper().Contains(razonS.ToUpper()));
+
+                    }
+                    if (!direc.Equals("")) 
+                    {
+                        query = query.Where(s => s.direccion.ToUpper().Contains(direc.ToUpper()));
+
+                    }
+
                     var Results = query.OrderBy(s => s.consecutivos).ToList();
                     return Results;
                 }

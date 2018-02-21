@@ -18,7 +18,7 @@ namespace AplicacionCompras.Vista
     public partial class CatalogoProveedores : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         static Controlador.ProveedorControlador s = new Controlador.ProveedorControlador();
-        static private int pageSize = 30;
+        static private int pageSize = 40;
         static int totalRecords = 1;
         int consecutivoActual=0,proveedorActual=0;
         //E=editar,N=nuevo,s=sin seleccionar
@@ -175,7 +175,7 @@ namespace AplicacionCompras.Vista
             }
             catch (Exception ex)
             {
-                MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show(ex.Message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
         }
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
@@ -264,7 +264,7 @@ namespace AplicacionCompras.Vista
             }
             catch (Exception ex)
             {
-                MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show(ex.Message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
 }
         private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
@@ -278,7 +278,7 @@ namespace AplicacionCompras.Vista
             }
             catch (Exception ex)
             {
-                MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show(ex.Message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
         }
         private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
@@ -309,7 +309,7 @@ namespace AplicacionCompras.Vista
             }
             catch (Exception ex)
             {
-                MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show(ex.Message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
 }
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -352,7 +352,7 @@ namespace AplicacionCompras.Vista
             }
             catch (Exception ex)
             {
-                MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show(ex.Message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
 }
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -364,7 +364,7 @@ namespace AplicacionCompras.Vista
             }
             catch (Exception ex)
             {
-                MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show(ex.Message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
 }
         private void buscarFiltro()
@@ -385,7 +385,7 @@ namespace AplicacionCompras.Vista
             }
             catch (Exception ex)
             {
-                MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show(ex.Message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
 
         }
