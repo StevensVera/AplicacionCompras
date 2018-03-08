@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="bdAdquisicionMaterialModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Solicitud_Requisiciones">
+          <Key>
+            <PropertyRef Name="preRequisicion" />
+            <PropertyRef Name="departamento" />
+            <PropertyRef Name="ejercicio" />
+          </Key>
+          <Property Name="preRequisicion" Type="int" Nullable="false" />
+          <Property Name="preRequisicionAnt" Type="int" />
+          <Property Name="requisicion" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="fechaRequisicion" Type="datetime" />
+          <Property Name="uso" Type="nvarchar" MaxLength="255" />
+          <Property Name="fechaNecesitar" Type="datetime" />
+          <Property Name="departamento" Type="smallint" Nullable="false" />
+          <Property Name="ciclo" Type="nvarchar" MaxLength="1" />
+          <Property Name="area" Type="nvarchar" MaxLength="1" />
+          <Property Name="fechaRecepcion" Type="datetime" />
+          <Property Name="ejercicio" Type="int" Nullable="false" />
+          <Property Name="solicitante" Type="int" />
+          <Property Name="observaciones" Type="nvarchar" MaxLength="2000" />
+          <Property Name="liberaLocal" Type="nvarchar" MaxLength="1" />
+          <Property Name="liberaSeguridad" Type="nvarchar" MaxLength="1" />
+          <Property Name="liberaCapitalHumano" Type="nvarchar" MaxLength="1" />
+          <Property Name="liberaElectrico" Type="nvarchar" MaxLength="1" />
+          <Property Name="liberaAlmacen" Type="nvarchar" MaxLength="1" />
+          <Property Name="anexo" Type="nvarchar" MaxLength="255" />
+          <Property Name="departamentoSolicitante" Type="smallint" />
+          <Property Name="estatus" Type="char" MaxLength="1" />
+          <Property Name="partidaPresupuestal" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityContainer Name="bdAdquisicionMaterialModelStoreContainer">
+          <EntitySet Name="Solicitud_Requisiciones" EntityType="Self.Solicitud_Requisiciones" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bdAdquisicionMaterialModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Solicitud_Requisiciones">
+          <Key>
+            <PropertyRef Name="preRequisicion" />
+            <PropertyRef Name="departamento" />
+            <PropertyRef Name="ejercicio" />
+          </Key>
+          <Property Name="preRequisicion" Type="Int32" Nullable="false" />
+          <Property Name="preRequisicionAnt" Type="Int32" />
+          <Property Name="requisicion" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fechaRequisicion" Type="DateTime" Precision="3" />
+          <Property Name="uso" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fechaNecesitar" Type="DateTime" Precision="3" />
+          <Property Name="departamento" Type="Int16" Nullable="false" />
+          <Property Name="ciclo" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="area" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="fechaRecepcion" Type="DateTime" Precision="3" />
+          <Property Name="ejercicio" Type="Int32" Nullable="false" />
+          <Property Name="solicitante" Type="Int32" />
+          <Property Name="observaciones" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="liberaLocal" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="liberaSeguridad" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="liberaCapitalHumano" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="liberaElectrico" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="liberaAlmacen" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="anexo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="departamentoSolicitante" Type="Int16" />
+          <Property Name="estatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="partidaPresupuestal" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="AlmacenEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Solicitud_Requisiciones" EntityType="Self.Solicitud_Requisiciones" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bdAdquisicionMaterialModelStoreContainer" CdmEntityContainer="AlmacenEntities">
+          <EntitySetMapping Name="Solicitud_Requisiciones">
+            <EntityTypeMapping TypeName="bdAdquisicionMaterialModel.Solicitud_Requisiciones">
+              <MappingFragment StoreEntitySet="Solicitud_Requisiciones">
+                <ScalarProperty Name="preRequisicion" ColumnName="preRequisicion" />
+                <ScalarProperty Name="preRequisicionAnt" ColumnName="preRequisicionAnt" />
+                <ScalarProperty Name="requisicion" ColumnName="requisicion" />
+                <ScalarProperty Name="fechaRequisicion" ColumnName="fechaRequisicion" />
+                <ScalarProperty Name="uso" ColumnName="uso" />
+                <ScalarProperty Name="fechaNecesitar" ColumnName="fechaNecesitar" />
+                <ScalarProperty Name="departamento" ColumnName="departamento" />
+                <ScalarProperty Name="ciclo" ColumnName="ciclo" />
+                <ScalarProperty Name="area" ColumnName="area" />
+                <ScalarProperty Name="fechaRecepcion" ColumnName="fechaRecepcion" />
+                <ScalarProperty Name="ejercicio" ColumnName="ejercicio" />
+                <ScalarProperty Name="solicitante" ColumnName="solicitante" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="liberaLocal" ColumnName="liberaLocal" />
+                <ScalarProperty Name="liberaSeguridad" ColumnName="liberaSeguridad" />
+                <ScalarProperty Name="liberaCapitalHumano" ColumnName="liberaCapitalHumano" />
+                <ScalarProperty Name="liberaElectrico" ColumnName="liberaElectrico" />
+                <ScalarProperty Name="liberaAlmacen" ColumnName="liberaAlmacen" />
+                <ScalarProperty Name="anexo" ColumnName="anexo" />
+                <ScalarProperty Name="departamentoSolicitante" ColumnName="departamentoSolicitante" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="partidaPresupuestal" ColumnName="partidaPresupuestal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -13,10 +13,10 @@ namespace AplicacionCompras.Modelo
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ComprasEntities : DbContext
+    public partial class AlmacenEntities : DbContext
     {
-        public ComprasEntities()
-            : base("name=ComprasEntities")
+        public AlmacenEntities()
+            : base("name=AlmacenEntities")
         {
         }
     
@@ -25,12 +25,6 @@ namespace AplicacionCompras.Modelo
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<CondicionesPago> CondicionesPago { get; set; }
-        public virtual DbSet<ContactoProveedores> ContactoProveedores { get; set; }
-        public virtual DbSet<DetallesProveedor> DetallesProveedor { get; set; }
-        public virtual DbSet<Proveedores> Proveedores { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Usuario> Usuario { get; set; }
-        public virtual DbSet<invitacionReq> invitacionReq { get; set; }
+        public virtual DbSet<Solicitud_Requisiciones> Solicitud_Requisiciones { get; set; }
     }
 }

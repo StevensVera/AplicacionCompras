@@ -73,6 +73,17 @@ namespace AplicacionCompras.Vista
                 lblConexion.BackColor = conexion.colorBackDesconectado;
             }
         }
+
+        private void tileItem1_ItemClick(object sender, TileItemEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            new Invitacion().Show();
+        }
+
+        private void panel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
