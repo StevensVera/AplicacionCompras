@@ -6,6 +6,10 @@
     <edmx:Diagrams>
       <Diagram DiagramId="d415dbf689d94620b26828e0baa3d865" Name="Diagram1" ZoomLevel="87">
         <EntityTypeShape EntityType="bdAdquisicionMaterialModel.Solicitud_Requisiciones" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdAdquisicionMaterialModel.DetalleRequisicion" Width="1.5" PointX="3" PointY="12.5" />
+        <EntityTypeShape EntityType="bdAdquisicionMaterialModel.DetalleRequisicion2" Width="1.5" PointX="3" PointY="8" />
+        <AssociationConnector Association="bdAdquisicionMaterialModel.FK_DetalleRequisicion_Solicitud2" />
+        <AssociationConnector Association="bdAdquisicionMaterialModel.FK_DetalleRequisicion_Solicitud" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

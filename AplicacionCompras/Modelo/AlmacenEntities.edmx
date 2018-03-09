@@ -4,7 +4,45 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="bdAdquisicionMaterialModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="bdAdquisicionMaterialModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DetalleRequisicion">
+          <Key>
+            <PropertyRef Name="idDReq" />
+          </Key>
+          <Property Name="idDReq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="preRequisicion" Type="int" />
+          <Property Name="requisicion" Type="nvarchar" MaxLength="11" />
+          <Property Name="partida" Type="smallint" />
+          <Property Name="departamento" Type="smallint" />
+          <Property Name="material" Type="int" />
+          <Property Name="cantidad" Type="money" />
+          <Property Name="detalle" Type="nvarchar" MaxLength="255" />
+          <Property Name="ejercicio" Type="int" />
+          <Property Name="costoU" Type="money" />
+          <Property Name="costoTotal" Type="money" />
+          <Property Name="existencia" Type="money" />
+          <Property Name="FechaUltimaEntrada" Type="datetime" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="2000" />
+          <Property Name="uMedida" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DetalleRequisicion2">
+          <Key>
+            <PropertyRef Name="idDetalleReq" />
+          </Key>
+          <Property Name="idDetalleReq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="trabajoSindicato" Type="bit" />
+          <Property Name="retencionImpuesto" Type="bit" />
+          <Property Name="altura" Type="bit" />
+          <Property Name="espaciosConfinados" Type="bit" />
+          <Property Name="electrico" Type="bit" />
+          <Property Name="corte" Type="bit" />
+          <Property Name="soldadura" Type="bit" />
+          <Property Name="operacionMontacargas" Type="bit" />
+          <Property Name="izajesCarga" Type="bit" />
+          <Property Name="preRequisicion" Type="int" Nullable="false" />
+          <Property Name="departamento" Type="smallint" Nullable="false" />
+          <Property Name="ejercicio" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Solicitud_Requisiciones">
           <Key>
             <PropertyRef Name="preRequisicion" />
@@ -34,11 +72,52 @@
           <Property Name="estatus" Type="char" MaxLength="1" />
           <Property Name="partidaPresupuestal" Type="nvarchar" MaxLength="200" />
         </EntityType>
+        <Association Name="FK_DetalleRequisicion_Solicitud">
+          <End Role="Solicitud_Requisiciones" Type="Self.Solicitud_Requisiciones" Multiplicity="1" />
+          <End Role="DetalleRequisicion2" Type="Self.DetalleRequisicion2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solicitud_Requisiciones">
+              <PropertyRef Name="preRequisicion" />
+              <PropertyRef Name="departamento" />
+              <PropertyRef Name="ejercicio" />
+            </Principal>
+            <Dependent Role="DetalleRequisicion2">
+              <PropertyRef Name="preRequisicion" />
+              <PropertyRef Name="departamento" />
+              <PropertyRef Name="ejercicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetalleRequisicion_Solicitud2">
+          <End Role="Solicitud_Requisiciones" Type="Self.Solicitud_Requisiciones" Multiplicity="0..1" />
+          <End Role="DetalleRequisicion" Type="Self.DetalleRequisicion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solicitud_Requisiciones">
+              <PropertyRef Name="preRequisicion" />
+              <PropertyRef Name="departamento" />
+              <PropertyRef Name="ejercicio" />
+            </Principal>
+            <Dependent Role="DetalleRequisicion">
+              <PropertyRef Name="preRequisicion" />
+              <PropertyRef Name="departamento" />
+              <PropertyRef Name="ejercicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="bdAdquisicionMaterialModelStoreContainer">
+          <EntitySet Name="DetalleRequisicion" EntityType="Self.DetalleRequisicion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetalleRequisicion2" EntityType="Self.DetalleRequisicion2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Solicitud_Requisiciones" EntityType="Self.Solicitud_Requisiciones" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DetalleRequisicion_Solicitud" Association="Self.FK_DetalleRequisicion_Solicitud">
+            <End Role="Solicitud_Requisiciones" EntitySet="Solicitud_Requisiciones" />
+            <End Role="DetalleRequisicion2" EntitySet="DetalleRequisicion2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetalleRequisicion_Solicitud2" Association="Self.FK_DetalleRequisicion_Solicitud2">
+            <End Role="Solicitud_Requisiciones" EntitySet="Solicitud_Requisiciones" />
+            <End Role="DetalleRequisicion" EntitySet="DetalleRequisicion" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="bdAdquisicionMaterialModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -70,10 +149,94 @@
           <Property Name="departamentoSolicitante" Type="Int16" />
           <Property Name="estatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="partidaPresupuestal" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DetalleRequisicion" Relationship="bdAdquisicionMaterialModel.FK_DetalleRequisicion_Solicitud2" FromRole="Solicitud_Requisiciones" ToRole="DetalleRequisicion" />
+          <NavigationProperty Name="DetalleRequisicion2" Relationship="bdAdquisicionMaterialModel.FK_DetalleRequisicion_Solicitud" FromRole="Solicitud_Requisiciones" ToRole="DetalleRequisicion2" />
         </EntityType>
         <EntityContainer Name="AlmacenEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Solicitud_Requisiciones" EntityType="Self.Solicitud_Requisiciones" />
+          <EntitySet Name="DetalleRequisicion" EntityType="bdAdquisicionMaterialModel.DetalleRequisicion" />
+          <EntitySet Name="DetalleRequisicion2" EntityType="bdAdquisicionMaterialModel.DetalleRequisicion2" />
+          <AssociationSet Name="FK_DetalleRequisicion_Solicitud2" Association="bdAdquisicionMaterialModel.FK_DetalleRequisicion_Solicitud2">
+            <End Role="Solicitud_Requisiciones" EntitySet="Solicitud_Requisiciones" />
+            <End Role="DetalleRequisicion" EntitySet="DetalleRequisicion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetalleRequisicion_Solicitud" Association="bdAdquisicionMaterialModel.FK_DetalleRequisicion_Solicitud">
+            <End Role="Solicitud_Requisiciones" EntitySet="Solicitud_Requisiciones" />
+            <End Role="DetalleRequisicion2" EntitySet="DetalleRequisicion2" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="DetalleRequisicion">
+          <Key>
+            <PropertyRef Name="idDReq" />
+          </Key>
+          <Property Name="idDReq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="preRequisicion" Type="Int32" />
+          <Property Name="requisicion" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="partida" Type="Int16" />
+          <Property Name="departamento" Type="Int16" />
+          <Property Name="material" Type="Int32" />
+          <Property Name="cantidad" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="detalle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ejercicio" Type="Int32" />
+          <Property Name="costoU" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="costoTotal" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="existencia" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FechaUltimaEntrada" Type="DateTime" Precision="3" />
+          <Property Name="descripcion" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="uMedida" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Solicitud_Requisiciones" Relationship="bdAdquisicionMaterialModel.FK_DetalleRequisicion_Solicitud2" FromRole="DetalleRequisicion" ToRole="Solicitud_Requisiciones" />
+        </EntityType>
+        <EntityType Name="DetalleRequisicion2">
+          <Key>
+            <PropertyRef Name="idDetalleReq" />
+          </Key>
+          <Property Name="idDetalleReq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="trabajoSindicato" Type="Boolean" />
+          <Property Name="retencionImpuesto" Type="Boolean" />
+          <Property Name="altura" Type="Boolean" />
+          <Property Name="espaciosConfinados" Type="Boolean" />
+          <Property Name="electrico" Type="Boolean" />
+          <Property Name="corte" Type="Boolean" />
+          <Property Name="soldadura" Type="Boolean" />
+          <Property Name="operacionMontacargas" Type="Boolean" />
+          <Property Name="izajesCarga" Type="Boolean" />
+          <Property Name="preRequisicion" Type="Int32" Nullable="false" />
+          <Property Name="departamento" Type="Int16" Nullable="false" />
+          <Property Name="ejercicio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Solicitud_Requisiciones" Relationship="bdAdquisicionMaterialModel.FK_DetalleRequisicion_Solicitud" FromRole="DetalleRequisicion2" ToRole="Solicitud_Requisiciones" />
+        </EntityType>
+        <Association Name="FK_DetalleRequisicion_Solicitud2">
+          <End Type="bdAdquisicionMaterialModel.Solicitud_Requisiciones" Role="Solicitud_Requisiciones" Multiplicity="0..1" />
+          <End Type="bdAdquisicionMaterialModel.DetalleRequisicion" Role="DetalleRequisicion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solicitud_Requisiciones">
+              <PropertyRef Name="preRequisicion" />
+              <PropertyRef Name="departamento" />
+              <PropertyRef Name="ejercicio" />
+            </Principal>
+            <Dependent Role="DetalleRequisicion">
+              <PropertyRef Name="preRequisicion" />
+              <PropertyRef Name="departamento" />
+              <PropertyRef Name="ejercicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetalleRequisicion_Solicitud">
+          <End Type="bdAdquisicionMaterialModel.Solicitud_Requisiciones" Role="Solicitud_Requisiciones" Multiplicity="1" />
+          <End Type="bdAdquisicionMaterialModel.DetalleRequisicion2" Role="DetalleRequisicion2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solicitud_Requisiciones">
+              <PropertyRef Name="preRequisicion" />
+              <PropertyRef Name="departamento" />
+              <PropertyRef Name="ejercicio" />
+            </Principal>
+            <Dependent Role="DetalleRequisicion2">
+              <PropertyRef Name="preRequisicion" />
+              <PropertyRef Name="departamento" />
+              <PropertyRef Name="ejercicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -105,6 +268,46 @@
                 <ScalarProperty Name="departamentoSolicitante" ColumnName="departamentoSolicitante" />
                 <ScalarProperty Name="estatus" ColumnName="estatus" />
                 <ScalarProperty Name="partidaPresupuestal" ColumnName="partidaPresupuestal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetalleRequisicion">
+            <EntityTypeMapping TypeName="bdAdquisicionMaterialModel.DetalleRequisicion">
+              <MappingFragment StoreEntitySet="DetalleRequisicion">
+                <ScalarProperty Name="uMedida" ColumnName="uMedida" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="FechaUltimaEntrada" ColumnName="FechaUltimaEntrada" />
+                <ScalarProperty Name="existencia" ColumnName="existencia" />
+                <ScalarProperty Name="costoTotal" ColumnName="costoTotal" />
+                <ScalarProperty Name="costoU" ColumnName="costoU" />
+                <ScalarProperty Name="ejercicio" ColumnName="ejercicio" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="material" ColumnName="material" />
+                <ScalarProperty Name="departamento" ColumnName="departamento" />
+                <ScalarProperty Name="partida" ColumnName="partida" />
+                <ScalarProperty Name="requisicion" ColumnName="requisicion" />
+                <ScalarProperty Name="preRequisicion" ColumnName="preRequisicion" />
+                <ScalarProperty Name="idDReq" ColumnName="idDReq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetalleRequisicion2">
+            <EntityTypeMapping TypeName="bdAdquisicionMaterialModel.DetalleRequisicion2">
+              <MappingFragment StoreEntitySet="DetalleRequisicion2">
+                <ScalarProperty Name="ejercicio" ColumnName="ejercicio" />
+                <ScalarProperty Name="departamento" ColumnName="departamento" />
+                <ScalarProperty Name="preRequisicion" ColumnName="preRequisicion" />
+                <ScalarProperty Name="izajesCarga" ColumnName="izajesCarga" />
+                <ScalarProperty Name="operacionMontacargas" ColumnName="operacionMontacargas" />
+                <ScalarProperty Name="soldadura" ColumnName="soldadura" />
+                <ScalarProperty Name="corte" ColumnName="corte" />
+                <ScalarProperty Name="electrico" ColumnName="electrico" />
+                <ScalarProperty Name="espaciosConfinados" ColumnName="espaciosConfinados" />
+                <ScalarProperty Name="altura" ColumnName="altura" />
+                <ScalarProperty Name="retencionImpuesto" ColumnName="retencionImpuesto" />
+                <ScalarProperty Name="trabajoSindicato" ColumnName="trabajoSindicato" />
+                <ScalarProperty Name="idDetalleReq" ColumnName="idDetalleReq" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -137,7 +137,7 @@ namespace AplicacionCompras.Vista
             {
                 ribbon.Enabled = false;
                 tabControl1.Enabled = false;
-                lblConexion.ItemAppearance.Normal.ForeColor = conexion.colorConectado;
+                lblConexion.ItemAppearance.Normal.ForeColor = conexion.colorDesconectado;
                 lblConexion.Caption = conexion.msgDesconectado;
             }
         }

@@ -113,6 +113,12 @@
     <Compile Include="Modelo\ContactoProveedores.cs">
       <DependentUpon>ComprasEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\DetalleRequisicion.cs">
+      <DependentUpon>AlmacenEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\DetalleRequisicion2.cs">
+      <DependentUpon>AlmacenEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\DetallesProveedor.cs">
       <DependentUpon>ComprasEntities.tt</DependentUpon>
     </Compile>
@@ -257,6 +263,7 @@
     <Content Include="Files\botones\delete.png" />
     <None Include="Files\botones\send.png" />
     <None Include="Files\botones\email.png" />
+    <None Include="Files\botones\eye.png" />
     <Content Include="Modelo\AlmacenEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AlmacenEntities.edmx</DependentUpon>

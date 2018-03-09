@@ -51,6 +51,9 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.repositoryItemHypertextLabel1 = new DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel();
+            this.lblConexion = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -66,6 +69,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -77,12 +82,15 @@
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
             this.barButtonItem1,
-            this.barButtonItem3});
+            this.barButtonItem3,
+            this.lblConexion});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 5;
+            this.ribbon.MaxItemId = 7;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
+            this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemHypertextLabel1});
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
@@ -127,6 +135,7 @@
             // 
             // ribbonStatusBar
             // 
+            this.ribbonStatusBar.ItemLinks.Add(this.lblConexion);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 514);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
@@ -149,11 +158,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(748, 34);
+            this.button1.Location = new System.Drawing.Point(749, 34);
             this.button1.MaximumSize = new System.Drawing.Size(0, 30);
             this.button1.MinimumSize = new System.Drawing.Size(0, 30);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(60, 30);
+            this.button1.Size = new System.Drawing.Size(59, 30);
             this.button1.TabIndex = 7;
             this.button1.Text = "Agregar";
             this.button1.UseVisualStyleBackColor = true;
@@ -213,26 +222,26 @@
             // 
             // editProveedor
             // 
-            this.editProveedor.Location = new System.Drawing.Point(410, 34);
+            this.editProveedor.Location = new System.Drawing.Point(417, 34);
             this.editProveedor.MaximumSize = new System.Drawing.Size(0, 30);
             this.editProveedor.MenuManager = this.ribbon;
             this.editProveedor.MinimumSize = new System.Drawing.Size(0, 30);
             this.editProveedor.Name = "editProveedor";
             this.editProveedor.Properties.ReadOnly = true;
-            this.editProveedor.Size = new System.Drawing.Size(334, 30);
+            this.editProveedor.Size = new System.Drawing.Size(328, 30);
             this.editProveedor.StyleController = this.layoutControl1;
             this.editProveedor.TabIndex = 6;
             this.editProveedor.Click += new System.EventHandler(this.editProveedor_Enter);
             // 
             // editConsecutivo
             // 
-            this.editConsecutivo.Location = new System.Drawing.Point(272, 34);
+            this.editConsecutivo.Location = new System.Drawing.Point(290, 34);
             this.editConsecutivo.MaximumSize = new System.Drawing.Size(0, 30);
             this.editConsecutivo.MenuManager = this.ribbon;
             this.editConsecutivo.MinimumSize = new System.Drawing.Size(0, 30);
             this.editConsecutivo.Name = "editConsecutivo";
             this.editConsecutivo.Properties.ReadOnly = true;
-            this.editConsecutivo.Size = new System.Drawing.Size(79, 30);
+            this.editConsecutivo.Size = new System.Drawing.Size(68, 30);
             this.editConsecutivo.StyleController = this.layoutControl1;
             this.editConsecutivo.TabIndex = 8;
             this.editConsecutivo.Click += new System.EventHandler(this.editConsecutivos_Enter);
@@ -255,7 +264,8 @@
             this.layoutControlItem4,
             this.layoutControlItem5,
             this.layoutControlItem3,
-            this.layoutControlItem1});
+            this.layoutControlItem1,
+            this.emptySpaceItem1});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
             this.layoutControlGroup3.Size = new System.Drawing.Size(820, 387);
@@ -275,9 +285,9 @@
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.editProveedor;
-            this.layoutControlItem4.Location = new System.Drawing.Point(339, 0);
+            this.layoutControlItem4.Location = new System.Drawing.Point(346, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(393, 34);
+            this.layoutControlItem4.Size = new System.Drawing.Size(387, 34);
             this.layoutControlItem4.Text = "Proveedor";
             this.layoutControlItem4.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(50, 13);
@@ -286,9 +296,9 @@
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.button1;
-            this.layoutControlItem5.Location = new System.Drawing.Point(732, 0);
+            this.layoutControlItem5.Location = new System.Drawing.Point(733, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(64, 34);
+            this.layoutControlItem5.Size = new System.Drawing.Size(63, 34);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -304,13 +314,30 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.editConsecutivo;
-            this.layoutControlItem1.Location = new System.Drawing.Point(240, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(258, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(99, 34);
+            this.layoutControlItem1.Size = new System.Drawing.Size(88, 34);
             this.layoutControlItem1.Text = "ID";
             this.layoutControlItem1.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(11, 13);
             this.layoutControlItem1.TextToControlDistance = 5;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(240, 0);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(18, 34);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // repositoryItemHypertextLabel1
+            // 
+            this.repositoryItemHypertextLabel1.Name = "repositoryItemHypertextLabel1";
+            // 
+            // lblConexion
+            // 
+            this.lblConexion.Id = 6;
+            this.lblConexion.Name = "lblConexion";
             // 
             // Invitacion
             // 
@@ -326,6 +353,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Invitacion";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Invitacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
@@ -341,6 +370,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,5 +401,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraGrid.Columns.GridColumn id;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel repositoryItemHypertextLabel1;
+        private DevExpress.XtraBars.BarStaticItem lblConexion;
     }
 }

@@ -26,5 +26,7 @@ namespace AplicacionCompras.Modelo
         }
     
         public virtual DbSet<Solicitud_Requisiciones> Solicitud_Requisiciones { get; set; }
+        public virtual DbSet<DetalleRequisicion> DetalleRequisicion { get; set; }
+        public virtual DbSet<DetalleRequisicion2> DetalleRequisicion2 { get; set; }
     }
 }

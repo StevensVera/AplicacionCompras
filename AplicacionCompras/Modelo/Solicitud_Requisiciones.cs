@@ -14,6 +14,13 @@ namespace AplicacionCompras.Modelo
     
     public partial class Solicitud_Requisiciones
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Solicitud_Requisiciones()
+        {
+            this.DetalleRequisicion = new HashSet<DetalleRequisicion>();
+            this.DetalleRequisicion2 = new HashSet<DetalleRequisicion2>();
+        }
+    
         public int preRequisicion { get; set; }
         public Nullable<int> preRequisicionAnt { get; set; }
         public string requisicion { get; set; }
@@ -36,5 +43,10 @@ namespace AplicacionCompras.Modelo
         public Nullable<short> departamentoSolicitante { get; set; }
         public string estatus { get; set; }
         public string partidaPresupuestal { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DetalleRequisicion> DetalleRequisicion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DetalleRequisicion2> DetalleRequisicion2 { get; set; }
     }
 }

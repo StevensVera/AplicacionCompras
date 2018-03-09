@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
+using DevExpress.LookAndFeel;
+using System.Net.NetworkInformation;
 
 namespace AplicacionCompras.Vista
 {
@@ -22,7 +24,8 @@ namespace AplicacionCompras.Vista
         public Invitacion()
         {
             InitializeComponent();
-            button1.Focus();
+            UserLookAndFeel.Default.SetSkinStyle("The Bezier");
+            NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
         }
         internal void setTextRequisicion()
         {
@@ -45,7 +48,6 @@ namespace AplicacionCompras.Vista
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void editConsecutivos_Enter(object sender, EventArgs e)
         {
             try
@@ -90,7 +92,6 @@ namespace AplicacionCompras.Vista
             }
             
         }
-
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -157,6 +158,34 @@ namespace AplicacionCompras.Vista
             {
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        public void Red()
+        {
+            Controlador.Clases.ConexionServidor conexion = new Controlador.Clases.ConexionServidor();
+            if (conexion.verificarConexion())
+            {
+                ribbon.Enabled = true;
+                layoutControlGroup3.Enabled = true;
+                lblConexion.Caption = conexion.msgConectado;
+                lblConexion.ItemAppearance.Normal.ForeColor = conexion.colorConectado;
+            }
+            else
+            {
+                layoutControlGroup3.Enabled = false;
+                ribbon.Enabled = false;
+                lblConexion.ItemAppearance.Normal.ForeColor = conexion.colorDesconectado;
+                lblConexion.Caption = conexion.msgDesconectado;
+            }
+        }
+
+        private void Invitacion_Load(object sender, EventArgs e)
+        {
+            Red();
+        }
+
+        private void AvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
+        {
+            Red();
         }
     }
 }

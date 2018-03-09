@@ -10,13 +10,15 @@ namespace AplicacionCompras.Controlador
 {
     class InvitacionControlador
     {
-        public List<SolicitudLite> GetAllGruposLigero()
+        
+        public List<Solicitud_Requisiciones> GetAllGruposLigero(int page, int pageSize)
         {
             try
             {
                 using (var bd = new AlmacenEntities())
                 {
-                    var query = bd.Solicitud_Requisiciones.Where(s=>s.requisicion!="n/a").Select(store => new SolicitudLite {
+                    int pageIndex = Convert.ToInt32(page);
+                    /*var query = bd.Solicitud_Requisiciones.Where(s=>s.requisicion!="n/a").Select(store => new SolicitudLite {
                         preRequisicion = store.preRequisicion,
                         requisicion = store.requisicion,
                         uso=store.uso,
@@ -27,10 +29,13 @@ namespace AplicacionCompras.Controlador
                         observaciones=store.observaciones,
                         fechaNecesitar=store.fechaNecesitar,
                         fechaRequisicion=store.fechaRequisicion
-                    });
-
+                    });*/
+                    
+                    IEnumerable<Solicitud_Requisiciones> query = bd.Solicitud_Requisiciones.Where(s => s.requisicion != "n/a");
+                    var Results = query.OrderByDescending(s => s.preRequisicion).Skip(pageIndex * pageSize).Take(pageSize).ToList();
+                    return Results;
                     //var list = bd.GpoMateriales.Select(store => new GpoMateriales { numGpo = store.numGpo, descripcion= store.descripcion});
-                    return query.ToList();
+                    //return query.ToList();
                 }
             }
             catch (SqlException odbcEx)
@@ -71,6 +76,41 @@ namespace AplicacionCompras.Controlador
             {
                 Object result = new { message = "Error: " + ex.Message.ToString(), code = 2 };
                 return result;
+            }
+        }
+        public List<DetalleRequisicion> detalleSolicitud(int idRequisicion, int ejercicio, Int16 departamento)
+        {
+            using (var bd = new AlmacenEntities())
+            {
+                return bd.DetalleRequisicion.Where(s=>s.preRequisicion==idRequisicion 
+                    && s.ejercicio==ejercicio && s.departamento==departamento).ToList();
+            }
+                
+        }
+        public int numeroSol()
+        {
+            try
+            {
+                var context = new AlmacenEntities();
+                var connection = context.Database.Connection;
+                int cont = 0;
+                using (SqlConnection con = new SqlConnection(connection.ConnectionString))
+                {
+                    string query = "SELECT COUNT(*) FROM Solicitud_Requisiciones";
+                    using (SqlCommand cmd = new SqlCommand(query))
+                    {
+                        cmd.Connection = con;
+                        con.Open();
+                        cont = Convert.ToInt32(cmd.ExecuteScalar());
+                        con.Close();
+                    }
+                }
+                return cont;
+            }
+            catch (SqlException odbcEx)
+            {
+                var error = odbcEx;
+                return 0;
             }
         }
         public class prov
