@@ -4,13 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d22b7264e0b442d1a067ac5cafc5b9af" Name="Diagram1" ZoomLevel="97">
-        <EntityTypeShape EntityType="bd_ComprasModel.CondicionesPago" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bd_ComprasModel.ContactoProveedores" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bd_ComprasModel.Proveedores" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="bd_ComprasModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bd_ComprasModel.Usuario" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
-        <AssociationConnector Association="bd_ComprasModel.FK_ContactoProveedores_Proveedores" ManuallyRouted="false" />
+      <Diagram DiagramId="d22b7264e0b442d1a067ac5cafc5b9af" Name="Diagram1" ZoomLevel="76">
+        <EntityTypeShape EntityType="bd_ComprasModel.CondicionesPago" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="bd_ComprasModel.ContactoProveedores" Width="1.5" PointX="3" PointY="4.375" />
+        <EntityTypeShape EntityType="bd_ComprasModel.DetallesProveedor" Width="1.5" PointX="3" PointY="1.25" />
+        <EntityTypeShape EntityType="bd_ComprasModel.Proveedores" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="bd_ComprasModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="3.75" />
+        <EntityTypeShape EntityType="bd_ComprasModel.Usuario" Width="1.5" PointX="5.75" PointY="6.75" />
+        <AssociationConnector Association="bd_ComprasModel.FK_ContactoProveedores_Proveedores" />
+        <AssociationConnector Association="bd_ComprasModel.FK_DetallesProveedor_Proveedores" />
+        <EntityTypeShape EntityType="bd_ComprasModel.invitacionReq" Width="1.5" PointX="3" PointY="7.875" />
+        <AssociationConnector Association="bd_ComprasModel.FK_invitacionReq_Proveedores" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

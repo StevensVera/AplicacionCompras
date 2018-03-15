@@ -77,7 +77,6 @@ namespace AplicacionCompras.Controlador
                 return null;
             }
         }
-
         public List<Proveedores> GetProveedoresFiltrosDetalles(int conse, string razonS, string direc)
         {
             try
