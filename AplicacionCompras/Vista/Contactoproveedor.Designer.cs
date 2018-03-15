@@ -79,12 +79,12 @@
             this.editTextContacto = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.Datos = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.editProveedor = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -113,12 +113,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.editTextContacto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Datos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editProveedor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
@@ -322,7 +322,7 @@
             this.idContactos.Name = "idContactos";
             this.idContactos.Visible = true;
             this.idContactos.VisibleIndex = 0;
-            this.idContactos.Width = 86;
+            this.idContactos.Width = 68;
             // 
             // idproveedor
             // 
@@ -331,7 +331,7 @@
             this.idproveedor.Name = "idproveedor";
             this.idproveedor.Visible = true;
             this.idproveedor.VisibleIndex = 1;
-            this.idproveedor.Width = 120;
+            this.idproveedor.Width = 122;
             // 
             // Nombre
             // 
@@ -340,7 +340,7 @@
             this.Nombre.Name = "Nombre";
             this.Nombre.Visible = true;
             this.Nombre.VisibleIndex = 2;
-            this.Nombre.Width = 120;
+            this.Nombre.Width = 122;
             // 
             // Correo1
             // 
@@ -349,7 +349,7 @@
             this.Correo1.Name = "Correo1";
             this.Correo1.Visible = true;
             this.Correo1.VisibleIndex = 3;
-            this.Correo1.Width = 120;
+            this.Correo1.Width = 122;
             // 
             // Correo2
             // 
@@ -358,7 +358,7 @@
             this.Correo2.Name = "Correo2";
             this.Correo2.Visible = true;
             this.Correo2.VisibleIndex = 4;
-            this.Correo2.Width = 120;
+            this.Correo2.Width = 122;
             // 
             // Telefono
             // 
@@ -367,7 +367,7 @@
             this.Telefono.Name = "Telefono";
             this.Telefono.Visible = true;
             this.Telefono.VisibleIndex = 5;
-            this.Telefono.Width = 126;
+            this.Telefono.Width = 136;
             // 
             // bindingNavigator1
             // 
@@ -639,15 +639,6 @@
             this.Datos.Name = "Datos";
             this.Datos.Size = new System.Drawing.Size(757, 266);
             // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.editTextCorreo1;
-            this.layoutControlItem4.Location = new System.Drawing.Point(355, 34);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(378, 34);
-            this.layoutControlItem4.Text = "Correo 1";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(65, 13);
-            // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.editTextContacto;
@@ -676,14 +667,14 @@
             this.editProveedor.Text = "Proveedor";
             this.editProveedor.TextSize = new System.Drawing.Size(65, 13);
             // 
-            // layoutControlItem6
+            // layoutControlItem4
             // 
-            this.layoutControlItem6.Control = this.editTextTelefono;
-            this.layoutControlItem6.Location = new System.Drawing.Point(355, 68);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(378, 156);
-            this.layoutControlItem6.Text = "Telefono";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(65, 13);
+            this.layoutControlItem4.Control = this.editTextCorreo1;
+            this.layoutControlItem4.Location = new System.Drawing.Point(355, 34);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(378, 34);
+            this.layoutControlItem4.Text = "Correo 1";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(65, 13);
             // 
             // layoutControlItem5
             // 
@@ -693,6 +684,15 @@
             this.layoutControlItem5.Size = new System.Drawing.Size(355, 156);
             this.layoutControlItem5.Text = "Correo 2";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(65, 13);
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.editTextTelefono;
+            this.layoutControlItem6.Location = new System.Drawing.Point(355, 68);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(378, 156);
+            this.layoutControlItem6.Text = "Telefono";
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(65, 13);
             // 
             // layoutControlGroup1
             // 
@@ -775,12 +775,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.editTextContacto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Datos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editProveedor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();

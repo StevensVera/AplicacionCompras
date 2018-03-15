@@ -284,8 +284,8 @@ namespace AplicacionCompras.Vista
                         }
                         else if (code == 2)
                         {
-                            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                            MessageBox.Show("Se deben de llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                      }
                         contT = 0;
                     }
                     
