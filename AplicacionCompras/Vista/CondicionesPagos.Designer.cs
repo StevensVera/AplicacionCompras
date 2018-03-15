@@ -305,6 +305,7 @@
             this.codigo.Name = "codigo";
             this.codigo.Visible = true;
             this.codigo.VisibleIndex = 0;
+            this.codigo.Width = 44;
             // 
             // descripcion
             // 
@@ -313,7 +314,7 @@
             this.descripcion.Name = "descripcion";
             this.descripcion.Visible = true;
             this.descripcion.VisibleIndex = 1;
-            this.descripcion.Width = 217;
+            this.descripcion.Width = 227;
             // 
             // dias
             // 
@@ -322,7 +323,7 @@
             this.dias.Name = "dias";
             this.dias.Visible = true;
             this.dias.VisibleIndex = 2;
-            this.dias.Width = 131;
+            this.dias.Width = 137;
             // 
             // anticipo
             // 
@@ -331,7 +332,7 @@
             this.anticipo.Name = "anticipo";
             this.anticipo.Visible = true;
             this.anticipo.VisibleIndex = 3;
-            this.anticipo.Width = 131;
+            this.anticipo.Width = 137;
             // 
             // porcentaje
             // 
@@ -340,7 +341,7 @@
             this.porcentaje.Name = "porcentaje";
             this.porcentaje.Visible = true;
             this.porcentaje.VisibleIndex = 4;
-            this.porcentaje.Width = 138;
+            this.porcentaje.Width = 147;
             // 
             // bindingNavigator1
             // 

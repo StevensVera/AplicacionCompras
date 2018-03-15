@@ -322,7 +322,7 @@
             this.idContactos.Name = "idContactos";
             this.idContactos.Visible = true;
             this.idContactos.VisibleIndex = 0;
-            this.idContactos.Width = 86;
+            this.idContactos.Width = 68;
             // 
             // idproveedor
             // 
@@ -331,7 +331,7 @@
             this.idproveedor.Name = "idproveedor";
             this.idproveedor.Visible = true;
             this.idproveedor.VisibleIndex = 1;
-            this.idproveedor.Width = 120;
+            this.idproveedor.Width = 122;
             // 
             // Nombre
             // 
@@ -340,7 +340,7 @@
             this.Nombre.Name = "Nombre";
             this.Nombre.Visible = true;
             this.Nombre.VisibleIndex = 2;
-            this.Nombre.Width = 120;
+            this.Nombre.Width = 122;
             // 
             // Correo1
             // 
@@ -349,7 +349,7 @@
             this.Correo1.Name = "Correo1";
             this.Correo1.Visible = true;
             this.Correo1.VisibleIndex = 3;
-            this.Correo1.Width = 120;
+            this.Correo1.Width = 122;
             // 
             // Correo2
             // 
@@ -358,7 +358,7 @@
             this.Correo2.Name = "Correo2";
             this.Correo2.Visible = true;
             this.Correo2.VisibleIndex = 4;
-            this.Correo2.Width = 120;
+            this.Correo2.Width = 122;
             // 
             // Telefono
             // 
@@ -367,7 +367,7 @@
             this.Telefono.Name = "Telefono";
             this.Telefono.Visible = true;
             this.Telefono.VisibleIndex = 5;
-            this.Telefono.Width = 126;
+            this.Telefono.Width = 136;
             // 
             // bindingNavigator1
             // 
