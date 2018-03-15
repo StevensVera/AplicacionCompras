@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetalleProveedor));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.GridControl = new DevExpress.XtraGrid.GridControl();
             this.Tabla = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.consecutivos = new DevExpress.XtraGrid.Columns.GridColumn();
             this.razSoc2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.RFC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.direccion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.telefono = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.RFC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colonia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ciudad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tipo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridControl)).BeginInit();
@@ -88,26 +89,6 @@
             this.Tabla.OptionsBehavior.ReadOnly = true;
             this.Tabla.OptionsView.ShowGroupPanel = false;
             // 
-            // layoutControlGroup1
-            // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(705, 447);
-            this.layoutControlGroup1.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.GridControl;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(701, 443);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
             // consecutivos
             // 
             this.consecutivos.Caption = "Id";
@@ -126,6 +107,15 @@
             this.razSoc2.VisibleIndex = 1;
             this.razSoc2.Width = 231;
             // 
+            // RFC
+            // 
+            this.RFC.Caption = "RFC";
+            this.RFC.FieldName = "RFC";
+            this.RFC.Name = "RFC";
+            this.RFC.Visible = true;
+            this.RFC.VisibleIndex = 4;
+            this.RFC.Width = 91;
+            // 
             // direccion
             // 
             this.direccion.Caption = "Dirección";
@@ -143,15 +133,6 @@
             this.telefono.Visible = true;
             this.telefono.VisibleIndex = 3;
             this.telefono.Width = 91;
-            // 
-            // RFC
-            // 
-            this.RFC.Caption = "RFC";
-            this.RFC.FieldName = "RFC";
-            this.RFC.Name = "RFC";
-            this.RFC.Visible = true;
-            this.RFC.VisibleIndex = 4;
-            this.RFC.Width = 91;
             // 
             // colonia
             // 
@@ -180,12 +161,33 @@
             this.tipo.VisibleIndex = 7;
             this.tipo.Width = 100;
             // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1});
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(705, 447);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.GridControl;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(701, 443);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
             // DetalleProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(705, 447);
             this.Controls.Add(this.layoutControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DetalleProveedor";
             this.Text = "DetalleProveedor";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

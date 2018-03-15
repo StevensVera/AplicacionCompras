@@ -280,6 +280,7 @@
             this.ClientSize = new System.Drawing.Size(856, 369);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.bindingNavigator1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DetalleContactoProveedor";
             this.Text = "DetalleContactoProveedor";
             this.Load += new System.EventHandler(this.DetalleContactoProveedor_Load);
